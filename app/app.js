@@ -52,10 +52,24 @@ geobarApp.controller("mainController",  function($scope, $location, $window, nav
 });
 
 
-geobarApp.controller("seccionLoaderController",  function(navigateService) {
+geobarApp.controller("seccionLoaderController",  function($scope, navigateService) {
 
 
-	
+	$scope.visible = true;
+
+
+	$scope.cliqueando = function (){
+
+		$scope.visible = false;
+
+	}
+
+
+
+
+
+
+
 
 	
 });

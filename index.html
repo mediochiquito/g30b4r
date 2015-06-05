@@ -16,25 +16,30 @@
       <a ng-click="atras()">Home2</a>
     </div>
 
- <!--    <div ng-view class='view-animate'></div> -->
+  
+
+
+
     <div ng-controller="seccionLoaderController">
 
-      <div ng-repeat="seccion in $secciones"></div>
+        <config ng-click='cliqueando()' ng-show='visible' caca='1' ng-animate></config>
+        <home ng-show='hide' ></home>
 
-    </div>
+    </div>  
+
+    
     <script src="libs/angular.min.js"></script>
     <script src="libs/angular-animate.min.js"></script>
     <script src="libs/angular-route.min.js"></script>
     <script src="app/index.js"></script>
     <script src="app/app.js"></script>
 
-
     <script src="servicios/navigateService.js"></script>
-
 
     <script src="views/home/home.js"></script>
     <script src="views/terms/terms.js"></script>
     <script src="views/lista/lista.js"></script>
+    <script src="views/config/config.js"></script>
     
     <script type="text/javascript">
         app.initialize();

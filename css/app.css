@@ -14,7 +14,7 @@ body{
 	box-sizing: border-box;
 }
 
-.view-animate.ng-enter, .view-animate.ng-leave {
+.ng-hide, .ng-show {
   -webkit-transition:all linear .5s;
   transition:all linear .5s;
  
