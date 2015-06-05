@@ -1,0 +1,8 @@
+geobarApp.controller('terms', [ function(){
+		
+
+	
+	
+
+
+}])
