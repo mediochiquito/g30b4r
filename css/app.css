@@ -4,32 +4,145 @@ body{
 	height: 100%;
 	position: absolute;
 }
-.view-animate{
-	position: absolute;
-	top: 50px;
-	width: calc(100% - 50px);
-	height: calc(100% - 80px);
-	background-color: green;
-	padding: 20px;
-	box-sizing: border-box;
+
+.seccion {
+  position: absolute;
+  width: 97%;
+  height: 97%;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px #000;
+  top: 40px;
+  left: 0px;
+  
+  }
+
+/*.seccion.seccion_back.ng-hide-add.ng-hide-add-active,
+.seccion.seccion_back.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 13s;
+  transition: all linear 13s;
+}
+.seccion.seccion_back.ng-hide-add{
+	-webkit-transform: translateX(0);
+	z-index: 99999;
+}
+.seccion.seccion_back.ng-hide-add-active{
+	-webkit-transform: translateX(100%)
+}
+.seccion.seccion_back.ng-hide-remove{	 
+	-webkit-transform: translateX(-10%) ;
+	z-index: 99997;
+}
+.seccion.seccion_back.ng-hide-remove-active{
+	-webkit-transform: translateX(0%);
 }
 
-.ng-hide, .ng-show {
-  -webkit-transition:all linear .5s;
-  transition:all linear .5s;
- 
+*/
+.seccion{
+	display: none;
+}
+.enterSeccionShow{
+	display: block!important;
+}
+.enterSeccionHide{
+	display: none;
+}
+.backSeccionShow{
+	display: block!important;
+}
+.backSeccionHide{
+	display: none;
 }
 
-.view-animate.ng-enter {
- -webkit-transform:   translateX(100%) ;
-}
-.view-animate.ng-enter.ng-enter-active {
-   -webkit-transform:   translateX(0%) ;
-}
-.view-animate.ng-leave.ng-leave-active {
- -webkit-transform:   translateX(-100%) ;
+.enterSeccionShow-add-active,
+.enterSeccionHide-add-active,
+.backSeccionShow-add-active,
+.backSeccionHide-add-active
+
+{
+  transition: .3s;
 }
 
+.enterSeccionShow-add{
+	display: block!important;
+	z-index: 999999;
+	-webkit-transform: translateX(100%);
+}
+
+.enterSeccionShow-add-active{
+	-webkit-transform: translateX(0%) ;
+}
+.enterSeccionHide-add{
+	display: block!important;
+	z-index: 999998;
+	-webkit-transform: translateX(0%);	
+}
+.enterSeccionHide-add-active{
+	-webkit-transform: translateX(-30%) ;
+}
+
+.backSeccionShow-add{
+	display: block!important;
+	z-index: 99998;
+	-webkit-transform: translateX(-30%);
+}
+.backSeccionShow-add-active{
+	-webkit-transform: translateX(0%) ;
+}
+.backSeccionHide-add{
+	display: block!important;
+	z-index: 99999;
+	-webkit-transform: translateX(0%);	
+}
+.backSeccionHide-add-active{
+	-webkit-transform: translateX(100%) ;
+}
+
+
+
+
+
+
+
+
+/*seccion ng-animate enterSeccionShow-remove enterSeccionHide-add enterSeccionHide enterSeccionShow-remove-active enterSeccionHide-add-active
+*//*
+.enterSeccionShow-remove{
+	-webkit-transform: translateX(100%);
+	z-index: 999998;
+}
+
+.enterSeccionShow-remove-active{
+
+	
+	-webkit-transform: translateX(0%) ;
+}
+*/
+
+
+/*
+
+.enterSeccion.ng-hide-add.ng-hide-add-active,
+.enterSeccion.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 13s;
+  transition: all linear 13s;
+}
+.enterSeccion.ng-hide-add{
+	-webkit-transform: translateX(0%);
+	z-index: 999998;
+}
+.enterSeccion.ng-hide-add-active{
+	-webkit-transform: translateX(-10%) ;
+}
+.enterSeccion.ng-hide-remove{	 
+	-webkit-transform: translateX(100%);
+	z-index: 999999;
+}
+.enterSeccion.ng-hide-remove-active{
+	-webkit-transform: translateX(0%);
+}
+
+
+*/
 
 .litado{
 	position: absolute;

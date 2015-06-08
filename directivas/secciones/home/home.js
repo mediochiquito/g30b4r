@@ -1,8 +1,7 @@
-
 geobarApp.directive('home', function() {
   return {
     restrict: 'E',
-    templateUrl: 'views/home/home.html'
+    templateUrl: 'directivas/secciones/home/home.html'
   };
 });
 

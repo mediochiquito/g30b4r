@@ -1,74 +1,53 @@
 var geobarApp = angular.module('geobarApp', ['ngRoute', 'ngAnimate'])
 
-/*.run(function($rootScope) {  $rootScope.color = 'yellow';  })
-.value('debug', true) 
-.constant('VERSION', '0.0.1')*/
+//.run(function($rootScope) {   })
 
-.config(function ($routeProvider, $compileProvider, $locationProvider) {
+.constant('SERVER', 'http://192.168.0.155/g30b4r/server/')
 
-  /*  $routeProvider
-	   
+geobarApp.controller("menuCtrl", function($scope){
 
-	    .when('/terms', {
-	        controller: 'terms',
-	        templateUrl: 'views/terms/terms.html'       
-
-	    })
-	    .when('/home', {
-	        controller: 'home',
-	        templateUrl: 'views/home/home.html'        
-	    })
-	    .when('/lista', {
-	        controller: 'lista',
-	        templateUrl: 'views/lista/lista.html'        
-	    })
-
-	    .otherwise({ reditrectTo : "/" });
-		
-	    console.log($compileProvider)
-    */
-   	// $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
-});
-
+})
 
 geobarApp.controller("mainController",  function($scope, $location, $window, navigateService) {
-
-
-
+	
 	$scope.navigateService = navigateService;
 
-	$scope.atras = function (){
-		//$location.
-		// $window.history.back();
-		navigateService.go('atras')
-	}
-	$scope.lista = function (){
-
-		//navigateService.go('lista')
-		//$location.path('lista')
-		//$window.history.back();
-	}
+	
 	
 });
 
 
-geobarApp.controller("seccionLoaderController",  function($scope, navigateService) {
+geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, navigateService) {
+	 
+	$scope.navigateService = navigateService;
+
+	$scope.active_page = 'home'
+
+	$scope.getAnimationClass = function ($secc){
+		
+		if(!navigateService.habilTranciosinar($secc)) return;
+		var r = $scope.dir_animate + 'Hide'
+		if($scope.active_page == $secc) r = $scope.dir_animate + 'Show'
+		return r
+	}
+
+	$scope.$watch('navigateService.status', function(oldVal, newVal, scope) {
+	    
+	    $scope.dir_animate = navigateService.dir_animate
+	    $scope.active_page = navigateService.active_page;
+
+	     
+	 });
 
 
-	$scope.visible = true;
+ 	
 
+   // navigateService.go('home')
 
 	$scope.cliqueando = function (){
-
 		$scope.visible = false;
 
 	}
-
-
-
-
-
-
 
 
 	
