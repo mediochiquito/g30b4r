@@ -1,90 +1,76 @@
 geobarApp.directive('lista', function($window, $log, $http, SERVER, navigateService) {
- 
-
   return {
     restrict: 'E',
     templateUrl: 'directivas/secciones/lista/lista.html',
     link:function ($scope, $elem, $attrs){
-		
-
+    	
+		$scope.en_pagina = 10
+    	
     	$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
-
 			  $scope.array_items = data;
+		}).error(function(data, status, headers, config) {});
+    	
+    	var holder_scrolleable = angular.element(document.querySelector('.listado'))
+  		holder_scrolleable.on("scroll", function() {
+         	
+  			var _scrollTop = this.scrollTop; // por donde va el scroll
+  			var _offsetHeight = this.offsetHeight; // alto de la mascara
+  			var _scrollHeight = this.scrollHeight; // alto del contenido
 
-			  }). error(function(data, status, headers, config) {
-			  		
-			  });
+           $scope.enscroll =	_scrollTop;
+           $scope.altoholder =  _offsetHeight;
+         
+       
+          if((_offsetHeight +_scrollTop) > _scrollHeight){
 
-  		 $elem.bind("scroll", function() {
-             
-                 console.log(this.pageYOffset);
-            
+  			$scope.en_pagina += 10;
+  			
+
+  		  }
+     
+           $scope.$apply()
+
+
+
         });		
- 		
-
- 		document.querySelector('.litado').addEventListener('scroll', $scope.onScroll);
-        
-        $scope.onScroll = function (evt) {
-          $elem.scrollTop = $elem.prop('scrollTop');
-          console.log($elem.scrollTop);
-
-          $scope.$apply();
-        };
-			// $elem.on("scroll", function(e) {
-			// 	       console.log('scroll')
-			// 	       console.log(e.pageYOffset)
-			// 	       $scope.visible = false;
-			// })
-		
 
 
+  		$scope.enscroll =	 0;
+	    $scope.altoholder =  1000
+	     
+	    $scope.select_item = function ($id){
 
-      	//   var windowEl = angular.element($window);
-	      // var handler = function() {
-	      //   // $scope.scroll = windowEl.scrollTop();
-	      //   $log.log($window.scrollTop)
-
-
-	      // }
-	      // windowEl.on('scroll', $scope.$apply.bind($scope, handler));
-    	  // handler();
-    
-
-
-	 	$scope.select_item = function ($id){
-
-	 		
-	 		navigateService.go('detalle', {id: $id});	
-
+	 		navigateService.go('detalle', {id: $id});
 
 	 	}
+    }	
+  };
+})
 
-    },
-     controller:function ($scope){
-			
+.directive('itemLista', function($log) {
+  return {
 
-			// angular.element($window).bind("scroll", function(e) {
-			// 	       console.log('scroll')
-			// 	       console.log(e.pageYOffset)
-			// 	       $scope.visible = false;
-			// 	})
-		
+    restrict: 'A',
+    scope: {item:'='},
+    templateUrl: 'directivas/secciones/lista/itemLista.html',
+    link:function ($scope, $elem, $attrs){
+    	
+    	$scope.ely = $elem[0].offsetTop;
+    	$scope.img_url = '';
+
+    	var waching = $scope.$watch('$parent.enscroll', function (){
+    		
+    		if($scope.ely<=($scope.$parent.enscroll + $scope.$parent.altoholder)){
+    			$scope.img_activa = 'SIII'
+    			$scope.img_url = 'http://cs11219.vk.me/u105968034/a_8c894c89.jpg?i='
+    			waching()
+    		}else{
+				$scope.img_activa = 'nNOOOO'
+    		}
+    	
+
+    	})
 
     }
-
-    
-
-
   };
 });
-
-// geobarApp.controller('lista', function($scope){
-		
-	
-
-
-	
-	
-
-
-// })

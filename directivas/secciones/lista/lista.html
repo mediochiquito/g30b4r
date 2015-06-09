@@ -1,14 +1,8 @@
-<input type='text' ng-model='filtro' />
-<div class='litado'>
+<input type='text' ng-model='filtro' />{{enscroll}}
+<div class='listado'>
 	
-
-	<div ng-repeat="item in array_items | filter:filtro" ng-click="select_item(item.id)">
-
-		<div>{{item.nombre}}</div>
-		<div>{{item.desc}}</div>
-		
-	</div>
-
+	<div item-lista ng-repeat="item in array_items | filter:filtro | limitTo:en_pagina"  item='item' ng-click="select_item(item.id)" class='item-lista'></div>
+	<div id='cargando'>... Cargando ...<div>
 
 
 </div>

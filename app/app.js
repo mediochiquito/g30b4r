@@ -1,19 +1,17 @@
 var geobarApp = angular.module('geobarApp', ['ngRoute', 'ngAnimate'])
 
-//.run(function($rootScope) {   })
-
-.constant('SERVER', 'http://192.168.0.155/g30b4r/server/')
+.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
 
 geobarApp.controller("menuCtrl", function($scope){
 
-})
+
+
+})	
 
 geobarApp.controller("mainController",  function($scope, $location, $window, navigateService) {
 	
 	$scope.navigateService = navigateService;
 
-	
-	
 });
 
 
@@ -31,6 +29,7 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 		return r
 	}
 
+
 	$scope.$watch('navigateService.status', function(oldVal, newVal, scope) {
 	    
 	    $scope.dir_animate = navigateService.dir_animate
@@ -42,7 +41,7 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 
  	
 
-   // navigateService.go('home')
+ 	navigateService.go('lista')
 
 	$scope.cliqueando = function (){
 		$scope.visible = false;
@@ -53,3 +52,18 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 	
 });
 
+geobarApp.filter('rango',function(){
+		return function(array,desde,hasta){
+			desde = parseInt(desde,10);
+			hasta = parseInt(hasta,10);
+
+			try{
+				return array.slice(desde,hasta);
+			}catch(e){
+
+				return array
+			}
+
+			
+		}
+	});
