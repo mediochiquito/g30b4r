@@ -1,16 +1,21 @@
 var geobarApp = angular.module('geobarApp', ['ngRoute', 'ngAnimate'])
 
 .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+//.constant('SERVER', 'http://localhost/g30b4r/server/')
 
 geobarApp.controller("menuCtrl", function($scope){
 
 
-
 })	
 
+
 geobarApp.controller("mainController",  function($scope, $location, $window, navigateService) {
-	
 	$scope.navigateService = navigateService;
+
+	window.localStorage['name'] = 'Max';
+
+	var name = window.localStorage['name'] || 'you';
+	alert('Hello, ' + name);
 
 });
 

@@ -13,7 +13,7 @@ switch($_GET['method']){
 
 	case 'getListaEvetos':
 		
-		for($i =0; $i<300; $i++){
+		for($i =0; $i<1300; $i++){
 
 			$obj = new stdClass();
 			$obj->id = $i;
