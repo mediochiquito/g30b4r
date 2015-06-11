@@ -31,7 +31,11 @@ geobarApp.directive('lista', function($window, $log, $http, SERVER, navigateServ
 
                 $scope.enscroll =	_scrollTop;
                 $scope.altoholder =  _offsetHeight;
-                if((_offsetHeight +_scrollTop) > _scrollHeight) $scope.en_pagina += 10;
+               //alert(_offsetHeight +_scrollTop) 
+                if((_offsetHeight +_scrollTop) > _scrollHeight) {
+$scope.en_pagina += 10;
+                  alert('termino')
+                }
 
                 $scope.$apply()
              

@@ -10,6 +10,8 @@
 
     <div ng-controller="menuCtrl">
       
+
+      <object type="image/svg+xml" data="img/icons.svg">Your browser does not support SVG</object>
       <a href='#'  ng-click="navigateService.back()"> < Volver </a> |
       <a href='#'  ng-click="navigateService.go('terms')">Terms</a> |
       <a href='#'  ng-click="navigateService.go('terms', {id:2})">Terms 2</a> |
@@ -26,7 +28,7 @@
         <lista   ng-class=' getAnimationClass("lista") '   class='seccion' ></lista>
         <config  ng-class=' getAnimationClass("config") '  class='seccion' ></config>
         <detalle ng-class=' getAnimationClass("detalle") ' class='seccion' ></detalle>
- 
+  
     </div>  
 
     

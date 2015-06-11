@@ -1,24 +1,29 @@
 var geobarApp = angular.module('geobarApp', ['ngRoute', 'ngAnimate'])
 
-//.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
- .constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
+.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+ //.constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
 //.constant('SERVER', 'http://localhost/g30b4r/server/')
 
-geobarApp.controller("menuCtrl", function($scope){
 
+geobarApp.controller("menuCtrl", function($scope){
 
 })	
 
 
 geobarApp.controller("mainController",  function($scope, $location, $window, navigateService) {
+
 	$scope.navigateService = navigateService;
 
-	/*window.localStorage['name'] = 'Max';
+	if(window.localStorage.getItem('distancia') == null) window.localStorage.setItem('distancia', 5);
+	if(window.localStorage.getItem('bares') == null) window.localStorage.setItem('bares', 1);
+	if(window.localStorage.getItem('restaurantes') == null) window.localStorage.setItem('restaurantes', 1);
+	if(window.localStorage.getItem('cines') == null) window.localStorage.setItem('cines', 1);
+	if(window.localStorage.getItem('eventos') == null) window.localStorage.setItem('eventos', 1);
+	if(window.localStorage.getItem('favoritos') == null) window.localStorage.setItem('favoritos', 1);
+	if(window.localStorage.getItem('push') == null) window.localStorage.setItem('push', 1);
 
-	var name = window.localStorage['name'] || 'you';
-	alert('Hello, ' + name);
-*/
-});
+
+});	
 
 
 geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, navigateService) {
@@ -40,23 +45,17 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 	    
 	    $scope.dir_animate = navigateService.dir_animate
 	    $scope.active_page = navigateService.active_page;
-
 	     
-	 });
-
-
- 	
+	});
 
  	navigateService.go('lista')
 
 	$scope.cliqueando = function (){
 		$scope.visible = false;
-
 	}
 
-
-	
 });
+
 
 geobarApp.filter('rango',function(){
 		return function(array,desde,hasta){
