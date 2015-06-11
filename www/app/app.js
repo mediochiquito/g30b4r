@@ -1,14 +1,13 @@
-var geobarApp = angular.module('geobarApp', ['ngRoute', 'ngAnimate'])
+var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch'])
 
-.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
- //.constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
+//.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+ .constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
 //.constant('SERVER', 'http://localhost/g30b4r/server/')
 
 
 geobarApp.controller("menuCtrl", function($scope){
 
 })	
-
 
 geobarApp.controller("mainController",  function($scope, $location, $window, navigateService) {
 
@@ -40,7 +39,6 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 		return r
 	}
 
-
 	$scope.$watch('navigateService.status', function(oldVal, newVal, scope) {
 	    
 	    $scope.dir_animate = navigateService.dir_animate
@@ -48,7 +46,7 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 	     
 	});
 
- 	navigateService.go('lista')
+ 	navigateService.go('home')
 
 	$scope.cliqueando = function (){
 		$scope.visible = false;

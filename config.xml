@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
-<widget id="com.metamorf.geobar" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Geobar</name>
+ <?xml version='1.0' encoding='utf-8'?>
+<widget id="com.testing.mateo.geo" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>GeoBar</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -23,4 +23,20 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+
+    <preference name="Fullscreen" value="true" />
+    <preference name="DisallowOverscroll" value="true"/>
+    <preference name="Orientation" value="portrait" />
+    <!--  <preference name="SplashScreen" value="splash" />
+    <preference name="splash-screen-duration" value="10000"/>
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="ShowSplashScreenSpinner" value="false" /> -->
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-targetSdkVersion" value="14" />
+    
+
 </widget>
