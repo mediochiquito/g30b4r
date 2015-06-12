@@ -1,14 +1,18 @@
 geobarApp.service('navigateService', function($log){
 
 	var en_seccion = '';
-
 	var historia = new Array();
-	
+	var ultima_seccion_eliminada = null;
+
 	this.status = 0;
 	this.obj_detalle = null; 
  	this.dir_animate  = 'enterSeccion';
-	
- 	var ultima_seccion_eliminada = null;
+
+ 	this.esPrimerPage = function(){
+
+ 		return (historia.length==1);
+
+ 	}
 
 	this.go = function (secc, obj, entra_a_historia, $dir_animate){
 
@@ -36,6 +40,7 @@ geobarApp.service('navigateService', function($log){
 	}
 
 	this.back = function (){
+
 		ultima_seccion_eliminada = historia[historia.length-1];
 		if(historia.length>1) historia.pop();
 		var penultimo_elemento = historia[historia.length-1];	

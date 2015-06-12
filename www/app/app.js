@@ -1,8 +1,10 @@
 var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch'])
 
-.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
-// .constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
+// .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+.constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
 //.constant('SERVER', 'http://localhost/g30b4r/server/')
+
+
 
 
 geobarApp.controller("menuCtrl", function($scope, navigateService){
@@ -20,11 +22,6 @@ geobarApp.controller("mainController",  function($scope, $location, $window, nav
 	if(window.localStorage.getItem('favoritos') == null) window.localStorage.setItem('favoritos', 1);
 	if(window.localStorage.getItem('push') == null) window.localStorage.setItem('push', 1);
 
-
-	$scope.go =  function(){
-
-		alert('gogogogo')
-	}
 
 });	
 
@@ -51,7 +48,7 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 	});
 	//setTimeout(function(){
 		navigateService.go('home')
-		$scope.$apply()
+		//$scope.$apply()
 	//}, 100)
 
  	

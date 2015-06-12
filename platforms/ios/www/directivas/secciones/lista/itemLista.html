@@ -1,10 +1,21 @@
-<div ng-if=' (index*100)>enscroll-100 && (index*100) <= (enscroll + altoholder) ' >
-	<img ng-src='{{img_url}}'/>
-	<div>Imagen_Activa: {{img_activa}}</div>
-	<div>index: {{index}}</div>
-	<div>{{item.nombre}}</div>
-	<div>{{item.desc}}</div> 
+<div  ng-if=' (index*100)>enscroll-100 && (index*100) <= (enscroll + altoholder) ' >
+	
+	<img ng-src='{{img_url}}' />
+	<div class='itemLista-name'>{{item.name}}</div>
+	<div class='itemLista-tipo'>{{tipo}}</div> 
+	<div class='itemLista-tel'>T. {{item.tel}}</div>
+	<div class='itemLista-dir'>{{item.dir}}</div>
+
+
 </div>
+
+
+	<!-- $o->id = $row->lugares_id;
+	$o->tipo = $row->lugares_tipo; 
+
+
+
+-->
 
 
 

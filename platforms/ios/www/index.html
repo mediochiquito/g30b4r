@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html >
   <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
@@ -8,21 +9,21 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
 
-  <body ng-controller="mainController">
+  <body ng-controller="mainController as main">
 
-    <div ng-controller="menuCtrl">
-      
-      <object type="image/svg+xml" data="img/icons.svg">Your browser does not support SVG</object>
-      <a href='#'  ng-click="navigateService.back()"> < Volver </a> |
-      <a href='#'  ng-click="navigateService.go('terms')">Terms</a> |
-      <a href='#'  ng-click="navigateService.go('terms', {id:2})">Terms 2</a> |
-      <a href='#'  ng-click="navigateService.go('home')">Home</a> |
-      <a href='#'  ng-click="navigateService.go('lista')">Lista</a> |
-      <a href='#' ng-click="navigateService.go('config')">Config</a>
+    <div ng-controller="menuCtrl" id='header_menu'>
+
+          <boton-sistema  id='btn_back'  ng-class='{botonDisabled: navigateService.esPrimerPage()}' accion="navigateService.back()" imagen="img/btns/back.svg"></boton-sistema>
+          <img src="img/header_separador.svg"  id='header_separador_0' class='header_separador' />
+          <boton-sistema  id='btn_menu' accion="navigateService.go('config')" imagen="img/btns/menu.svg"></boton-sistema>
+          <img src="img/header_separador.svg" id='header_separador_1' class='header_separador' />
+          <boton-sistema id='header_geobar' accion="navigateService.go('home')" imagen="img/header_geobar.svg"></boton-sistema>
+          <div id='header_linea' ></div>
+          <boton-sistema imagen="img/btns/taxi.svg" accion="navigateService.go('taxi')" id='btn_taxi'></boton-sistema>
 
     </div>
 
-    <div ng-controller="seccionLoaderController">
+    <div ng-controller="seccionLoaderController" id='seccionLoaderController'>
 
         <terms   ng-class=' getAnimationClass("terms") '   class='seccion' ></terms>
         <home    ng-class=' getAnimationClass("home") '    class='seccion' ></home>
@@ -34,6 +35,7 @@
 
     <script src="libs/angular.min.js"></script>
     <script src="libs/angular-animate.min.js"></script>
+    <script src="libs/angular-touch.min.js"></script>
    
     <script src="app/app.js"></script>
     <script src="servicios/navigateService.js"></script>
@@ -42,12 +44,14 @@
     <script src="directivas/secciones/lista/lista.js"></script>
     <script src="directivas/secciones/config/config.js"></script>
     <script src="directivas/secciones/detalle/detalle.js"></script>
+    <script src="directivas/componentes/botonSistema/botonSistema.js"></script>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script src="app/index.js"></script>
 
+
     <script type="text/javascript">
-app.initialize();
-       
+      app.initialize();
     </script>
 
 

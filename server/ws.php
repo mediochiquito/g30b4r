@@ -17,7 +17,7 @@ switch($_GET['method']){
 		
 		while($row = mysql_fetch_object($rs)){
 			
-			for($i =0; $i<300; $i++){
+			
 				$o = new stdClass();
 				$o->id = $row->lugares_id;
 				$o->tipo = $row->lugares_tipo;
@@ -28,11 +28,17 @@ switch($_GET['method']){
 				$o->lat = $row->lugares_lat;
 				$o->lon = $row->lugares_lng;
 				$array[] = $o;
-			}
-
+			
 		}
 
 
+		for($i =0; $i<10; $i++){
+				
+			foreach ($array as $value) {
+				$array[] = $value;
+			}
+
+		}
 		
 
 		echo json_encode($array);

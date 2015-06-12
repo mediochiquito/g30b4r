@@ -14,7 +14,12 @@
 		define("DB_USER", "root");
 		define("DB_PASS", "");
 		define("DB_NAME", "geobar");
-		
+    
+    }else if($_SERVER['HTTP_HOST'] == '192.168.235.140'){
+		define("DB_HOST", "localhost");
+		define("DB_USER", "root");
+		define("DB_PASS", "root");
+		define("DB_NAME", "geobar");
 	}else{
 
 		define("SERVER", "http://".$_SERVER['HTTP_HOST']."/", false);  

@@ -1,33 +1,215 @@
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
+@font-face {
+    font-family: 'robotolight';
+    src: url('fonts/roboto-light-webfont.eot');
+    src: url('fonts/roboto-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/roboto-light-webfont.woff2') format('woff2'),
+         url('fonts/roboto-light-webfont.woff') format('woff'),
+         url('fonts/roboto-light-webfont.ttf') format('truetype'),
+         url('fonts/roboto-light-webfont.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'robotobold';
+    src: url('fonts/roboto-bold-webfont.eot');
+    src: url('fonts/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/roboto-bold-webfont.woff2') format('woff2'),
+         url('fonts/roboto-bold-webfont.woff') format('woff'),
+         url('fonts/roboto-bold-webfont.ttf') format('truetype'),
+         url('fonts/roboto-bold-webfont.svg#robotobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+body, html{
+	height: 100%;
+}
 body{
+	-webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
 	overflow: hidden;
 	width: 100%;
-	height: 100%;
+	margin: 0;
+	padding: 0;
 	position: absolute;
-<<<<<<< Updated upstream
 	background-image: url('../img/bg.png');
 	background-repeat: no-repeat;
-	background-size: 100%;
-=======
-	 -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;        
->>>>>>> Stashed changes
+	background-size: 100% 100%;
+	background-position: center;
+}
+.bg-color-verde{
+	background-color: #28eaa4
+}
+.bg-color-celeste{
+	background-color: #00ccff
+}
+.bg-color-rosa{
+	background-color: #ff99ff
 }
 
+
+
+
+#btn_home_ar{
+	transition:.2s;
+}
+
+.botonOver{
+	transform: scale(.9,.9);
+	-webkit-transform: scale(.9,.9);
+}
+.botonDisabled{
+	opacity: .2;
+}
+.botonSistemaLabel{
+	font-size: 12px;
+	color: #fff;
+	font-family: 'robotolight';
+}
+#home-banner{
+	position: relative;
+	
+
+}
+#home-banner > img{
+	width: 100%;
+}
+
+.itemLista{
+
+}
+
+/* HEADER*/
+#header_menu{
+    position: relative;
+    height: 87px;
+    width: 100%;
+}
+#btn_back{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 60px;
+}
+#btn_back > img{
+	position: relative;
+	margin: 17px 0px 0px 13px;
+}
+
+.header_separador{
+    position: absolute;   
+    top: 0px;   
+    height: 60px;
+}
+#header_separador_0{
+    left: 60px;
+}
+#header_separador_1{
+    left: 120px;
+}
+
+#btn_menu{
+    position: absolute;   
+    top: 0px;   
+    left: 60px;
+    width: 60px;
+    height: 60px;
+}
+#btn_menu > img{
+	margin: 21px 0px 0px 19px;
+}
+
+#header_linea{
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    background-image: url(../img/bg_linea_header.png);
+    width: 100%;
+    height: 1px;
+    background-repeat: repeat-x;
+    background-size: 100%;
+}
+
+#btn_taxi{
+	position: absolute;
+	right: 30px;
+	top: 15px;
+}
+
+#header_geobar{
+    position: absolute;
+    left: 121px;
+    top: 0px;
+    height: 60px;
+    width: 102px;
+}
+#header_geobar > img{
+	position: relative;
+	margin: 20px 0px 0px 13px;
+}
+
+#btn_home_quehacer{
+	position: absolute;
+	width: 70px;
+	height: 90px;
+	display: inline-block;
+	text-align: center;
+	top: 0px;
+	left: 50%;
+	margin-left: -140px;
+}
+#btn_home_lista{
+    position: absolute;        
+    width: 70px;    height: 90px;    display: inline-block;    text-align: center;
+    top: 0px;    left: 50%;    
+    margin-left: -70px;
+    padding-top: 21px;
+    box-sizing: border-box;
+}
+#btn_home_ar{
+    position: absolute;        
+    width: 70px;    
+    height: 70px;    display: inline-block;    text-align: center;
+    padding-top: 11px;
+    top: 0px;    left: 50%;    
+    margin-left: 5px;
+    padding-top: 21px;
+}
+#btn_home_maps{
+    position: absolute;        
+    width: 70px;    
+    height: 70px;    
+    display: inline-block;    text-align: center;
+    top: 0px;    left: 50%;    
+    margin-left: 79px;
+    padding-top: 21px;
+}
+
+/* fin HEADER*/
+
+#seccionLoaderController{
+    position: absolute;
+    left: 0px;
+    top: 80px;
+    width: 100%;
+    margin: 0px;
+    height: calc(100% - 80px);
+    padding: 0;
+}
 .seccion {
   position: absolute;
-  width: 97%;
-  height: 300px;
-  background-color: #fff;
-  box-shadow: 2px 2px 10px #000;
-  top: 40px;
   left: 0px;
-  
+  height: 100%;
+  width: 100%;
+  top: 0px;
 }
-
 .seccion{
 	display: none;
 }
@@ -44,6 +226,8 @@ body{
 	display: none;
 }
 
+
+
 .enterSeccionShow-add-active,
 .enterSeccionHide-add-active,
 .backSeccionShow-add-active,
@@ -55,67 +239,128 @@ body{
 	display: block!important;
 	z-index: 999999;
 	-webkit-transform: translateX(100%);
+	opacity: 1;
 }
 .enterSeccionShow-add-active{
 	-webkit-transform: translateX(0%) ;
+	opacity: 1;
 }
 .enterSeccionHide-add{
 	display: block!important;
 	z-index: 999998;
-	-webkit-transform: translateX(0%);	
+	-webkit-transform: translateX(0%);
+	opacity: 1;
 }
 .enterSeccionHide-add-active{
 	-webkit-transform: translateX(-30%) ;
+	opacity: 0;
 }
 .backSeccionShow-add{
 	display: block!important;
 	z-index: 99998;
 	-webkit-transform: translateX(-30%);
+	opacity: 0;
 }
 .backSeccionShow-add-active{
 	-webkit-transform: translateX(0%) ;
+	opacity: 1;
 }
 .backSeccionHide-add{
 	display: block!important;
 	z-index: 99999;
-	-webkit-transform: translateX(0%);	
+	-webkit-transform: translateX(0%);
+	opacity: 1;
 }
 .backSeccionHide-add-active{
 	-webkit-transform: translateX(100%) ;
+	opacity: 1;
 }
 
+#home-menu{
+	position: relative;
+	width: 100%;
+	height: 90px;
+	
+	text-align: center;
+	margin-top: 78px;
+}
+#home-menu > img{
+	position: relative;
+	margin: 10px;
+}
+#lista-content-input{
+    padding: 0px 10px 0px 10px;
+	
+    position: relative;
+}
 .listado{
 	position: absolute;
 	width: 100%;
-	height: 200px;
+	height: 100%;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
-
-	
+	box-sizing: border-box;
+	top: 0px;
+	padding-top: 51px;
 }
 
+.lista-input-filter{
+	font-family: 'robotolight';
+	
+	padding: 9px;
+	/* margin: 5px 0px 5px 5px; */
+	box-sizing: border-box;
+	width: 100%;
+	position: relative;
+	background-color: #333;
+	border: solid 1px #666;
+	color: #fff;
+	font-size: 14px;
+	-webkit-appearance: none;
+	border-radius: 0px;
+}
+
+.itemLista-name{
+	 font-family: 'robotobold';
+	 font-size: 15px;   text-transform: uppercase; 
+	 margin-top: 10px;
+}
+
+.itemLista-tel{
+	font-family: 'robotolight';
+}
+.itemLista-dir{
+	 font-family: 'robotobold';
+	 font-size: 12px;
+	 font-style: italic;
+}
+.itemLista-tipo{
+	font-family: 'robotolight';
+	 font-size: 11px;
+}
+  
+   
 .item-lista{
 	position: relative;
 	width: 100%;
-	height: 100px;
+	height: 90px;
 	overflow: hidden;
-	background-color: #333;
-
-
+	border-bottom: solid 2px #fff;
+	font-size: 12px;
 }
 .item-lista > div > div{
 	position: relative;
 	width: 100%;
 	box-sizing: border-box;
-	padding-left: 100px;
 
+	padding-left: 145px;
 }
 .item-lista > div >img{
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 100px;
-	height: 100px;
+	width: 130px;
+	height: 90px;
 }
 #cargando{
 	position: relative;
@@ -123,4 +368,4 @@ body{
 	height: 20px;
 	padding: 20px;
 	box-sizing: border-box;
-}
+} 

@@ -11,8 +11,21 @@
          url('fonts/roboto-light-webfont.svg#robotolight') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
+@font-face {
+    font-family: 'robotobold';
+    src: url('fonts/roboto-bold-webfont.eot');
+    src: url('fonts/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/roboto-bold-webfont.woff2') format('woff2'),
+         url('fonts/roboto-bold-webfont.woff') format('woff'),
+         url('fonts/roboto-bold-webfont.ttf') format('truetype'),
+         url('fonts/roboto-bold-webfont.svg#robotobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 body, html{
 	height: 100%;
 }
@@ -30,12 +43,26 @@ body{
 	background-size: 100% 100%;
 	background-position: center;
 }
-boton-sistema#btn_home_ar{
+.bg-color-verde{
+	background-color: #28eaa4
+}
+.bg-color-celeste{
+	background-color: #00ccff
+}
+.bg-color-rosa{
+	background-color: #ff99ff
+}
+
+
+
+
+#btn_home_ar{
 	transition:.2s;
 }
-.botonOver{
 
+.botonOver{
 	transform: scale(.9,.9);
+	-webkit-transform: scale(.9,.9);
 }
 .botonDisabled{
 	opacity: .2;
@@ -52,6 +79,10 @@ boton-sistema#btn_home_ar{
 }
 #home-banner > img{
 	width: 100%;
+}
+
+.itemLista{
+
 }
 
 /* HEADER*/
@@ -170,6 +201,7 @@ boton-sistema#btn_home_ar{
     width: 100%;
     margin: 0px;
     height: calc(100% - 80px);
+    padding: 0;
 }
 .seccion {
   position: absolute;
@@ -256,35 +288,79 @@ boton-sistema#btn_home_ar{
 	position: relative;
 	margin: 10px;
 }
-
+#lista-content-input{
+    padding: 0px 10px 0px 10px;
+	
+    position: relative;
+}
 .listado{
 	position: absolute;
 	width: 100%;
-	height: 200px;
+	height: 100%;
 	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
+	box-sizing: border-box;
+	top: 0px;
+	padding-top: 51px;
 }
 
+.lista-input-filter{
+	font-family: 'robotolight';
+	
+	padding: 9px;
+	/* margin: 5px 0px 5px 5px; */
+	box-sizing: border-box;
+	width: 100%;
+	position: relative;
+	background-color: #333;
+	border: solid 1px #666;
+	color: #fff;
+	font-size: 14px;
+	-webkit-appearance: none;
+	border-radius: 0px;
+}
+
+.itemLista-name{
+	 font-family: 'robotobold';
+	 font-size: 15px;   text-transform: uppercase; 
+	 margin-top: 10px;
+}
+
+.itemLista-tel{
+	font-family: 'robotolight';
+}
+.itemLista-dir{
+	 font-family: 'robotobold';
+	 font-size: 12px;
+	 font-style: italic;
+}
+.itemLista-tipo{
+	font-family: 'robotolight';
+	 font-size: 11px;
+}
+  
+   
 .item-lista{
 	position: relative;
 	width: 100%;
-	height: 100px;
+	height: 90px;
 	overflow: hidden;
-	background-color: #333;
+	border-bottom: solid 2px #fff;
+	font-size: 12px;
 }
 .item-lista > div > div{
 	position: relative;
 	width: 100%;
 	box-sizing: border-box;
-	padding-left: 100px;
 
+	padding-left: 145px;
 }
 .item-lista > div >img{
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 100px;
-	height: 100px;
+	width: 130px;
+	height: 90px;
 }
 #cargando{
 	position: relative;
