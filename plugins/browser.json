@@ -38,14 +38,7 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
-        },
-        "plugin.google.maps": {
-            "PACKAGE_NAME": "com.testing.mateo.geo"
         }
     },
-    "dependent_plugins": {
-        "plugin.http.request": {
-            "PACKAGE_NAME": "com.testing.mateo.geo"
-        }
-    }
+    "dependent_plugins": {}
 }

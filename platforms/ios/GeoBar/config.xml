@@ -58,16 +58,4 @@
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-targetSdkVersion" value="14" />
-    <feature name="HttpRequest">
-        <param name="ios-package" value="HttpRequest" />
-    </feature>
-    <feature name="GoogleMaps">
-        <param name="ios-package" value="GoogleMaps" />
-    </feature>
-    <feature name="External">
-        <param name="ios-package" value="External" />
-    </feature>
-    <feature name="Geocoder">
-        <param name="ios-package" value="Geocoder" />
-    </feature>
 </widget>

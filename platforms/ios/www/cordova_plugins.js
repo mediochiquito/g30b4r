@@ -77,20 +77,6 @@ module.exports = [
         "clobbers": [
             "window.StatusBar"
         ]
-    },
-    {
-        "file": "plugins/plugin.google.maps/www/googlemaps-cdv-plugin.js",
-        "id": "plugin.google.maps.phonegap-googlemaps-plugin",
-        "clobbers": [
-            "plugin.google.maps"
-        ]
-    },
-    {
-        "file": "plugins/plugin.http.request/www/http-request.js",
-        "id": "plugin.http.request.phonegap-http-requst",
-        "clobbers": [
-            "cordova.plugins.http-request"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -102,10 +88,7 @@ module.exports.metadata =
     "cordova-plugin-dialogs": "1.1.0",
     "cordova-plugin-geolocation": "1.0.0",
     "cordova-plugin-network-information": "1.0.0",
-    "cordova-plugin-statusbar": "1.0.0",
-    "plugin.google.maps": "1.2.5",
-    "plugin.http.request": "1.0.4",
-    "com.googlemaps.ios": "1.9.2"
+    "cordova-plugin-statusbar": "1.0.0"
 }
 // BOTTOM OF METADATA
 });
