@@ -1,7 +1,9 @@
-var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch'])
+var geobarApp = angular.module('geobarApp', ['ngAnimate'])
 
-// .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
-.constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
+ .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+ .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
+
+//.constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
 //.constant('SERVER', 'http://localhost/g30b4r/server/')
 
 

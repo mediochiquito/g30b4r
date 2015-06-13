@@ -15,24 +15,28 @@ switch($_GET['method']){
 		
 		$rs = mysql_query('SELECT * FROM lugares');
 		
+		$cat = array('Bar', 'Restaurante', 'Cine');
+
 		while($row = mysql_fetch_object($rs)){
 			
 			
 				$o = new stdClass();
 				$o->id = $row->lugares_id;
 				$o->tipo = $row->lugares_tipo;
+				$o->cat = $cat[$row->lugares_tipo-1];
 				$o->name = $row->lugares_nombre;
 				$o->tel = $row->lugares_tel;
 				$o->dir = $row->lugares_dir;
-				$o->desc = $row->lugares_mini_desc;
 				$o->lat = $row->lugares_lat;
 				$o->lon = $row->lugares_lng;
+
+
 				$array[] = $o;
 			
 		}
 
 
-		for($i =0; $i<10; $i++){
+		for($i =0; $i<4; $i++){
 				
 			foreach ($array as $value) {
 				$array[] = $value;

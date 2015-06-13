@@ -1,8 +1,9 @@
-<div  ng-if=' (index*100)>enscroll-100 && (index*100) <= (enscroll + altoholder) ' >
+ <!-- ng-if=' (index*100)>enscroll-90 && (index*90) <= (enscroll + altoholder) '  -->
+<div >
 	
 	<img ng-src='{{img_url}}' />
 	<div class='itemLista-name'>{{item.name}}</div>
-	<div class='itemLista-tipo'>{{tipo}}</div> 
+	<div class='itemLista-tipo'>{{item.cat}}</div> 
 	<div class='itemLista-tel'>T. {{item.tel}}</div>
 	<div class='itemLista-dir'>{{item.dir}}</div>
 
