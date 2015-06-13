@@ -7,10 +7,7 @@ geobarApp.directive('lista', function($window, $log, $http, SERVER, navigateServ
 		$scope.screen_size = SCREEN_SIZE
         $scope.en_pagina = 10
 
-         $scope.$watch('filtro', function (){
-              $scope.total =  $filter('filter')($scope.array_items, $scope.filtro).length
-         })
-       
+     
 
         $scope.cargarMas = function (){
             // revisar que hago despues con el delay   
@@ -28,9 +25,12 @@ geobarApp.directive('lista', function($window, $log, $http, SERVER, navigateServ
 
     	$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
 			   $scope.array_items = data;
-               $scope.total  = $scope.array_items.length;
-
-		}).error(function(data, status, headers, config) {});
+         $scope.total  = $scope.array_items.length;
+         $scope.$watch('filtro', function (){
+              $scope.total =  $filter('filter')($scope.array_items, $scope.filtro).length
+         })
+       
+		  }).error(function(data, status, headers, config) {});
 
 
     	var holder_scrolleable = angular.element(document.querySelector('.listado'));
