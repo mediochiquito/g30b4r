@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>37805B16-E7E4-408F-B523-B7FBB8C9FEF9</string>
+	<string>F4E383EE-C1B5-49D7-B2CF-556558ABC097</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>GeoBar</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>FE381EC0235FCECA66A07BC5AC8BAA65F2092B6D</key>
 		<string>https://github.com/mediochiquito/g30b4r.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>platforms/ios/GeoBar.xcodeproj/project.xcworkspace</string>
+	<string>platforms/ios/GeoBar.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>FE381EC0235FCECA66A07BC5AC8BAA65F2092B6D</key>

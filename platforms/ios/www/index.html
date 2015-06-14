@@ -11,6 +11,8 @@
 
   <body ng-controller="mainController as main">
 
+    <div id='map_canvas'></div>
+
     <div ng-controller="menuCtrl" id='header_menu'>
 
           <boton-sistema  id='btn_back'  ng-class='{botonDisabled: navigateService.esPrimerPage()}' accion="navigateService.back()" imagen="img/btns/back.svg"></boton-sistema>
