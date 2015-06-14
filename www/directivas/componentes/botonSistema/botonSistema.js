@@ -22,6 +22,8 @@ geobarApp.directive('botonSistema', function($log) {
                 elem.addClass('botonOver')
                 scope.accion()
                 scope.$apply()
+
+                 map.on()
             }
     	})
 

@@ -1,4 +1,4 @@
-* {
+div#taxi-box-content {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 @font-face {
@@ -53,7 +53,44 @@ body{
 	background-color: #ff99ff
 }
 
+#taxi-box-shadow{
+	position: absolute;
+	width: 75%;
+	height: 90%;
+	border-radius: 20px;
+	background-color: #37353A;
 
+	left: 15%;
+	top: 5%;
+}
+
+#taxi-box-content{
+	position: absolute;
+	width: 75%;
+	height: 90%;
+	border-radius: 15px;
+	background-color: #FFFFFF;
+	box-sizing: border-box;
+	left: 13%;
+	text-align: center;
+	top: 3.6%;
+}
+
+#taxi-voyentaxi{
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 50%;
+    margin-top: -150px;
+}
+#taxi-easytaxi{
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    top: 50%;
+    margin-top: 60px;
+}
+	
 
 
 #btn_home_ar{

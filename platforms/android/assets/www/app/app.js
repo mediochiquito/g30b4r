@@ -15,6 +15,7 @@ geobarApp.controller("menuCtrl", function($scope, navigateService){
 
 geobarApp.controller("mainController",  function($scope, $location, $window, navigateService) {
 
+	
 	//$scope.navigateService = navigateService;
 	if(window.localStorage.getItem('distancia') == null) window.localStorage.setItem('distancia', 5);
 	if(window.localStorage.getItem('bares') == null) window.localStorage.setItem('bares', 1);
@@ -23,8 +24,7 @@ geobarApp.controller("mainController",  function($scope, $location, $window, nav
 	if(window.localStorage.getItem('eventos') == null) window.localStorage.setItem('eventos', 1);
 	if(window.localStorage.getItem('favoritos') == null) window.localStorage.setItem('favoritos', 1);
 	if(window.localStorage.getItem('push') == null) window.localStorage.setItem('push', 1);
-
-
+	
 });	
 
 

@@ -12,8 +12,7 @@ geobarApp.directive('mapa', function() {
 
 	   	scope.visible = true;
 
-		
-
+		 
     }, 
    
 
