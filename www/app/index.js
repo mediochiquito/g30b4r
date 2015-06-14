@@ -30,10 +30,37 @@ var app = {
 
 
         
-        var map = plugin.google.maps.Map.getMap(document.getElementById('map_canvas'));
+        var map = plugin.google.maps.Map.getMap(document.getElementById( 'map_canvas' ));
         map.on(plugin.google.maps.event.MAP_READY, function () {
             map.setClickable( false );
             angular.bootstrap(document, ["geobarApp"]);
+
+
+           /* alert('onMapReady ..');
+
+            alert( 'map.setOptions ..' );
+            var opts = {
+                'controls': { 
+                    'myLocationButton': true,
+                    'zoom': true 
+                },
+                'gestures': { 'gestures': true },
+                'camera': { 'zoom': 10 }
+            };
+            map.setOptions( opts );
+            alert( 'map.setBackgroundColor ..' );
+            map.setBackgroundColor( 'transparent' );
+            alert( 'map.setMapTypeId ..' );
+            map.setMapTypeId( plugin.google.maps.MapTypeId.ROADMAP );
+
+            alert( 'map.setDiv ..' );
+            var mapDiv = document.getElementById( 'google_map' );
+            map.setDiv( mapDiv );
+
+            alert('onMapReady done');
+        */
+
+            
         });
         
 

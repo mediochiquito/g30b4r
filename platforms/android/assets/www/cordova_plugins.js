@@ -66,6 +66,8 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "com.google.playservices": "23.0.0",
+    "com.googlemaps.ios": "1.9.2",
     "cordova-plugin-console": "1.0.0",
     "cordova-plugin-device": "1.0.0",
     "cordova-plugin-dialogs": "1.1.0",
@@ -74,8 +76,7 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "1.0.0",
     "cordova-plugin-whitelist": "1.0.0",
     "plugin.google.maps": "1.2.5",
-    "plugin.http.request": "1.0.4",
-    "com.google.playservices": "23.0.0"
+    "plugin.http.request": "1.0.4"
 }
 // BOTTOM OF METADATA
 });

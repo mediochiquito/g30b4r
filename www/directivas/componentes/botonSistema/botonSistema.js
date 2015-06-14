@@ -23,7 +23,7 @@ geobarApp.directive('botonSistema', function($log) {
                 scope.accion()
                 scope.$apply()
 
-                 map.on()
+              
             }
     	})
 
