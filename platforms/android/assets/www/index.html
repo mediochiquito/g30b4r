@@ -6,25 +6,27 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" href="css/anim.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
 
   <body ng-controller="mainController">
 
 
-      <div ng-class='rootScope.viewBg' ><div id='bg' style='height:{{alto_screen}}px'></div></div>
+      <div id='viewBg' ng-class='rootScope.viewBg'><div id='bg' style='height:{{alto_screen}}px'></div></div>
 
       <div id='map_canvas'></div>
 
-      <div ng-controller="seccionLoaderController" id='seccionLoaderController'>
+      <div ng-controller="seccionLoaderController" id='seccionLoaderController' style='height:{{alto_screen-80}}px'>
 
-          <terms   ng-class=' getAnimationClass("terms") '   class='seccion' ></terms>
-          <home    ng-class=' getAnimationClass("home") '    class='seccion' ></home>
-          <lista   ng-class=' getAnimationClass("lista") '   class='seccion' ></lista>
-          <config  ng-class=' getAnimationClass("config") '  class='seccion' ></config>
-          <detalle ng-class=' getAnimationClass("detalle") ' class='seccion' ></detalle>
-          <taxi    ng-class=' getAnimationClass("taxi") '    class='seccion' ></taxi>
-          <div mapa  ng-class=' getAnimationClass("mapa") '    class='seccion' id='mapa'></div>
+          <terms    ng-class=' getAnimationClass("terms") '   class='seccion' ></terms>
+          <home     ng-class=' getAnimationClass("home") '    class='seccion' ></home>
+          <lista    ng-class=' getAnimationClass("lista") '   class='seccion' ></lista>
+          <config   ng-class=' getAnimationClass("config") '  class='seccion' ></config>
+          <detalle  ng-class=' getAnimationClass("detalle") ' class='seccion' ></detalle>
+          <div  taxi id='taxi'  ng-class=' getAnimationClass("taxi") '    class='seccion' ></div>
+          <div  mapa ng-class=' getAnimationClass("mapa") '    class='seccion' id='mapa'></div>
     
       </div>  
 

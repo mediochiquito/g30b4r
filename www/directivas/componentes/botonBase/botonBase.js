@@ -12,13 +12,15 @@ geobarApp.directive('botonBase', function($log) {
     	elem.bind('touchstart', function(){
             if(!elem.hasClass('botonDisabled')){
                 elem.addClass('botonOver')
-                scope.accion()
+              
                 scope.$apply()
             }
     	})
 
     	elem.on('touchend', function(){
     		elem.removeClass('botonOver')
+              scope.accion()
+               scope.$apply()
     	})
 
         

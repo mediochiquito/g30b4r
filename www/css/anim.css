@@ -1,0 +1,48 @@
+
+.enterSeccionShow-add-active,
+.enterSeccionHide-add-active,
+.backSeccionShow-add-active,
+.backSeccionHide-add-active
+{
+  transition: .5s;
+}
+.enterSeccionShow-add{
+	display: block!important;
+	z-index: 999999;
+	-webkit-transform: translateX(100%);
+	opacity: 1;
+}
+.enterSeccionShow-add-active{
+	-webkit-transform: translateX(0%) ;
+	opacity: 1;
+}
+.enterSeccionHide-add{
+	display: block!important;
+	z-index: 999998;
+	-webkit-transform: translateX(0%);
+	opacity: 1;
+}
+.enterSeccionHide-add-active{
+	-webkit-transform: translateX(-30%) ;
+	opacity: 0;
+}
+.backSeccionShow-add{
+	display: block!important;
+	z-index: 99998;
+	-webkit-transform: translateX(-30%);
+	opacity: 0;
+}
+.backSeccionShow-add-active{
+	-webkit-transform: translateX(0%) ;
+	opacity: 1;
+}
+.backSeccionHide-add{
+	display: block!important;
+	z-index: 99999;
+	-webkit-transform: translateX(0%);
+	opacity: 1;
+}
+.backSeccionHide-add-active{
+	-webkit-transform: translateX(100%) ;
+	opacity: 1;
+}

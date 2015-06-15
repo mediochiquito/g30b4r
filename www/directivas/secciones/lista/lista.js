@@ -1,4 +1,4 @@
-geobarApp.directive('lista', function($window, $log, $http, SERVER, navigateService, SCREEN_SIZE,$filter) {
+geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZE,$filter) {
   return {
     restrict: 'E',
     templateUrl: 'directivas/secciones/lista/lista.html',
@@ -23,19 +23,18 @@ geobarApp.directive('lista', function($window, $log, $http, SERVER, navigateServ
             $scope.en_pagina = 10
         }
 
-    	$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
-			   $scope.array_items = data;
-         $scope.total  = $scope.array_items.length;
-         $scope.$watch('filtro', function (){
-              $scope.total =  $filter('filter')($scope.array_items, $scope.filtro).length
-         })
-       
-		  }).error(function(data, status, headers, config) {});
+
+        $scope.array_items = JSON.parse( window.localStorage.getItem('json_lugares'));
+        $scope.total  = $scope.array_items.length;
+        $scope.$watch('filtro', function (){
+            $scope.total =  $filter('filter')($scope.array_items, $scope.filtro).length
+        })
 
 
-    	var holder_scrolleable = angular.element(document.querySelector('.listado'));
 
-  		holder_scrolleable.on("scroll", function() {
+      	var holder_scrolleable = angular.element(document.querySelector('.listado'));
+
+  		  holder_scrolleable.on("scroll", function() {
 
           	var _scrollTop = this.scrollTop; // por donde va el scroll
           	var _offsetHeight = this.offsetHeight; // alto de la mascara

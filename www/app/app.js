@@ -17,11 +17,20 @@ geobarApp.controller("menuCtrl", function($scope, navigateService){
 	$scope.navigateService = navigateService;
 })	
 
-geobarApp.controller("mainController",  function($rootScope, $scope,  clientId, $location, $window, navigateService, mapaService) {
+geobarApp.controller("mainController",  function($rootScope, $scope, $http, SERVER, clientId, $location, $window, navigateService, mapaService) {
 
 	$scope.rootScope = $rootScope
 	$scope.alto_screen = window.innerHeight
+
 	mapaService.init()
+
+	$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
+          
+            window.localStorage.setItem('json_lugares', JSON.stringify(data));
+
+    }).error(function(data, status, headers, config) {});
+
+
 
 	if(window.localStorage.getItem('distancia') == null) window.localStorage.setItem('distancia', 5);
 	if(window.localStorage.getItem('bares') == null) window.localStorage.setItem('bares', 1);
@@ -42,7 +51,11 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 
 	$scope.getAnimationClass = function ($secc){
 		
-		if(!navigateService.habilTranciosinar($secc)) return;
+
+		var habil_trans = navigateService.habilTranciosinar($secc)
+		
+		if(!habil_trans) return;
+
 		var r = $scope.dir_animate + 'Hide'
 		if($scope.active_page == $secc) r = $scope.dir_animate + 'Show'
 		return r

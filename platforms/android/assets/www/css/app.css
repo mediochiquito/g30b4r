@@ -37,6 +37,7 @@ body{
 	padding: 0;
 	position: absolute;
 	height: 100%;
+	overflow: hidden;
 }
 
 #bg{
@@ -51,22 +52,21 @@ body{
 	top: 0px;
 	left: 0px;
 }
-
-.viewBg0{
+#viewBg{
 	position: absolute;
 	overflow: hidden;
 	width: 100%;
-	height: 100%;
 	margin: 0;
 	padding: 0;
 }
+.viewBg0{
+
+	height: 100%;
+
+}
 .viewBg1{
-	position: absolute;
-	overflow: hidden;
-	width: 100%;
+
 	height: 80px;
-	margin: 0;
-	padding: 0;
 }
 
 
@@ -86,7 +86,6 @@ body{
 	height: 90%;
 	border-radius: 20px;
 	background-color: #37353A;
-
 	left: 15%;
 	top: 5%;
 }
@@ -101,6 +100,7 @@ body{
 	left: 13%;
 	text-align: center;
 	top: 3.6%;
+
 }
 
 #taxi-voyentaxi{
@@ -265,8 +265,7 @@ body{
     left: 0px;
     top: 80px;
     width: 100%;
-    margin: 0px;
-    height: calc(100% - 80px);
+    margin: 0px;  
     padding: 0;
 }
 .seccion {
@@ -276,6 +275,7 @@ body{
   width: 100%;
   top: 0px;
 }
+
 .seccion{
 	display: none;
 }
@@ -292,54 +292,6 @@ body{
 	display: none;
 }
 
-
-.enterSeccionShow-add-active,
-.enterSeccionHide-add-active,
-.backSeccionShow-add-active,
-.backSeccionHide-add-active
-{
-  transition: .3s;
-}
-.enterSeccionShow-add{
-	display: block!important;
-	z-index: 999999;
-	-webkit-transform: translateX(100%);
-	opacity: 1;
-}
-.enterSeccionShow-add-active{
-	-webkit-transform: translateX(0%) ;
-	opacity: 1;
-}
-.enterSeccionHide-add{
-	display: block!important;
-	z-index: 999998;
-	-webkit-transform: translateX(0%);
-	opacity: 1;
-}
-.enterSeccionHide-add-active{
-	-webkit-transform: translateX(-30%) ;
-	opacity: 0;
-}
-.backSeccionShow-add{
-	display: block!important;
-	z-index: 99998;
-	-webkit-transform: translateX(-30%);
-	opacity: 0;
-}
-.backSeccionShow-add-active{
-	-webkit-transform: translateX(0%) ;
-	opacity: 1;
-}
-.backSeccionHide-add{
-	display: block!important;
-	z-index: 99999;
-	-webkit-transform: translateX(0%);
-	opacity: 1;
-}
-.backSeccionHide-add-active{
-	-webkit-transform: translateX(100%) ;
-	opacity: 1;
-}
 
 #home-menu{
 	position: relative;
@@ -459,3 +411,8 @@ body{
 	
 }
 
+#taxi{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
