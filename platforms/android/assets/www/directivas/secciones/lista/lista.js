@@ -4,19 +4,19 @@ geobarApp.directive('lista', function($window, $log, $http, SERVER, navigateServ
     templateUrl: 'directivas/secciones/lista/lista.html',
     link:function ($scope, $elem, $attrs){
     	
-		$scope.screen_size = SCREEN_SIZE
+		    $scope.screen_alto = window.innerHeight
         $scope.en_pagina = 10
-
-     
 
         $scope.cargarMas = function (){
             // revisar que hago despues con el delay   
             setTimeout(function (){
                 $scope.en_pagina += 10;
                 $scope.$apply()
-            }, 300)
-                
+            }, 300)                
         }
+        
+
+
 
         $scope.keyDownFilter = function() {
             document.querySelector('.listado').scrollTop = 0

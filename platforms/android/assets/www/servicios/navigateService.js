@@ -1,16 +1,28 @@
-geobarApp.service('navigateService', function($log){
+geobarApp.service('navigateService', function($log,mapaService){
 
 	var en_seccion = '';
 	var historia = new Array();
 	var ultima_seccion_eliminada = null;
 
+
+
 	this.status = 0;
 	this.obj_detalle = null; 
  	this.dir_animate  = 'enterSeccion';
 
+ 	this.secciones = new Object()
+
+
  	this.esPrimerPage = function(){
 
  		return (historia.length==1);
+
+ 	}
+
+
+ 	this.setSecciones = function ($key, $controller){
+
+ 		this.secciones[$key] = $controller
 
  	}
 
@@ -22,12 +34,17 @@ geobarApp.service('navigateService', function($log){
 
 		this.dir_animate  = $dir_animate;
 		this.active_page = secc;
-
+		mapaService.ocultar()
 		switch(secc){
 			case 'detalle':
 				this.active_detalle = true; 
 				this.obj_detalle = obj;
 				break;
+
+			case 'mapa':
+				this.secciones[secc]._set()
+				break;
+
 		}
 
 		if(historia.length>0){

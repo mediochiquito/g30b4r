@@ -1,20 +1,28 @@
 
-geobarApp.directive('mapa', function() {
+geobarApp.directive('mapa', function(navigateService,mapaService) {
   
 	
 
   return {
-    restrict: 'E',
+    restrict: 'AE',
     templateUrl: 'directivas/secciones/mapa/mapa.html',
-	  scope:{caca:'@'},
+	 // scope:{caca:'@'},
     
-    link:function (scope, elem, attrs){
+    link: function (scope, elem, attrs){
 
-	   	scope.visible = true;
+        navigateService.setSecciones('mapa', scope)
+        
+        scope._set = function (){
 
-		 
+          mapaService.mostrar();
+
+          //scope.etiloContent = 'contentBg1'
+
+
+
+        }
+
     }, 
-   
 
   };
 });

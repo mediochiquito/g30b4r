@@ -25,16 +25,19 @@ var app = {
     onDeviceReady: function() {
       
         try{
+           
             StatusBar.hide()
-        }catch(e){}
+
+
+                  angular.bootstrap(document, ["geobarApp"]);
+        }catch(e){
+
+            angular.bootstrap(document, ["geobarApp"]);
+
+        }
 
 
         
-        var map = plugin.google.maps.Map.getMap(document.getElementById( 'map_canvas' ));
-        map.on(plugin.google.maps.event.MAP_READY, function () {
-            map.setClickable( false );
-            angular.bootstrap(document, ["geobarApp"]);
-
 
            /* alert('onMapReady ..');
 
@@ -61,7 +64,7 @@ var app = {
         */
 
             
-        });
+      
         
 
         

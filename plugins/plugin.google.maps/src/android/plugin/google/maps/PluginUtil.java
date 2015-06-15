@@ -181,7 +181,7 @@ public class PluginUtil {
     if (bitmap == null) {
       return null;
     }
-    
+     
     float density = Resources.getSystem().getDisplayMetrics().density;
     int newWidth = (int)(bitmap.getWidth() * density);
     int newHeight = (int)(bitmap.getHeight() * density);

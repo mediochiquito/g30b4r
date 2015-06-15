@@ -3,7 +3,7 @@
 <!-- total: {{ total = (array_items | filter:filtro).length}} , cantidad: {{listados = cantidad.length}} -->
 
 
-<div class='listado' style="height:{{screen_size.alto-132}}px">
+<div class='listado' style="height:{{screen_alto-132}}px">
 
 	<div item-lista ng-repeat="item in array_items | filter:filtro | limitTo:en_pagina as cantidad" 
 					ng-class=" {'bg-color-celeste': (item.tipo==1), 'bg-color-verde': (item.tipo==2) , 'bg-color-rosa': (item.tipo==3)} "

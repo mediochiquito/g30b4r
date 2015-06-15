@@ -1,22 +1,28 @@
 var geobarApp = angular.module('geobarApp', ['ngAnimate'])
 
+.value('clientId', 'a12345654321x')
+
+
+
+
+
  .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
  .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
-
+ 
 //.constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
 //.constant('SERVER', 'http://localhost/g30b4r/server/')
-
-
 
 
 geobarApp.controller("menuCtrl", function($scope, navigateService){
 	$scope.navigateService = navigateService;
 })	
 
-geobarApp.controller("mainController",  function($scope, $location, $window, navigateService) {
+geobarApp.controller("mainController",  function($rootScope, $scope,  clientId, $location, $window, navigateService, mapaService) {
 
-	
-	//$scope.navigateService = navigateService;
+	$scope.rootScope = $rootScope
+	$scope.alto_screen = window.innerHeight
+	mapaService.init()
+
 	if(window.localStorage.getItem('distancia') == null) window.localStorage.setItem('distancia', 5);
 	if(window.localStorage.getItem('bares') == null) window.localStorage.setItem('bares', 1);
 	if(window.localStorage.getItem('restaurantes') == null) window.localStorage.setItem('restaurantes', 1);
@@ -48,6 +54,8 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 	    $scope.active_page = navigateService.active_page;
 	     
 	});
+
+
 	//setTimeout(function(){
 		navigateService.go('home')
 		//$scope.$apply()
