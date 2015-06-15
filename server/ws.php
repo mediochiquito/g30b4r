@@ -19,7 +19,7 @@ switch($_GET['method']){
 		$bucle = 0;
 		while($row = mysql_fetch_object($rs)){
 			
-			for($i =0; $i<500; $i++){
+			for($i =0; $i<100; $i++){
 				$o = new stdClass();
 				$o->id = $row->lugares_id;
 				$o->tipo = $row->lugares_tipo;

@@ -37,6 +37,7 @@ geobarApp.service('navigateService', function($log,mapaService){
 		mapaService.ocultar()
 
 		switch(secc){
+			
 			case 'detalle':
 				this.active_detalle = true; 
 				this.obj_detalle = obj;
@@ -46,6 +47,7 @@ geobarApp.service('navigateService', function($log,mapaService){
 			case 'mapa':
 				this.secciones[secc]._set()
 				break;
+
 		}
 
 		if(historia.length>0){
@@ -62,14 +64,13 @@ geobarApp.service('navigateService', function($log,mapaService){
 		ultima_seccion_eliminada_de_historia = historia[historia.length-1];
 		if(historia.length>1) historia.pop();
 		
-		if(historia.length == 1) {
+	//	if(historia.length == 1) {
+			
 			setTimeout(function(){
 				ultima_seccion_eliminada_de_historia =  null;
 			},100)
-			
-			
-		}
 
+	//	}
 
 		var penultimo_elemento = historia[historia.length-1];	
 		this.go(penultimo_elemento.secc, penultimo_elemento.obj, false, 'backSeccion');
@@ -78,7 +79,8 @@ geobarApp.service('navigateService', function($log,mapaService){
 
 
 	this.habilTranciosinar = function ($secc){
-/*
+			
+			/*
 			try{
 				console.log('this.dir_animate: ' + this.dir_animate)
 				console.log('ultima_seccion_eliminada_de_historia.secc: ' + ultima_seccion_eliminada_de_historia.secc)

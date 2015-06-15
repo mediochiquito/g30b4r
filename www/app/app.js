@@ -1,4 +1,4 @@
-var geobarApp = angular.module('geobarApp', ['ngAnimate'])
+var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch'])
 
 .value('clientId', 'a12345654321x')
 
