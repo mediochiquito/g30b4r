@@ -13,6 +13,9 @@ geobarApp.controller("mainController",  function($rootScope, $scope, $http, Load
 	$scope.rootScope = $rootScope
 	$scope.alto_screen = window.innerHeight;
 
+
+	console.log(navigator.userAgent)
+
 	if(window.localStorage.getItem('sync') == null) window.localStorage.setItem('sync', 0);	
 	var sync = window.localStorage.getItem('sync');
 	var d = new Date();
@@ -38,6 +41,10 @@ geobarApp.controller("mainController",  function($rootScope, $scope, $http, Load
 
 		}
 		
+	}).error(function(){
+			
+			iniciar_app()
+
 	})
 
 	mapaService.init()

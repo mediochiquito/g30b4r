@@ -21,7 +21,11 @@ package com.testing.mateo.geo;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
+/*
+import org.xwalk.core.XWalkView;
+import org.xwalk.core.XWalkPreferences;
 
+*/
 public class MainActivity extends CordovaActivity
 {
     @Override
@@ -29,6 +33,19 @@ public class MainActivity extends CordovaActivity
     {
         super.onCreate(savedInstanceState);
         // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl);
+      loadUrl(launchUrl);
     }
+
+   /* @Override
+    protected void onXWalkReady() {
+
+        XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW,false);
+
+        super.init();
+
+        this.appView.setZOrderOnTop(true);
+
+        // Set by <content src="index.html" /> in config.xml
+        loadUrl(launchUrl);
+    }*/
 }

@@ -13,7 +13,7 @@ geobarApp.directive('mapa', function(navigateService,mapaService) {
         
         scope._set = function (){
 
-          // mapaService.mostrar();
+           mapaService.mostrar();
           
           //scope.etiloContent = 'contentBg1'
 
