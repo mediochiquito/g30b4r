@@ -13,10 +13,10 @@
 
   <body ng-controller="mainController">
 
-
       <div id='viewBg' ng-class='rootScope.viewBg'><div id='bg' style='height:{{alto_screen}}px'></div></div>
 
       <div id='map_canvas'></div>
+
 
       <div ng-controller="seccionLoaderController" id='seccionLoaderController' style='height:{{alto_screen-80}}px'>
 
@@ -26,7 +26,7 @@
           <config   ng-class=' getAnimationClass("config") '  class='seccion' ></config>
           <detalle  ng-class=' getAnimationClass("detalle") ' class='seccion' ></detalle>
           <div  taxi id='taxi'  ng-class=' getAnimationClass("taxi") '    class='seccion' ></div>
-          <div  mapa ng-class=' getAnimationClass("mapa") '    class='seccion' id='mapa'></div>
+          <div  mapa            ng-class=' getAnimationClass("mapa") '    class='seccion' id='mapa'></div>
     
       </div>  
 
@@ -42,9 +42,10 @@
             <boton-sistema imagen="img/btns/taxi.svg" accion="navigateService.go('taxi')" id='btn_taxi'></boton-sistema>
 
       </div>
+ 
+      <el-loading id='loading'></el-loading>
 
-  
-
+      
 
     <script src="libs/angular.min.js"></script>
     <script src="libs/angular-animate.min.js"></script>
@@ -53,6 +54,9 @@
     <script src="app/app.js"></script>
     <script src="servicios/navigateService.js"></script>
     <script src="servicios/mapaService.js"></script>
+    <script src="servicios/loading.js"></script>
+
+
     <script src="directivas/secciones/terms/terms.js"></script>
     <script src="directivas/secciones/home/home.js"></script>
     <script src="directivas/secciones/lista/lista.js"></script>
@@ -69,7 +73,7 @@
 
 
     <script type="text/javascript">
-      app.initialize();
+       app.initialize();
     </script>
 
 

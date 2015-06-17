@@ -18,16 +18,17 @@ geobarApp.service('navigateService', function($log,mapaService){
 
  	}
 
+ 	this.setSecciones = function ($key, $init){
 
- 	this.setSecciones = function ($key, $controller){
-
- 		this.secciones[$key] = $controller
+ 		this.secciones[$key] = $init
+ 		console.log(this.secciones)
 
  	}
 
 	this.go = function (secc, obj, entra_a_historia, $dir_animate){
 
 		/*ultima_seccion_eliminada_de_historia = null*/
+		
 		if(typeof obj == 'undefined') obj = null;
 		if(typeof entra_a_historia == 'undefined') entra_a_historia = true;
 		if(typeof $dir_animate == 'undefined') $dir_animate  = 'enterSeccion';
@@ -45,9 +46,13 @@ geobarApp.service('navigateService', function($log,mapaService){
 				break;
 
 			case 'mapa':
-				this.secciones[secc]._set()
+				this.secciones['mapa']()
 				break;
 
+			case 'lista':
+				this.secciones['lista'](obj)
+				
+				break;
 		}
 
 		if(historia.length>0){

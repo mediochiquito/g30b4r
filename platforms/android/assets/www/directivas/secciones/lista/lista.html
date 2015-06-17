@@ -1,11 +1,14 @@
-<div id='lista-content-input'><input type='text' placeholder='Buscar...' ng-change='keyDownFilter()' ng-model='filtro' class='lista-input-filter' /></div>
+<div id='lista-content-input'>
+	<input type='text' placeholder='Buscar...' ng-model='filtro' ng-change='keyDownFilter()' class='lista-input-filter' />
+</div>
 
-<!-- total: {{ total = (array_items | filter:filtro).length}} , cantidad: {{listados = cantidad.length}} -->
+<!-- 
 
+	total: {{ total = (array_items | filter:filtro).length}} , cantidad: {{listados = cantidad.length}} -->
 
 <div class='listado' style="height:{{screen_alto-132}}px">
 
-	<div item-lista ng-repeat="item in array_items | filter:filtro | limitTo:en_pagina as cantidad" 
+	<div item-lista ng-repeat="item in array_items | filter: filtro | limitTo:en_pagina as cantidad" 
 					ng-class=" {'bg-color-celeste': (item.tipo==1), 'bg-color-verde': (item.tipo==2) , 'bg-color-rosa': (item.tipo==3)} "
 					index='{{$index}}' 
 					item='item' 
@@ -13,10 +16,12 @@
 					altoholder = 'altoholder'
 					ng-click="select_item(item.id)" class='item-lista'></div>
 
-	
-
-	<div boton-base accion='cargarMas()' id='listado-btn-cargar-mas' ng-if=' total > cantidad.length'><div>CARGAR MÁS</div></div>
+	<div boton-base  ng-click='cargarMas()' id='listado-btn-cargar-mas' ng-if=' total > cantidad.length'><div>CARGAR MÁS</div></div>
 
 
 </div>
+
+
+<div id='lista-sin-resultados' ng-if=' total == 0'>No se encontraron resultados</div>
+
 

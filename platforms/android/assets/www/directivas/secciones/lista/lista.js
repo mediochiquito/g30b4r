@@ -1,39 +1,50 @@
 geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZE,$filter) {
-  return {
+ 
+ return {
     restrict: 'E',
     templateUrl: 'directivas/secciones/lista/lista.html',
+
     link:function ($scope, $elem, $attrs){
-    	
+
 		    $scope.screen_alto = window.innerHeight
         $scope.en_pagina = 10
+
+        $scope._set = function ($obj){
+
+          $scope.en_pagina = 10;
+          $scope.array_items = JSON.parse( window.localStorage.getItem('json_lugares'));
+          $scope.total  = $scope.array_items.length;
+          
+        } 
+        navigateService.setSecciones('lista', $scope._set);
+
 
         $scope.cargarMas = function (){
             // revisar que hago despues con el delay   
             setTimeout(function (){
                 $scope.en_pagina += 10;
                 $scope.$apply()
-            }, 300)                
+            }, 300);
+            
         }
-        
-
-
 
         $scope.keyDownFilter = function() {
-            document.querySelector('.listado').scrollTop = 0
-            $scope.en_pagina = 10
+            document.querySelector('.listado').scrollTop = 0;
+            $scope.en_pagina = 10;
         }
 
-
-        $scope.array_items = JSON.parse( window.localStorage.getItem('json_lugares'));
-        $scope.total  = $scope.array_items.length;
+        // porque no puedo obtener el total con el filtro solo son el limit
         $scope.$watch('filtro', function (){
-            $scope.total =  $filter('filter')($scope.array_items, $scope.filtro).length
+
+            try{
+               $scope.total =  $filter('filter')($scope.array_items, $scope.filtro).length
+            }catch(e){}
+           
         })
 
 
 
       	var holder_scrolleable = angular.element(document.querySelector('.listado'));
-
   		  holder_scrolleable.on("scroll", function() {
 
           	var _scrollTop = this.scrollTop; // por donde va el scroll
@@ -54,9 +65,11 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
 	     
 	    $scope.select_item = function ($id){
 
-	 		  navigateService.go('detalle', {id: $id});
+	 		    navigateService.go('detalle', {id: $id});
 
 	   	}
+
+
     }	
   };
 })
@@ -75,9 +88,7 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
     link:function ($scope, $elem, $attrs){
       
         $scope.img_url = SERVER + 'img/lugares/' + $scope.item.id + '/thumb.jpg';
-       /* if($scope.item.tipo==1) $scope.tipo = 'Bar'
-        if($scope.item.tipo==2) $scope.tipo = 'Restaurante'
-        if($scope.item.tipo==3) $scope.tipo = 'Cine'*/
+
     }
 
   };

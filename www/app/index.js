@@ -26,10 +26,9 @@ var app = {
       
         try{
            
-            StatusBar.hide()
+            //StatusBar.hide()
+            angular.bootstrap(document, ["geobarApp"]);
 
-
-                  angular.bootstrap(document, ["geobarApp"]);
         }catch(e){
 
             angular.bootstrap(document, ["geobarApp"]);

@@ -10,17 +10,16 @@ geobarApp.directive('mapa', function(navigateService,mapaService) {
     
     link: function (scope, elem, attrs){
 
-        navigateService.setSecciones('mapa', scope)
         
         scope._set = function (){
 
-          mapaService.mostrar();
-
+          // mapaService.mostrar();
+          
           //scope.etiloContent = 'contentBg1'
 
-
-
         }
+        navigateService.setSecciones('mapa', scope._set)
+        
 
     }, 
 

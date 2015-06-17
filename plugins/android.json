@@ -101,6 +101,10 @@
                         {
                             "xml": "<feature name=\"Geocoder\"><param name=\"android-package\" value=\"plugin.google.maps.MyGeocoder\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"webView\" value=\"org.crosswalk.engine.XWalkWebViewEngine\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -137,6 +141,9 @@
         },
         "plugin.google.maps": {
             "API_KEY_FOR_ANDROID": "AIzaSyAyYten0lwBV2RVxQquylqc55WE2ACxsPM",
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         }
     },

@@ -210,6 +210,9 @@
         "plugin.google.maps": {
             "API_KEY_FOR_IOS": "AIzaSyD00k2Wh3tA0COyDhSbBoIP83MT72GKbxo",
             "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
         }
     },
     "dependent_plugins": {

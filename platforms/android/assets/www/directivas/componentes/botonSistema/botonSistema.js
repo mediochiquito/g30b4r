@@ -1,4 +1,4 @@
-geobarApp.directive('botonSistema', function($log) {
+geobarApp.directive('botonSistema', function(Loading) {
   return {
     
     restrict: 'AE', 
@@ -20,10 +20,8 @@ geobarApp.directive('botonSistema', function($log) {
 
             if(!elem.hasClass('botonDisabled')){
                 elem.addClass('botonOver')
-              
-
-              
             }
+
     	})
 
     	elem.on('touchend', function(){

@@ -106,6 +106,7 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "1.0.0",
     "cordova-plugin-whitelist": "1.0.0",
     "plugin.google.maps": "1.2.5",
+    "cordova-plugin-crosswalk-webview": "1.2.0",
     "plugin.http.request": "1.0.4"
 }
 // BOTTOM OF METADATA

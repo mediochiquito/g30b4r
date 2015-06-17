@@ -1,34 +1,52 @@
 var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch'])
 
-.value('clientId', 'a12345654321x')
-
-
-
-
-
  .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
  .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
- 
-//.constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
-//.constant('SERVER', 'http://localhost/g30b4r/server/')
 
 
-geobarApp.controller("menuCtrl", function($scope, navigateService){
-	$scope.navigateService = navigateService;
-})	
 
-geobarApp.controller("mainController",  function($rootScope, $scope, $http, SERVER, clientId, $location, $window, navigateService, mapaService) {
+
+
+
+geobarApp.controller("mainController",  function($rootScope, $scope, $http, Loading, SERVER, $location, $window, navigateService, mapaService) {
 
 	$scope.rootScope = $rootScope
-	$scope.alto_screen = window.innerHeight
+	$scope.alto_screen = window.innerHeight;
+
+	if(window.localStorage.getItem('sync') == null) window.localStorage.setItem('sync', 0);	
+	var sync = window.localStorage.getItem('sync');
+	var d = new Date();
+	$http.get(SERVER+'sync.txt?ac=' + d.getTime()).success(function(data_sync, status, headers, config) {
+
+
+		if(String(data_sync) != String(sync)){
+
+			$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
+          		
+
+		       window.localStorage.setItem('json_lugares', JSON.stringify(data));
+		       window.localStorage.setItem('sync', String(data_sync))
+		       $rootScope.json_lugares = data
+
+		       iniciar_app()
+
+		    });
+
+		}else{
+
+			iniciar_app()
+
+		}
+		
+	})
 
 	mapaService.init()
 
-	$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
-          
-            window.localStorage.setItem('json_lugares', JSON.stringify(data));
+	function iniciar_app(){
 
-    }).error(function(data, status, headers, config) {});
+		Loading.ocultar()
+
+	}
 
 
 
@@ -39,16 +57,22 @@ geobarApp.controller("mainController",  function($rootScope, $scope, $http, SERV
 	if(window.localStorage.getItem('eventos') == null) window.localStorage.setItem('eventos', 1);
 	if(window.localStorage.getItem('favoritos') == null) window.localStorage.setItem('favoritos', 1);
 	if(window.localStorage.getItem('push') == null) window.localStorage.setItem('push', 1);
-	
+
+
+
+
+
 });	
 
 
-geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, navigateService) {
-	 
+geobarApp.controller("menuCtrl", function($scope, navigateService){
 	$scope.navigateService = navigateService;
+})	
 
+
+geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, navigateService) {
+	$scope.navigateService = navigateService;
 	$scope.active_page = 'home'
-
 	$scope.getAnimationClass = function ($secc){
 		
 
@@ -68,33 +92,13 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 	     
 	});
 
-
 	//setTimeout(function(){
 		navigateService.go('home')
 		//$scope.$apply()
 	//}, 100)
 
- 	
-
 	$scope.cliqueando = function (){
 		$scope.visible = false;
 	}
 
-});
-
-
-geobarApp.filter('rango',function(){
-		return function(array,desde,hasta){
-			desde = parseInt(desde,10);
-			hasta = parseInt(hasta,10);
-
-			try{
-				return array.slice(desde,hasta);
-			}catch(e){
-
-				return array
-			}
-
-			
-		}
 });
