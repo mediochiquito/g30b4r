@@ -63,37 +63,6 @@
         "is_top_level": false,
         "variables": {}
     },
-    "com.google.playservices": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/wf9a5m75/google-play-services",
-            "subdir": ".",
-            "ref": "v23"
-        },
-        "is_top_level": false,
-        "variables": {}
-    },
-    "plugin.google.maps": {
-        "source": {
-            "type": "local",
-            "path": "C:\\developer\\plugins-cordova\\phonegap-googlemaps-plugin"
-        },
-        "is_top_level": true,
-        "variables": {
-            "API_KEY_FOR_ANDROID": "AIzaSyAyYten0lwBV2RVxQquylqc55WE2ACxsPM",
-            "API_KEY_FOR_IOS": "AIzaSyD00k2Wh3tA0COyDhSbBoIP83MT72GKbxo"
-        }
-    },
-    "com.googlemaps.ios": {
-        "source": {
-            "type": "git",
-            "url": "https://github.com/wf9a5m75/googlemaps-ios-sdk-for-phonegap",
-            "subdir": ".",
-            "ref": "master"
-        },
-        "is_top_level": false,
-        "variables": {}
-    },
     "cordova-plugin-crosswalk-webview": {
         "source": {
             "type": "registry",

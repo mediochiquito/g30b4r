@@ -47,7 +47,7 @@ geobarApp.controller("mainController",  function($rootScope, $scope, $http, Load
 
 	})
 
-	mapaService.init()
+	//mapaService.init()
 
 	function iniciar_app(){
 

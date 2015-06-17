@@ -187,24 +187,5 @@
     <array>
       <string>UIInterfaceOrientationPortrait</string>
     </array>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Show your location on the map</string>
-    <key>Google Maps API Key</key>
-    <string>AIzaSyD00k2Wh3tA0COyDhSbBoIP83MT72GKbxo</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Trace your location on the map</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleTypeRole</key>
-        <string>Editor</string>
-        <key>CFBundleURLName</key>
-        <string>com.testing.mateo.geo</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>com.testing.mateo.geo</string>
-        </array>
-      </dict>
-    </array>
   </dict>
 </plist>
