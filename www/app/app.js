@@ -26,7 +26,6 @@ geobarApp.controller("mainController",  function($rootScope, $scope, $http, Load
 
 			$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
           		
-
 		       window.localStorage.setItem('json_lugares', JSON.stringify(data));
 		       window.localStorage.setItem('sync', String(data_sync))
 		       $rootScope.json_lugares = data

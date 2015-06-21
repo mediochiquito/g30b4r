@@ -42,7 +42,6 @@ geobarApp.service('navigateService', function($log,mapaService){
 			case 'detalle':
 				this.active_detalle = true; 
 				this.obj_detalle = obj;
-				mapaService.mostrar()
 				break;
 
 			case 'mapa':

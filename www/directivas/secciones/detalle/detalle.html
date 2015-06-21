@@ -1,9 +1,35 @@
-<img ng-src='{{img_url}}' />
-<div>
-	<div>
-		
+<div class='flexible'>
+	<div id='detalle-fotos'>
+
+		<img src='img/blankDetalle.png' class='blankImg' />
+		<img  ng-repeat='foto in fotos track by $index' ng-src='{{url_img}}{{foto}}' style='left:{{$index*100}}%' />
+
+	</div>
+
+	<div id='detalle-menu-info'>
+
+		<div id='detalle-botonera'>
+			<div>
+				<boton-sistema id='detalle-btn_tel' imagen="img/btns/tel2.svg"></boton-sistema>
+				<boton-sistema id='detalle-btn_dir'  imagen="img/btns/dir.svg"></boton-sistema>
+				<boton-sistema id='detalle-btn_star'  imagen="img/btns/star.svg"></boton-sistema>
+				<boton-sistema id='detalle-btn_lampara'  imagen="img/btns/lampara.svg"></boton-sistema>
+			</div>
+		</div>
+
+		<div id='detalle-mini-desc'  ng-class=" {'bg-color-celeste': (tipo==1), 'bg-color-verde': (tipo==2) , 'bg-color-rosa': (tipo==3)} " >
+					<div class='itemLista-name'>{{name}}</div>
+					<div class='itemLista-tipo'>{{cat}}</div> 
+					<div class='itemLista-tel'>T. {{tel}}</div>
+					<div class='itemLista-dir'>{{dir}}</div>
+				
+					<!-- <div class='itemLista-dir'>{{mini_desc}}</div> -->
+		</div>
+	
+	</div>
+	<div id='detalle-desc'>
+
+		{{long_desc}}
 	</div>
 </div>
 
-<div>{{nombre}}</div>
-<div>{{desc}}</div>

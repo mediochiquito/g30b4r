@@ -10,7 +10,7 @@
 	display: block!important;
 	z-index: 999999;
 	-webkit-transform: translateX(100%);
-	opacity: 1;
+	opacity: 0;
 }
 .enterSeccionShow-add-active{
 	-webkit-transform: translateX(0%) ;
@@ -44,5 +44,5 @@
 }
 .backSeccionHide-add-active{
 	-webkit-transform: translateX(100%) ;
-	opacity: 1;
+	opacity: 0;
 }

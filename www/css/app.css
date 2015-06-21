@@ -140,13 +140,30 @@ body{
 	margin-top: 10px;
 }
 #home-banner{
-	position: relative;
 	
-
+    -webkit-flex-direction: column;         	 
+	
+	
+    -webkit-flex: auto;
 }
 #home-banner > img{
 	width: 100%;
 }
+
+#home-menu{
+	width: 100%;
+	
+	text-align: center;              
+	flex: auto;
+	-webkit-flex: auto;
+	flex-direction: column;
+
+}
+#home-menu > img{
+	position: relative;
+	margin: 10px;
+}
+
 
 .itemLista{
 
@@ -223,19 +240,20 @@ body{
 }
 
 #btn_home_quehacer{
-	position: absolute;
+	/* position: absolute; */
 	width: 70px;
 	height: 90px;
 	display: inline-block;
 	text-align: center;
 	top: 0px;
 	left: 50%;
-	margin-left: -140px;
+	margin-left: -219px;
 }
 #btn_home_lista{
     position: absolute;        
-    width: 70px;    height: 90px;    display: inline-block;    text-align: center;
-    top: 0px;    left: 50%;    
+    width: 70px;    
+    height: 90px;    display: inline-block;    text-align: center;
+    /* top: 0px; */    left: 50%;    
     margin-left: -70px;
     padding-top: 21px;
     box-sizing: border-box;
@@ -245,7 +263,7 @@ body{
     width: 70px;    
     height: 70px;    display: inline-block;    text-align: center;
     padding-top: 11px;
-    top: 0px;    left: 50%;    
+    /* top: 0px; */    left: 50%;    
     margin-left: 5px;
     padding-top: 21px;
 }
@@ -254,7 +272,7 @@ body{
     width: 70px;    
     height: 70px;    
     display: inline-block;    text-align: center;
-    top: 0px;    left: 50%;    
+    /* top: 0px; */    left: 50%;    
     margin-left: 79px;
     padding-top: 21px;
 }
@@ -294,18 +312,7 @@ body{
 }
 
 
-#home-menu{
-	position: relative;
-	width: 100%;
-	height: 90px;
-	
-	text-align: center;
-	margin-top: 78px;
-}
-#home-menu > img{
-	position: relative;
-	margin: 10px;
-}
+
 #lista-content-input{
     padding: 0px 10px 0px 10px;
 	
@@ -473,4 +480,164 @@ body{
 	left: 0px;
 	width: 100%;
 	height: 100%;
+}
+
+
+#detalle-fotos{
+    position: relative;
+    width: 100%;
+    flex: none;
+    -webkit-flex: none;
+    overflow: hidden;
+}
+#detalle-fotos > img {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    -webkit-flex: none;
+    display: inline;
+}
+#detalle-menu-info{
+    position: relative;
+    width: 100%;
+    /* height: 283px; */
+    border-bottom: solid 2px #fff;
+    /* -webkit-flex: auto; */
+    /* clear: both; */
+    /* float: left; */
+    /* display: table; */
+    flex: none;
+    /* display: inline-flex; */
+    /* justify-content: space-around; */
+    -webkit-flex: none;
+    /* -webkit-align-items: center; */
+}
+#detalle-botonera{
+    /* width: 50%; */
+    /* position: relative; */
+    /* float: left; */
+    /* height: 100px; */
+    /* justify-content: space-around; */
+    /* display: inline; */
+    /* -webkit-align-items: center; */
+    /* -webkit-flex: none; */    
+}
+#detalle-botonera > div{
+	width: 100%;
+	/* height: 80px; */
+	position: relative;
+	margin: 0 auto;
+	/* margin-top: 18px; */
+	text-align: center;
+}
+#detalle-mini-desc{
+    /* width: 50%; */    
+    /* position: relative; */    
+    /* float: left; */
+    padding: 14px;
+    box-sizing: border-box;
+    /* display: flex; */
+    flex-grow: column;
+    /* -webkit-flex-direction: column; */
+    display: -webkit-flex;
+    min-height: 51px;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+#detalle-desc{
+    overflow: auto;
+    	-webkit-overflow-scrolling: touch;
+    font-family: 'robotolight';
+    color: #ffffff;
+    padding: 12px;
+    font-size: 14px;
+}
+
+
+.blankImg{
+	position: relative !important;
+}
+
+
+
+.flexible{
+
+   display: -webkit-flex;
+   
+
+   -webkit-flex-flow: column;
+   
+
+   /* -webkit-flex-flow: column; */
+  
+	
+
+   /* -webkit-box-orient: vertical; */
+	  
+
+   /* -webkit-box-direction: normal; */
+	  
+
+   /* -webkit-flex-direction: column; */
+   
+
+   height: 100%;
+
+   overflow: hidden;
+
+}
+.ng-isolate-scope{
+	background-color:green;
+
+	
+}
+#detalle-btn_tel{
+    position: relative;
+    height: 50px;
+    float: left;
+    width: 50px;
+    display: inline;
+}
+#detalle-btn_tel > img{
+	position: relative;
+	margin: 5px 0px 0px 0px;
+	height: 43px;
+}
+
+#detalle-btn_dir{
+    position: relative;
+    width: 50px;
+    height: 50px;    
+    float: left;
+}
+#detalle-btn_dir > img{
+	position: relative;
+	margin: 5px 0px 0px 1px;
+	height: 43px;
+}
+#detalle-btn_star{
+    position: relative;
+    width: 50px;
+    height: 50px;    
+    float: left;
+}
+#detalle-btn_star > img{
+	position: relative;
+	margin: 6px 0px 0px 1px;
+	width: 42px;
+}
+#detalle-btn_lampara{
+    position: relative;
+    width: 50px;
+    height: 50px;    
+    float: left;
+}
+#detalle-btn_lampara > img{
+	position: relative;
+	margin: -7px 0px 0px 2px;
+	height: 55px;
+}
+
+#detalle-mini-desc .itemLista-name{
+margin-top:0px;
 }

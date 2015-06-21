@@ -52,7 +52,7 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
           	var _scrollHeight = this.scrollHeight; // alto del contenido
             $scope.enscroll =	_scrollTop;
             $scope.altoholder =  _offsetHeight;
-            if((_offsetHeight +_scrollTop) > _scrollHeight) {
+            if((_offsetHeight +_scrollTop) > _scrollHeight-100) {
                 $scope.en_pagina += 10;
             }
             $scope.$apply();
@@ -63,9 +63,9 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
   		$scope.enscroll =	 0;
 	    $scope.altoholder =  1000;
 	     
-	    $scope.select_item = function ($id){
+	    $scope.select_item = function ($item){
 
-	 		    navigateService.go('detalle', {id: $id});
+	 		    navigateService.go('detalle', {item: $item});
 
 	   	}
 

@@ -25,8 +25,9 @@ var app = {
     onDeviceReady: function() {
       
         try{
-           
-            //StatusBar.hide()
+            
+            if(device.platform == 'iOS') StatusBar.hide();
+
             angular.bootstrap(document, ["geobarApp"]);
 
         }catch(e){
