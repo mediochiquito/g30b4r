@@ -4,8 +4,9 @@
 .backSeccionShow-add-active,
 .backSeccionHide-add-active
 {
-  transition: .5s;
+  transition: .4s;
 }
+
 .enterSeccionShow-add{
 	display: block!important;
 	z-index: 999999;

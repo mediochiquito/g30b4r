@@ -1,8 +1,10 @@
 <div class='flexible'>
+
 	<div id='detalle-fotos'>
 
 		<img src='img/blankDetalle.png' class='blankImg' />
-		<img  ng-repeat='foto in fotos track by $index' ng-src='{{url_img}}{{foto}}' style='left:{{$index*100}}%' />
+		
+		<touch-slider class='touchSlider' fotos=' fotos ' url-imgs=' url_img ' ></touch-slider>
 
 	</div>
 
@@ -22,14 +24,12 @@
 					<div class='itemLista-tipo'>{{cat}}</div> 
 					<div class='itemLista-tel'>T. {{tel}}</div>
 					<div class='itemLista-dir'>{{dir}}</div>
-				
-					<!-- <div class='itemLista-dir'>{{mini_desc}}</div> -->
 		</div>
 	
 	</div>
 	<div id='detalle-desc'>
-
 		{{long_desc}}
+		<div ng-if=' long_desc == "" ' id='detalle-no-cargo-info'>No se pudo cargar la informacion.</div>
 	</div>
 </div>
 

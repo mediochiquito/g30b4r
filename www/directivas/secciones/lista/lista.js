@@ -1,4 +1,4 @@
-geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZE,$filter) {
+geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZE,$filter, $timeout, lugaresService) {
  
  return {
     restrict: 'E',
@@ -6,21 +6,25 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
 
     link:function ($scope, $elem, $attrs){
 
+        $scope.filtro = ''
 		    $scope.screen_alto = window.innerHeight
         $scope.en_pagina = 10
+
+        var timer;
 
         $scope._set = function ($obj){
 
           $scope.en_pagina = 10;
-          $scope.array_items = JSON.parse( window.localStorage.getItem('json_lugares'));
+          $scope.array_items = lugaresService.getAll();
           $scope.total  = $scope.array_items.length;
-          
+            
         } 
+
         navigateService.setSecciones('lista', $scope._set);
 
 
         $scope.cargarMas = function (){
-            // revisar que hago despues con el delay   
+        
             setTimeout(function (){
                 $scope.en_pagina += 10;
                 $scope.$apply()
@@ -29,10 +33,14 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
         }
 
         $scope.keyDownFilter = function() {
-            document.querySelector('.listado').scrollTop = 0;
-            $scope.en_pagina = 10;
+            $timeout.cancel(timer)
+            timer = $timeout(function(){
+                $scope.filtro =  $scope.txtfiltro
+                document.querySelector('.listado').scrollTop = 0;
+                $scope.en_pagina = 10;
+            }, 300);            
         }
-
+        
         // porque no puedo obtener el total con el filtro solo son el limit
         $scope.$watch('filtro', function (){
 
@@ -41,7 +49,6 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
             }catch(e){}
            
         })
-
 
 
       	var holder_scrolleable = angular.element(document.querySelector('.listado'));

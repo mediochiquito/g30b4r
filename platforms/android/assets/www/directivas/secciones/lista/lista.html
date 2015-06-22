@@ -1,5 +1,5 @@
 <div id='lista-content-input'>
-	<input type='text' placeholder='Buscar...' ng-model='filtro' ng-change='keyDownFilter()' class='lista-input-filter' />
+	<input type='text' placeholder='Buscar...' ng-model='txtfiltro' ng-change='keyDownFilter()' class='lista-input-filter' />
 </div>
 
 <!-- 
@@ -14,7 +14,7 @@
 					item='item' 
 					enscroll= 'enscroll' 
 					altoholder = 'altoholder'
-					ng-click="select_item(item.id)" class='item-lista'></div>
+					ng-click="select_item(item)" class='item-lista'></div>
 
 	<div boton-base  ng-click='cargarMas()' id='listado-btn-cargar-mas' ng-if=' total > cantidad.length'><div>CARGAR MÁS</div></div>
 

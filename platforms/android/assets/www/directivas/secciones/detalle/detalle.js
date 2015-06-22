@@ -1,4 +1,4 @@
-geobarApp.directive('detalle', function(navigateService, $log, $http, SERVER) {
+geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER) {
   
   return {
   	
@@ -7,29 +7,51 @@ geobarApp.directive('detalle', function(navigateService, $log, $http, SERVER) {
 
     link:function ($scope, $elem, $attrs){
 		
-		$scope.$watch('navigateService.obj_detalle', function(oldVal, newVal, scope) {
+    	var _callback
+
+		/*$scope.$watch('navigateService.obj_detalle', function(oldVal, newVal, scope) {
 			
 			if(navigateService.obj_detalle!=null) cargar()
-
+		
 		});
+		*/
+		
+       
+		$scope._set = function ($obj, $callback){
 
+			_callback = $callback;
+			$scope.id   = $obj.item.id;
+			$scope.name = $obj.item.name;
+			$scope.cat  = $obj.item.cat;
+			$scope.tel  = $obj.item.tel;
+			$scope.dir  = $obj.item.dir;
+			$scope.tipo = $obj.item.tipo;
+			
+			$scope.url_img = SERVER + 'img/lugares/' + $scope.id + '/';
+			
+			Loading.mostrar();
 
-		function cargar(){
-			
-			$scope.id = navigateService.obj_detalle['id'];
-			
 			$http.get(SERVER+'ws.php?method=getDetalleEvento&id=' + $scope.id).
+
 			  success(function(data, status, headers, config) {
-					$scope.nombre = data.nombre;
-					$scope.desc = data.desc;
+					$scope.mini_desc = data.mini_desc;
+					$scope.long_desc = data.long_desc;
+					$scope.fotos = data.fotos;
+					Loading.ocultar();
+
+					_callback()
 			  }).
+			  
 			  error(function(data, status, headers, config) {
-			  		
+			  		$scope.long_desc = '';	
+			  		Loading.ocultar();
+			  		_callback()
 			  });
 
-
-
 		}
+
+
+		 navigateService.setSecciones('detalle', $scope._set)
 
     }
 

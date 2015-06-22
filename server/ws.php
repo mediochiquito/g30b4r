@@ -1,11 +1,21 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 include 'init.php';
-//sleep(2);
 
 
 $cat = array('Bar', 'Restaurante', 'Cine');
 switch($_GET['method']){
+
+	case 'getHomeImages':
+
+		$handle = opendir(dirname(realpath(__FILE__)).'/img/home/');
+        while($file = readdir($handle)){
+            if($file !== '.' && $file !== '..'){
+               $obj->fotos[] = $file;
+            }
+        }
+        echo json_encode($obj);
+		break;
 
 	case 'getDetalleEvento':
 		
@@ -30,7 +40,7 @@ switch($_GET['method']){
 		$bucle = 0;
 		while($row = mysql_fetch_object($rs)){
 			
-			for($i =0; $i<76; $i++){
+			for($i =0; $i<2; $i++){
 				
 				$o = new stdClass();
 				$o->id = $row->lugares_id;
@@ -46,22 +56,7 @@ switch($_GET['method']){
 			}
 		}
 
-		/*
-		for($i =0; $i<4; $i++){
-			
-			foreach ($array as $value) {
-				
-				$array[] = $value;
-			}
-
-		}
-		$bucle = 0;
-		foreach ($array as $value) {
-			$value->name =  $bucle;
-			$array[] = $value;
-
-		}*/
-	//	shuffle($array);
+		shuffle($array);
 		echo json_encode($array);
 		break;
 	
