@@ -20,7 +20,7 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
             
         } 
 
-        navigateService.setSecciones('lista', $scope._set);
+       navigateService.setSecciones('lista', $scope._set);
 
 
         $scope.cargarMas = function (){
@@ -41,7 +41,7 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
             }, 300);            
         }
         
-        // porque no puedo obtener el total con el filtro solo son el limit
+      
         $scope.$watch('filtro', function (){
 
             try{
@@ -75,8 +75,6 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
 	 		    navigateService.go('detalle', {item: $item});
 
 	   	}
-
-
     }	
   };
 })

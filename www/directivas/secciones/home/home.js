@@ -5,11 +5,11 @@ geobarApp.directive('home', function(navigateService, SERVER, $http) {
     link: function(scope, elem, attrs){
 
       var _callback;
-
+      var ya_cargo = false
     	scope.navigateService = navigateService
       scope.server = SERVER
       scope.url_img = SERVER + 'img/home/';
-     
+      
       scope.realidad = function (){
 
 
@@ -23,20 +23,24 @@ geobarApp.directive('home', function(navigateService, SERVER, $http) {
 
         });
 
-
       }
 
       scope._set = function ($obj, $callback){
         _callback = $callback;
+       
        // Loading.mostrar();
+        if(ya_cargo) {
+          _callback(); return;
+        }
 
         $http.get(SERVER+'ws.php?method=getHomeImages').
 
           success(function(data, status, headers, config) {
 
             scope.fotos = data.fotos;
-
-           // Loading.ocultar();
+            ya_cargo = true;
+            
+            // Loading.ocultar();
             _callback()
 
           }).
@@ -46,13 +50,12 @@ geobarApp.directive('home', function(navigateService, SERVER, $http) {
               _callback()
           });
 
-      }
+        }
 
-      navigateService.setSecciones('home', scope._set)
+        navigateService.setSecciones('home', scope._set)
 
-    
-       setTimeout(function (){
-        
+        // me cargo a mi misma
+        setTimeout(function (){
          navigateService.go('home')
          scope.$apply();
        }, 100)

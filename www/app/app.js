@@ -1,65 +1,59 @@
-var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch'])
+var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch', 'Utils', 'cordovaGeolocationModule'])
 
  .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
  .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
 
-geobarApp.controller("mainController",  function($rootScope, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService) {
+geobarApp.controller("mainController",  function($rootScope, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService) {
 
 	$scope.rootScope = $rootScope
 	$scope.alto_screen = window.innerHeight;
 
+	console.log(navigator.userAgent)
+
 	$scope.init = function (){
 
-		$timeout(iniciar_app, 100)
-		//()
-	}
-	
-
-/*	if(window.localStorage.getItem('sync') == null) window.localStorage.setItem('sync', 0);	
-	var sync = window.localStorage.getItem('sync');
-	var d = new Date();
-	$http.get(SERVER+'sync.txt?ac=' + d.getTime()).success(function(data_sync, status, headers, config) {
-
-	
-		if(String(data_sync) != String(sync)){
-*/	
-	
-/*
-			$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
-          		
-		       window.localStorage.setItem('json_lugares', JSON.stringify(data));
-		     //  window.localStorage.setItem('sync', String(data_sync))
-		       $rootScope.json_lugares = data
-
-		       iniciar_app()
-
-		    });
-*/
-	
+		$rootScope.position = null;
 
 		
 
-	/*	}else{
-
-			iniciar_app();
-
-		}
+		cordovaGeolocationService.watchPosition();
 
 
-	}).error(function(){
+		if(window.localStorage.getItem('sync') == null) window.localStorage.setItem('sync', 0);	
+		var sync = window.localStorage.getItem('sync');
+		var d = new Date();
+		$http.get(SERVER+'sync.txt?ac=' + d.getTime()).success(function(data_sync, status, headers, config) {
 
-		iniciar_app()
+			if(String(data_sync) != String(sync)){
+		
+				$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
+	          		
+			       window.localStorage.setItem('json_lugares', JSON.stringify(data));
+			       window.localStorage.setItem('sync', String(data_sync))
+			       $rootScope.json_lugares = data
 
-	})*/
-	 
+			       iniciar_app()
+
+			    });
+
+			}else{
+
+				iniciar_app();
+
+			}
+
+		}).error(function(){
+
+			iniciar_app()
+
+		})
+	}
+
 	function iniciar_app(){
 		
 		lugaresService.setAll()
 		Loading.ocultar()
 	}
-
-	
-
 
 	if(window.localStorage.getItem('distancia') == null) window.localStorage.setItem('distancia', 5);
 	if(window.localStorage.getItem('bares') == null) window.localStorage.setItem('bares', 1);

@@ -1,1 +1,9 @@
 - cruz para borrar filtro
+
+- bullets en tocuhslider
+
+- tint #fff en listas
+
+- performance tocuhslider on move
+
+- performance map

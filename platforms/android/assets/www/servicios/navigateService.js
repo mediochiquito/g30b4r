@@ -49,11 +49,16 @@ geobarApp.service('navigateService', function($log,mapaService){
 				break;
 
 			case 'mapa':
-				this.secciones['mapa']()
-				go_execute(secc, obj, entra_a_historia, $dir_animate)
+				if(!$recargar) go_execute(secc, obj, entra_a_historia, $dir_animate);
+				else{
+					
+					go_execute(secc, obj, entra_a_historia, $dir_animate);
+					this.secciones['mapa'](obj);
+				}
 				break;
 
 			case 'lista':
+				
 				this.secciones['lista'](obj)
 				go_execute(secc, obj, entra_a_historia, $dir_animate)
 				break;
