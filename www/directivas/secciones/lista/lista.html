@@ -9,11 +9,12 @@
 <div class='listado' style="height:{{screen_alto-132}}px">
 
 	<div item-lista ng-repeat="item in array_items | filter: filtro | limitTo:en_pagina as cantidad" 
-					ng-class=" {'bg-color-celeste': (item.tipo==1), 'bg-color-verde': (item.tipo==2) , 'bg-color-rosa': (item.tipo==3)} "
+					ng-class=" {'bg-color-celeste': (item.tipo==1), 'bg-color-verde': (item.tipo==2) , 'bg-color-rosa': (item.tipo==3), 'bg-color-naranja': (item.tipo==4)}"
 					index='{{$index}}' 
 					item='item' 
 					enscroll= 'enscroll' 
 					altoholder = 'altoholder'
+					siempre-visible='false' 
 					ng-click="select_item(item)" class='item-lista'></div>
 
 	<div boton-base  ng-click='cargarMas()' id='listado-btn-cargar-mas' ng-if=' total > cantidad.length'><div>CARGAR MÁS</div></div>

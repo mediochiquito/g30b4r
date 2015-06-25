@@ -9,14 +9,6 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
 		
     	var _callback
 
-		/*$scope.$watch('navigateService.obj_detalle', function(oldVal, newVal, scope) {
-			
-			if(navigateService.obj_detalle!=null) cargar()
-		
-		});
-		*/
-		
-       
 		$scope._set = function ($obj, $callback){
 
 			_callback = $callback;
@@ -31,15 +23,16 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
 			
 			Loading.mostrar();
 
-			$http.get(SERVER+'ws.php?method=getDetalleEvento&id=' + $scope.id).
+			$http.get(SERVER+'ws.php?method=getDetalle&id=' + $scope.id).
 
 			  success(function(data, status, headers, config) {
-					$scope.mini_desc = data.mini_desc;
+					
 					$scope.long_desc = data.long_desc;
-					$scope.fotos = data.fotos;
+					$scope.fotos_detalle = data.fotos;
 					Loading.ocultar();
-
 					_callback()
+
+
 			  }).
 			  
 			  error(function(data, status, headers, config) {

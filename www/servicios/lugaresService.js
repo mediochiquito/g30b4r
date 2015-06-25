@@ -12,6 +12,21 @@ geobarApp.factory('lugaresService', function(){
         }
     };
 
+})
 
+geobarApp.factory('eventosService', function(){
+
+    var all;
+
+    return {
+        setAll: function() {
+            all = JSON.parse( window.localStorage.getItem('json_eventos'));
+            return;       
+        },
+        getAll: function() {
+            return all;
+        }
+    };
 
 })
+

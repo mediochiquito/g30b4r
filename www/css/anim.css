@@ -1,3 +1,21 @@
+.mapa-info.ng-hide-add, .mapa-info.ng-hide-remove {
+  transition: 0s linear all;
+}
+.mapa-info.ng-hide{
+	margin-bottom: -200px;
+}
+.mapa-info.ng-hide-add{
+	margin-bottom: -200px;
+}
+.mapa-info.ng-hide-add-active{
+	margin-bottom: 0px;
+}
+.mapa-info.ng-hide-add-active,
+.mapa-info.ng-hide-remove-active {
+  transition: .3s linear all;
+}
+
+/*      */
 
 .enterSeccionShow-add-active,
 .enterSeccionHide-add-active,

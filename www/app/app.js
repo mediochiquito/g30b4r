@@ -3,7 +3,7 @@ var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch', 'Utils', 'c
  .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
  .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
 
-geobarApp.controller("mainController",  function($rootScope, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService) {
+geobarApp.controller("mainController",  function($rootScope, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService, eventosService ) {
 
 	$scope.rootScope = $rootScope
 	$scope.alto_screen = window.innerHeight;
@@ -14,46 +14,64 @@ geobarApp.controller("mainController",  function($rootScope, cordovaGeolocationS
 
 		$rootScope.position = null;
 
-		
-
 		cordovaGeolocationService.watchPosition();
 
+		if(window.localStorage.getItem('locala_sync_lugares') == null) window.localStorage.setItem('locala_sync_lugares', 0);	
+		if(window.localStorage.getItem('local_sync_eventos') == null)  window.localStorage.setItem('local_sync_eventos', 0);	
 
-		if(window.localStorage.getItem('sync') == null) window.localStorage.setItem('sync', 0);	
-		var sync = window.localStorage.getItem('sync');
-		var d = new Date();
-		$http.get(SERVER+'sync.txt?ac=' + d.getTime()).success(function(data_sync, status, headers, config) {
+		$http.get(SERVER+'sync.json?ac=' + new Date().getTime()).success(function(json_sync, status, headers, config) {
+				
+			var locala_sync_lugares = window.localStorage.getItem('locala_sync_lugares');	
+			var locala_sync_eventos = window.localStorage.getItem('locala_sync_eventos');	
 
-			if(String(data_sync) != String(sync)){
-		
-				$http.get(SERVER+'ws.php?method=getListaEvetos').success(function(data, status, headers, config) {
-	          		
-			       window.localStorage.setItem('json_lugares', JSON.stringify(data));
-			       window.localStorage.setItem('sync', String(data_sync))
-			       $rootScope.json_lugares = data
+			var debe_sincronzar = '';
+			if(json_sync.lugares != locala_sync_lugares) debe_sincronzar += 'lugares'
+			if(json_sync.eventos != locala_sync_eventos) debe_sincronzar += 'eventos'
 
-			       iniciar_app()
+			if(debe_sincronzar != ''){
 
-			    });
+				$http.get(SERVER+'ws.php?method=getLista&data=' + debe_sincronzar + '&ac=' + new Date().getTime())
+				.success(function(data, status, headers, config) {
 
-			}else{
+					if(typeof data.lugares != 'undefined'){
+						window.localStorage.setItem('json_lugares', JSON.stringify(data.lugares));
+						window.localStorage.setItem('locala_sync_lugares', json_sync.lugares)
+					}
 
-				iniciar_app();
+					if(typeof data.eventos != 'undefined'){
+						window.localStorage.setItem('json_eventos', JSON.stringify(data.eventos));
+						window.localStorage.setItem('locala_sync_eventos', json_sync.eventos)
+					}
 
-			}
+					// actualizo ok
+				    iniciar_app();
 
+				})
+				.error(function(){
+					iniciar_app()
+				});
+
+			} else  iniciar_app();
+				
 		}).error(function(){
-
 			iniciar_app()
-
 		})
+
 	}
 
-	function iniciar_app(){
-		
+
+
+
+	function iniciar_app(){	
 		lugaresService.setAll()
+		eventosService.setAll()
+		
 		Loading.ocultar()
 	}
+
+
+
+
 
 	if(window.localStorage.getItem('distancia') == null) window.localStorage.setItem('distancia', 5);
 	if(window.localStorage.getItem('bares') == null) window.localStorage.setItem('bares', 1);

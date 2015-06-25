@@ -7,3 +7,8 @@
 - performance tocuhslider on move
 
 - performance map
+
+- imagenes por default
+
+- quitar eventos pasados del lisitado
+

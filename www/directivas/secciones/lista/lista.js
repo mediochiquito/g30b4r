@@ -1,4 +1,4 @@
-geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZE,$filter, $timeout, lugaresService) {
+geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZE,$filter, $timeout, lugaresService, eventosService) {
  
  return {
     restrict: 'E',
@@ -13,9 +13,12 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
         var timer;
 
         $scope._set = function ($obj){
-
+           $scope.filtro = ''
+          $scope.txtfiltro = '';
+          document.querySelector('.listado').scrollTop = 0;   
           $scope.en_pagina = 10;
-          $scope.array_items = lugaresService.getAll();
+          if($obj == 'lugares') $scope.array_items = lugaresService.getAll();
+          if($obj == 'eventos') $scope.array_items = eventosService.getAll();
           $scope.total  = $scope.array_items.length;
             
         } 
@@ -86,13 +89,16 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
             item:'=', 
             index:'@', 
             enscroll: '=',
-            altoholder: '='
+            altoholder: '=',
+            siempreVisible: '@'
         },
 
     templateUrl: 'directivas/secciones/lista/itemLista.html',
     link:function ($scope, $elem, $attrs){
       
-        $scope.img_url = SERVER + 'img/lugares/' + $scope.item.id + '/thumb.jpg';
+        $scope.img_url = SERVER + 'img/lugares/';
+
+        
 
     }
 

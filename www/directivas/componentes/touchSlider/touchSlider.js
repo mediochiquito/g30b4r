@@ -1,11 +1,13 @@
 geobarApp.directive('touchSlider', function(Loading, SERVER, $log) {
+
   return {
     
     restrict: 'E', 
+   
     scope: {
     		fotos: '=',
-			urlImgs: '='
-	},
+			  urlImgs: '='
+	   },
 
     templateUrl: 'directivas/componentes/touchSlider/touchSlider.html',
 
@@ -16,18 +18,19 @@ geobarApp.directive('touchSlider', function(Loading, SERVER, $log) {
         var offsetX = 0
         var finX = 0
         var en_x = 0
-    
+      
         var cien_porciento = window.innerWidth
 
-    	elem.bind('touchstart', function(e){
+       
+    	 elem.bind('touchstart', function(e){
             drgando = true
             elem.children('.tiraSlide').css('-webkit-transition', '0s')
             offsetX = ( e.touches[0].clientX)
     	})
 
-        elem.on('touchmove', function(e){
+      elem.on('touchmove', function(e){
             elem.children('.tiraSlide').css('-webkit-transform', 'translateX('+ (e.touches[0].clientX - offsetX - en_x) +'px)')
-        })
+      })
 
     	elem.on('touchend', function(e){
              
@@ -39,8 +42,8 @@ geobarApp.directive('touchSlider', function(Loading, SERVER, $log) {
                  scope.pagina --
              }
 
-            if(scope.pagina<0) scope.pagina = 0; 
-            if(scope.pagina>=scope.fotos.length) scope.pagina = scope.fotos.length-1; 
+            if(scope.pagina < 0) scope.pagina = 0; 
+            if(scope.pagina >= scope.fotos.length) scope.pagina = scope.fotos.length-1; 
 
             en_x = (scope.pagina * cien_porciento)
             elem.children('.tiraSlide').css('-webkit-transition', '.3s')
