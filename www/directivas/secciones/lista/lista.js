@@ -9,22 +9,21 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
         $scope.filtro = ''
 		    $scope.screen_alto = window.innerHeight
         $scope.en_pagina = 10
-
+       // $scope.type = $obj
         var timer;
 
         $scope._set = function ($obj){
-           $scope.filtro = ''
+          $scope.filtro = ''
           $scope.txtfiltro = '';
           document.querySelector('.listado').scrollTop = 0;   
           $scope.en_pagina = 10;
-          if($obj == 'lugares') $scope.array_items = lugaresService.getAll();
-          if($obj == 'eventos') $scope.array_items = eventosService.getAll();
+          if($obj == 'lugares') $scope.array_items = lugaresService.get();
+          if($obj == 'eventos') $scope.array_items = eventosService.get();
           $scope.total  = $scope.array_items.length;
-            
         } 
 
-       navigateService.setSecciones('lista', $scope._set);
-
+        navigateService.setSecciones('lista', $scope._set);
+ 
 
         $scope.cargarMas = function (){
         
@@ -75,7 +74,7 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
 	     
 	    $scope.select_item = function ($item){
 
-	 		    navigateService.go('detalle', {item: $item});
+	 		    navigateService.go('detalle',  $item);
 
 	   	}
     }	
@@ -86,19 +85,20 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
   return {
     restrict: 'A',
     scope: {
+           
             item:'=', 
             index:'@', 
             enscroll: '=',
             altoholder: '=',
             siempreVisible: '@'
-        },
+     },
 
     templateUrl: 'directivas/secciones/lista/itemLista.html',
     link:function ($scope, $elem, $attrs){
       
         $scope.img_url = SERVER + 'img/lugares/';
 
-        
+      
 
     }
 

@@ -4,7 +4,7 @@
 
 		<img src='img/blankDetalle.png' class='blankImg' />
 		
-		<touch-slider class='touchSlider' fotos=' fotos ' url-imgs=' url_img ' ></touch-slider>
+		<touch-slider class='touchSlider' fotos=' fotos_detalle ' url-imgs=' url_img ' ></touch-slider>
 
 	</div>
 
@@ -13,17 +13,17 @@
 		<div id='detalle-botonera'>
 			<div>
 				<boton-sistema id='detalle-btn_tel' imagen="img/btns/tel2.svg"></boton-sistema>
-				<boton-sistema id='detalle-btn_dir'  imagen="img/btns/dir.svg"></boton-sistema>
+				<boton-sistema accion="goDir()" id='detalle-btn_dir'  imagen="img/btns/dir.svg"></boton-sistema>
 				<boton-sistema id='detalle-btn_star'  imagen="img/btns/star.svg"></boton-sistema>
-				<boton-sistema id='detalle-btn_lampara'  imagen="img/btns/lampara.svg"></boton-sistema>
+				<boton-sistema accion="goMapa()" id='detalle-btn_lampara'  imagen="img/btns/lampara.svg"></boton-sistema>
 			</div>
 		</div>
 
-		<div id='detalle-mini-desc'  ng-class=" {'bg-color-celeste': (tipo==1), 'bg-color-verde': (tipo==2) , 'bg-color-rosa': (tipo==3)} " >
-					<div class='itemLista-name'>{{name}}</div>
-					<div class='itemLista-tipo'>{{cat}}</div> 
-					<div class='itemLista-tel'>T. {{tel}}</div>
-					<div class='itemLista-dir'>{{dir}}</div>
+		<div id='detalle-mini-desc'  ng-class=" {'bg-color-bar': (item.tipo==1), 'bg-color-restaurante': (item.tipo==2) , 'bg-color-cine': (item.tipo==3), 'bg-color-evento': (item.tipo==4)} " >
+					<div class='itemLista-name'>{{item.name}}</div>
+					<div class='itemLista-tipo'>{{item.cat}}</div> 
+					<div class='itemLista-tel'>T. {{item.tel}}</div>
+					<div class='itemLista-dir'>{{item.dir}}</div>
 		</div>
 	
 	</div>

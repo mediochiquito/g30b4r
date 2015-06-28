@@ -2,7 +2,6 @@
 
 - bullets en tocuhslider
 
-- tint #fff en listas
 
 - performance tocuhslider on move
 
@@ -12,3 +11,8 @@
 
 - quitar eventos pasados del lisitado
 
+- share (que se hace con el link?)
+
+- group markers 
+
+- sonidos en click

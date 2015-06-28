@@ -1,6 +1,7 @@
 *{
    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
+
 @font-face {
     font-family: 'robotolight';
     src: url('fonts/roboto-light-webfont.eot');
@@ -12,6 +13,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'robotobold';
     src: url('fonts/roboto-bold-webfont.eot');
@@ -72,18 +74,22 @@ body{
     height: 80px;
 }
 
-
-.bg-color-verde{
-    background-color: #28eaa4
+.alpha{
+    visibility:hidden;
 }
-.bg-color-celeste{
-    background-color: #00ccff
-}
-.bg-color-rosa{
+.bg-color-bar{
     background-color: #ff99ff
 }
-.bg-color-naranja{
-    background-color: #FCB46E
+.bg-color-restaurante{
+
+ background-color: #EFE923
+
+}
+.bg-color-cine{
+  background-color: #28eaa4 
+}
+.bg-color-evento{
+     background-color: #00ccff
 }
 
 #taxi-box-shadow{
@@ -127,6 +133,11 @@ body{
 #btn_home_ar{
     transition:.2s;
 }
+
+.botonListaOver{
+    background-color: #fff !important;
+}
+
 
 .botonOver{
     transform: scale(.9,.9);
@@ -555,6 +566,8 @@ boton-sistema#btn_home_quehacer{
 
     
 }
+
+
 #detalle-btn_tel{
     position: relative;
     height: 60px;
@@ -576,7 +589,7 @@ boton-sistema#btn_home_quehacer{
 }
 #detalle-btn_dir > img{
     position: relative;
-    margin: 14px 0px 0px 6px;
+    margin: 14px 0px 0px 7px;
     height: 29px;
 }
 #detalle-btn_star{
@@ -587,8 +600,8 @@ boton-sistema#btn_home_quehacer{
 }
 #detalle-btn_star > img{
     position: relative;
-    margin: 14px 0px 0px 4px;
-    width: 30px;
+    margin: 12px 0px 0px 4px;
+    width: 32px;
 }
 #detalle-btn_lampara{
     position: relative;
@@ -598,8 +611,22 @@ boton-sistema#btn_home_quehacer{
 }
 #detalle-btn_lampara > img{
     position: relative;
-    margin: 4px 0px 0px 4px;
-    height: 41px;
+    margin: 12px 0px 0px 6px;
+    height: 33px;
+}
+
+
+#detalle-btn_info{
+    position: relative;
+    width: 40px;
+    height: 60px;    
+    float: left;
+}
+
+#detalle-btn_info > img{
+    position: relative;
+    margin: 14px 0px 0px 4px;
+    height: 31px;
 }
 
 #detalle-mini-desc .itemLista-name{
@@ -608,7 +635,7 @@ margin-top:0px;
 
 #detalle-no-cargo-info{
     font-size: 16px;
-
+Q
     
     text-align: center;
     padding: 20px;
@@ -616,6 +643,14 @@ margin-top:0px;
 
 
 
+
+#mapa-botonera {
+    width: 170px;
+    position: relative;
+    margin: 0 auto;
+    height: 50px;
+    margin-top: 8px;
+}
 /*************/
 /* TOUCH SLIDER */
 
@@ -650,7 +685,6 @@ margin-top:0px;
 
 #el-mapa{
     width: 100%;
-    background-color: red;
     height: 100%;
 }
 #mapa-info-content{

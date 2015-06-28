@@ -21,6 +21,7 @@ geobarApp.directive('touchSlider', function(Loading, SERVER, $log) {
       
         var cien_porciento = window.innerWidth
 
+        var tiraSlide = elem.children('.tiraSlide')
        
     	 elem.bind('touchstart', function(e){
             drgando = true
@@ -29,7 +30,7 @@ geobarApp.directive('touchSlider', function(Loading, SERVER, $log) {
     	})
 
       elem.on('touchmove', function(e){
-            elem.children('.tiraSlide').css('-webkit-transform', 'translateX('+ (e.touches[0].clientX - offsetX - en_x) +'px)')
+           tiraSlide.css('-webkit-transform', 'translateX('+ (e.touches[0].clientX - offsetX - en_x) +'px)')
       })
 
     	elem.on('touchend', function(e){

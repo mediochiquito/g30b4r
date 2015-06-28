@@ -3,6 +3,10 @@ header('Access-Control-Allow-Origin: *');
 include 'init.php';
 
 
+function random() {
+ return mt_rand() / (mt_getrandmax() + 1);
+}
+
 $cat = array('Bar', 'Restaurante', 'Cine', 'Evento');
 switch($_GET['method']){
 
@@ -41,35 +45,51 @@ switch($_GET['method']){
 
 		while($row = mysql_fetch_object($rs)){
 			
-				$o = new stdClass();
-				$o->id = $row->lugares_id;
-				$o->tipo = $row->lugares_tipo;
-				$o->cat = $cat[$row->lugares_tipo-1];
-				$o->name = $row->lugares_nombre . ' ' . $bucle++;
-				$o->tel = $row->lugares_tel;
-				$o->dir = $row->lugares_dir;
-				$o->lat = $row->lugares_lat;
-				$o->lon = $row->lugares_lng;
 
 			if($row->lugares_tipo == 4){
 
-				$o->pub_ini = $row->lugares_pub_ini;
-				$o->pub_fin = $row->lugares_pub_fin;
 				for($i =0; $i<100; $i++){
+					$o = new stdClass();
+					$o->id = $row->lugares_id;
+					$o->tipo = $row->lugares_tipo;
+					$o->cat = $cat[$row->lugares_tipo-1];
+					$o->name = $row->lugares_nombre . ' ' . $bucle++;
+					$o->tel = $row->lugares_tel;
+					$o->dir = $row->lugares_dir;
+					$o->lat = $row->lugares_lat;
+					$o->lon = $row->lugares_lng;
+					$o->pub_ini = $row->lugares_pub_ini;
+					$o->pub_fin = $row->lugares_pub_fin;
+					
 					$array->eventos[] = $o;
 				}
+				shuffle($array->eventos);
 		
 			}else{
+
 				for($i =0; $i<100; $i++){
+					
+					$o = new stdClass();
+					$o->id = $row->lugares_id;
+					$o->tipo = $row->lugares_tipo;
+					$o->cat = $cat[$row->lugares_tipo-1];
+					$o->name = $row->lugares_nombre . ' ' . $bucle++;
+					$o->tel = $row->lugares_tel;
+					$o->dir = $row->lugares_dir;
+					$o->lat = (float)$row->lugares_lat + (random()*0.098);
+					$o->lon = (float)$row->lugares_lng - (random()*0.098);
+
 					$array->lugares[] = $o;
 				}
+
+				shuffle($array->lugares);
 			}
 			
 
 		}
 
-		shuffle($array->eventos);
-		shuffle($array->lugares);
+	
+		
 		echo json_encode($array);
 		break;
 

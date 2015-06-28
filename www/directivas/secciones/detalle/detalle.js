@@ -3,27 +3,35 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
   return {
   	
     restrict: 'E',
+      scope: {},
     templateUrl: 'directivas/secciones/detalle/detalle.html',
 
     link:function ($scope, $elem, $attrs){
 		
     	var _callback
+    	$scope.navigateService = navigateService;
+
+    	$scope.goMapa = function (){
+
+    		navigateService.go('mapa', {type:'item', item: $scope.item});
+    		
+    	}
+
+    	$scope.goDir =  function (){
+
+    		navigateService.go('mapa', {type:'dir', item: $scope.item});
+    		
+    	}
 
 		$scope._set = function ($obj, $callback){
 
 			_callback = $callback;
-			$scope.id   = $obj.item.id;
-			$scope.name = $obj.item.name;
-			$scope.cat  = $obj.item.cat;
-			$scope.tel  = $obj.item.tel;
-			$scope.dir  = $obj.item.dir;
-			$scope.tipo = $obj.item.tipo;
-			
-			$scope.url_img = SERVER + 'img/lugares/' + $scope.id + '/';
-			
+		
+			$scope.item = $obj;
+			$scope.url_img = SERVER + 'img/lugares/' + $scope.item.id + '/';
 			Loading.mostrar();
 
-			$http.get(SERVER+'ws.php?method=getDetalle&id=' + $scope.id).
+			$http.get(SERVER+'ws.php?method=getDetalle&id=' + $scope.item.id).
 
 			  success(function(data, status, headers, config) {
 					
@@ -31,7 +39,6 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
 					$scope.fotos_detalle = data.fotos;
 					Loading.ocultar();
 					_callback()
-
 
 			  }).
 			  
@@ -44,7 +51,7 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
 		}
 
 
-		 navigateService.setSecciones('detalle', $scope._set)
+		navigateService.setSecciones('detalle', $scope._set)
 
     }
 
