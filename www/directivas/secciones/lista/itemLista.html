@@ -1,6 +1,6 @@
 <div ng-if='((index*90) > (enscroll - 1000)) && ((index*90) <= (enscroll + altoholder) + 1000) ' >
 	
-	<img ng-src="{{img_url + item.id + '/thumb.jpg' }}" />
+	<img-loader server="{{img_url + item.id + '/thumb.jpg'}}" default='img/default/thumb_{{item.tipo}}.png'></img-loader>
 	<div class='itemLista-name'>{{item.name}}</div>
 	<div class='itemLista-tipo'>{{item.cat}}</div> 
 	<div class='itemLista-tel'>T. {{item.tel}}</div>

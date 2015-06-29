@@ -3,7 +3,7 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
   return {
   	
     restrict: 'E',
-      scope: {},
+    scope: {},
     templateUrl: 'directivas/secciones/detalle/detalle.html',
 
     link:function ($scope, $elem, $attrs){
@@ -12,7 +12,7 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
     	$scope.navigateService = navigateService;
 
     	$scope.goMapa = function (){
-
+    		
     		navigateService.go('mapa', {type:'item', item: $scope.item});
     		
     	}
@@ -35,6 +35,8 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
 
 			  success(function(data, status, headers, config) {
 					
+					$scope.long_desc = '';	
+					
 					$scope.long_desc = data.long_desc;
 					$scope.fotos_detalle = data.fotos;
 					Loading.ocultar();
@@ -44,6 +46,8 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
 			  
 			  error(function(data, status, headers, config) {
 			  		$scope.long_desc = '';	
+			  		$scope.url_img = 'img/default/';
+					$scope.fotos_detalle = [$scope.item.tipo + '.png']
 			  		Loading.ocultar();
 			  		_callback()
 			  });

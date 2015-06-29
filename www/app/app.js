@@ -1,16 +1,19 @@
-var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch', 'Utils', 'cordovaGeolocationModule'])
+var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch', 'Utils', 'cordovaGeolocationModule', 'plugins.toast'])
 
- .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+ //.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+ .constant('SERVER', 'http://mateomenestrina.no-ip.org/g30b4r/server/')
  .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
 
-geobarApp.controller("mainController",  function($rootScope, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService, eventosService ) {
+geobarApp.controller("mainController",  function($rootScope, ToastService, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService, eventosService ) {
 
 	$scope.rootScope = $rootScope
 	$scope.alto_screen = window.innerHeight;
 
-	console.log(navigator.userAgent)
+//	console.log(navigator.userAgent)
 
 	$scope.init = function (){
+
+
 
 		$rootScope.position = null;
 
@@ -19,7 +22,7 @@ geobarApp.controller("mainController",  function($rootScope, cordovaGeolocationS
 		if(window.localStorage.getItem('locala_sync_lugares') == null) window.localStorage.setItem('locala_sync_lugares', 0);	
 		if(window.localStorage.getItem('local_sync_eventos') == null)  window.localStorage.setItem('local_sync_eventos', 0);	
 
-		$http.get(SERVER+'sync.json?ac=' + new Date().getTime()).success(function(json_sync, status, headers, config) {
+		$http.get(SERVER+'sync.php?ac=' + new Date().getTime()).success(function(json_sync, status, headers, config) {
 				
 			var locala_sync_lugares = window.localStorage.getItem('locala_sync_lugares');	
 			var locala_sync_eventos = window.localStorage.getItem('locala_sync_eventos');	

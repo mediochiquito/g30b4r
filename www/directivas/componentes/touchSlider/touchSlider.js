@@ -1,4 +1,4 @@
-geobarApp.directive('touchSlider', function(Loading, SERVER, $log) {
+geobarApp.directive('touchSlider', function($document,Loading, SERVER, $log) {
 
   return {
     
@@ -6,51 +6,81 @@ geobarApp.directive('touchSlider', function(Loading, SERVER, $log) {
    
     scope: {
     		fotos: '=',
-			  urlImgs: '='
+        urlImgs: '=',
+			  imgDefault: '@'
 	   },
 
     templateUrl: 'directivas/componentes/touchSlider/touchSlider.html',
 
     link: function(scope, elem, attrs){
 
-        scope.pagina = 0
-        var drgando = false
-        var offsetX = 0
-        var finX = 0
-        var en_x = 0
-      
-        var cien_porciento = window.innerWidth
+        scope.t = 0;
+        scope.pagina = 0;
+        scope.enx = 0;
 
-        var tiraSlide = elem.children('.tiraSlide')
-       
-    	 elem.bind('touchstart', function(e){
-            drgando = true
-            elem.children('.tiraSlide').css('-webkit-transition', '0s')
-            offsetX = ( e.touches[0].clientX)
-    	})
+        var offsetX = 0;
+        var finX = 0;
+        var ultimo_x = 0;
+        var cien_porciento = window.innerWidth;
 
-      elem.on('touchmove', function(e){
-           tiraSlide.css('-webkit-transform', 'translateX('+ (e.touches[0].clientX - offsetX - en_x) +'px)')
+
+
+      scope.$watch('fotos', function($oldV, $newV){
+          scope.t = 0;
+          scope.pagina = 0;  
+          scope.enx = 0;
+
       })
 
-    	elem.on('touchend', function(e){
+    	elem.bind('touchstart', function(e){
+          
+            scope.t = '0s'
+            offsetX = (e.touches[0].clientX)
+            ultimo_x = scope.enx;
+            scope.$apply()
+
+            addListener()
+
+     	})
+
+       function doMove(e){
+          scope.enx =  Math.round(e.touches[0].clientX - offsetX + ultimo_x);
+      
+          scope.$apply();
              
-          	 finX = e.changedTouches[0].clientX
+       } 
+        function doEnd(e){
+              
+               finX = e.changedTouches[0].clientX
 
-             if(offsetX>finX){
-                 scope.pagina++
-             }else{
-                 scope.pagina --
-             }
+               if(offsetX>finX){
+                   scope.pagina++
+               }else{
+                   scope.pagina --
+               }
 
-            if(scope.pagina < 0) scope.pagina = 0; 
-            if(scope.pagina >= scope.fotos.length) scope.pagina = scope.fotos.length-1; 
+              if(scope.pagina < 0) scope.pagina = 0; 
+              if(scope.pagina >= scope.fotos.length) scope.pagina = scope.fotos.length-1; 
 
-            en_x = (scope.pagina * cien_porciento)
-            elem.children('.tiraSlide').css('-webkit-transition', '.3s')
-            elem.children('.tiraSlide').css('-webkit-transform', 'translateX( -' + en_x + 'px)' );
-         
-    	})
+              scope.t = '.2s';
+              scope.enx = -(scope.pagina * cien_porciento)
+              ultimo_x = scope.enx;
+            
+              scope.$apply();
+              removeListener()
+       } 
+
+      function addListener(){
+
+              $document.on('touchmove', doMove)
+
+              $document.on('touchend', doEnd);
+      }
+     
+      function removeListener(){
+    	 $document.off('touchmove', doMove)
+         $document.off('touchend', doEnd)
+      }
 
     }
   };

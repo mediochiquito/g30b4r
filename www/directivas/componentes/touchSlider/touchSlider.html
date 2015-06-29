@@ -1,6 +1,14 @@
-<div class='tiraSlide' style=' width: {{fotos.length*100}}% ' ng-scope-element="tira">
+
+<div class='tiraSlide' style=' width: {{fotos.length*100}}%; -webkit-transition: {{ t }}; -webkit-transform:translate3d( {{enx}}px, 0px, 0px )' >
+	
 	<img class='itemSlide' ng-repeat='foto in fotos track by $index' 
 						   ng-src='{{urlImgs}}{{foto}}'  
 						   style='width: {{ 100 / fotos.length }}%; left:{{ $index * (100 / fotos.length ) }}%' />
+
+</div>
+
+<div class='touch-slide-holder-bullets' ng-if=' fotos.length > 1 '>
+
+	<div class='touch-slide-bullet' ng-repeat='foto in fotos track by $index' ng-class="{'touch-bullet-select':(pagina == $index)}"></div>
 
 </div>

@@ -14,7 +14,7 @@ geobarApp.service('navigateService', function($log,mapaService){
  	}
 
  	this.setSecciones = function ($key, $init){
- 		console.log(this.secciones)
+ 		
  		this.secciones[$key] = $init;
  		
  	}

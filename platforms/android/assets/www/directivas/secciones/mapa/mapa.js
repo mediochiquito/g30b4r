@@ -1,5 +1,5 @@
 
-    geobarApp.directive('mapa', function(navigateService, lugaresService, eventosService, DistancePostion, cordovaGeolocationService) {
+    geobarApp.directive('mapa', function(navigateService, ToastService, lugaresService, eventosService, DistancePostion, cordovaGeolocationService) {
       
       return {
 
@@ -25,6 +25,11 @@
               navigateService.go('detalle',  scope.itemSelected);
                 
             }
+            scope.goDir =  function (){
+
+              navigateService.go('mapa', {type:'dir', item: scope.itemSelected});
+              
+            }
 
             function initialize() {
                     
@@ -35,14 +40,14 @@
                         streetViewControl:false,
                         mapTypeId: google.maps.MapTypeId.ROADMAP,
                         styles:[
-                                {
-                                    featureType: "poi",
-                                    elementType: "labels",
-                                    stylers: [
-                                          { visibility: "off" }
-                                    ]
-                                }
-                            ]
+                                  {
+                                      featureType: "poi",
+                                      elementType: "labels",
+                                      stylers: [
+                                            { visibility: "off" }
+                                      ]
+                                  }
+                               ]
 
                     };
 
@@ -103,7 +108,7 @@
 
             scope._set = function ($obj){       
 
-                if(!mapa_ya_inicializado) initialize();
+              if(!mapa_ya_inicializado) initialize();
 
                 bounds = new google.maps.LatLngBounds(); 
                 mapa_type = $obj.type
@@ -111,9 +116,7 @@
 
                 var my_pos = cordovaGeolocationService.getUltimaPosicion();
                 //console.log($obj)
-
                 // !!!! if(mapa_type == 'all' && no encontro gps) error
-
                 // arranco con delay para dejar ser a la tranicion
                 setTimeout(function (){
                      
@@ -176,7 +179,7 @@
 
                         } else {
 
-                            alert('no encontro mi pocision.');
+                            ToastService.show('No hemos enctroado tu ubicación.');
 
                         }
 

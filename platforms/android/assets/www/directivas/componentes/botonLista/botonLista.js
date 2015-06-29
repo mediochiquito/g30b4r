@@ -10,13 +10,7 @@ geobarApp.directive('botonLista', function(Loading) {
              elem.removeClass('botonListaOver')
              elem.unbind('touchmove', touch_move)
         }
-
     	elem.bind('touchstart', function(){
-
-           
-            
-            
-
             try{
                  elem.unbind('touchmove', touch_move)
                   elem.removeClass('botonListaOver')
