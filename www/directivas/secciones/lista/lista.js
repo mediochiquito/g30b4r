@@ -9,18 +9,34 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
         $scope.filtro = ''
 		    $scope.screen_alto = window.innerHeight
         $scope.en_pagina = 10
-       // $scope.type = $obj
-        var timer;
 
+        // $scope.type = $obj
+        var timer;
+        var en_lista;
         $scope._set = function ($obj){
           $scope.filtro = ''
           $scope.txtfiltro = '';
           document.querySelector('.listado').scrollTop = 0;   
           $scope.en_pagina = 10;
-          if($obj == 'lugares') $scope.array_items = lugaresService.get();
+          if($obj == 'lugares')  $scope.array_items =  lugaresService.get();
           if($obj == 'eventos') $scope.array_items = eventosService.get();
           $scope.total  = $scope.array_items.length;
-        } 
+          en_lista = $obj 
+        }
+
+       $scope.$on('cambioListaLugares', function(){
+        
+           if(en_lista == 'lugares') $scope._set('lugares')
+          
+       }); 
+
+         
+        $scope.resetFiltro = function(){
+           $scope.filtro = ''
+          $scope.txtfiltro = '';
+            
+        }
+
 
         navigateService.setSecciones('lista', $scope._set);
  
@@ -33,6 +49,8 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
             }, 300);
             
         }
+
+
 
         $scope.keyDownFilter = function() {
             $timeout.cancel(timer)

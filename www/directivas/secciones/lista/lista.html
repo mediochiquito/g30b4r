@@ -1,7 +1,7 @@
 <div id='lista-content-input'>
 	<input type='text' placeholder='Buscar...' ng-model='txtfiltro' ng-change='keyDownFilter()' class='lista-input-filter' />
+ 	<boton-sistema imagen="img/btns/clear.svg" ng-show=" txtfiltro != '' " accion='resetFiltro()' id='lista-btn_clear'></boton-sistema>
 </div>
-
 
 
 <div class='listado' style="height:{{screen_alto-132}}px">

@@ -1,10 +1,12 @@
-var geobarApp = angular.module('geobarApp', ['ngAnimate', 'ngTouch', 'Utils', 'cordovaGeolocationModule', 'plugins.toast'])
+var geobarApp = angular.module('geobarApp', ['ngTouch', 'ngAnimate', 'Utils', 'cordovaGeolocationModule', 'plugins.toast'])
 
  //.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
- .constant('SERVER', 'http://mateomenestrina.no-ip.org/g30b4r/server/')
+ //.constant('SERVER', 'http://mateomenestrina.no-ip.org/g30b4r/server/')
+ .constant('SERVER', 'http://dev.metamorf.com.uy/geobar/')
+ 
  .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
 
-geobarApp.controller("mainController",  function($rootScope, ToastService, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService, eventosService ) {
+geobarApp.controller("mainController",  function($document, $rootScope, ToastService, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService, eventosService ) {
 
 	$scope.rootScope = $rootScope
 	$scope.alto_screen = window.innerHeight;
@@ -13,24 +15,23 @@ geobarApp.controller("mainController",  function($rootScope, ToastService, cordo
 
 	$scope.init = function (){
 
-		ToastService.show('hola', 'long', 'center')
 
 
 		$rootScope.position = null;
 
 		cordovaGeolocationService.watchPosition();
 
-		if(window.localStorage.getItem('locala_sync_lugares') == null) window.localStorage.setItem('locala_sync_lugares', 0);	
+		if(window.localStorage.getItem('local_sync_lugares') == null) window.localStorage.setItem('local_sync_lugares', 0);	
 		if(window.localStorage.getItem('local_sync_eventos') == null)  window.localStorage.setItem('local_sync_eventos', 0);	
 
 		$http.get(SERVER+'sync.php?ac=' + new Date().getTime()).success(function(json_sync, status, headers, config) {
 				
-			var locala_sync_lugares = window.localStorage.getItem('locala_sync_lugares');	
-			var locala_sync_eventos = window.localStorage.getItem('locala_sync_eventos');	
+			var local_sync_lugares = window.localStorage.getItem('local_sync_lugares');	
+			var local_sync_eventos = window.localStorage.getItem('local_sync_eventos');	
 
 			var debe_sincronzar = '';
-			if(json_sync.lugares != locala_sync_lugares) debe_sincronzar += 'lugares'
-			if(json_sync.eventos != locala_sync_eventos) debe_sincronzar += 'eventos'
+			if(json_sync.lugares != local_sync_lugares) debe_sincronzar += 'lugares'
+			if(json_sync.eventos != local_sync_eventos) debe_sincronzar += 'eventos'
 
 			if(debe_sincronzar != ''){
 
@@ -39,12 +40,12 @@ geobarApp.controller("mainController",  function($rootScope, ToastService, cordo
 
 					if(typeof data.lugares != 'undefined'){
 						window.localStorage.setItem('json_lugares', JSON.stringify(data.lugares));
-						window.localStorage.setItem('locala_sync_lugares', json_sync.lugares)
+						window.localStorage.setItem('local_sync_lugares', json_sync.lugares)
 					}
 
 					if(typeof data.eventos != 'undefined'){
 						window.localStorage.setItem('json_eventos', JSON.stringify(data.eventos));
-						window.localStorage.setItem('locala_sync_eventos', json_sync.eventos)
+						window.localStorage.setItem('local_sync_eventos', json_sync.eventos)
 					}
 
 					// actualizo ok
@@ -71,10 +72,18 @@ geobarApp.controller("mainController",  function($rootScope, ToastService, cordo
 		eventosService.setAll()
 		
 		Loading.ocultar()
+
+		$document.on('touchmove', hack)
+
+        
+ 
 	}
 
 
+	function hack(){
 
+		$document.off('touchmove', hack)
+	}
 
 
 	if(window.localStorage.getItem('distancia') == null) window.localStorage.setItem('distancia', 5);

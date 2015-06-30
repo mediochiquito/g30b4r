@@ -22,12 +22,12 @@
 		define("DB_NAME", "geobar");
 	}else{
 
-		define("SERVER", "http://".$_SERVER['HTTP_HOST']."/", false);  
+		define("SERVER", "http://dev.metamorf.com.uy/geobar/", false);  
 	
 		define("DB_HOST", "localhost");
-		define("DB_USER", "itauverano");
-		define("DB_PASS", "Onc79%6d");
-		define("DB_NAME", "metamorf_verano");
+		define("DB_USER", "metamorf_moto");
+		define("DB_PASS", "gAuu969%");
+		define("DB_NAME", "metamorf_geobar");
 
 	}
 

@@ -17,6 +17,43 @@
 }*/
 
 
+/*CHEK BOX*/
+
+.checkBox-selected{
+	transition: .1s;
+	transform: translate3d(0,0,0px);
+}
+.checkBox-selected.ng-hide-add{
+	/* transform: scale(1,1);*/
+	opacity:1;
+	/*transform: translate3d(0,0,0);*/
+}
+
+.checkBox-selected.ng-hide-add-active{
+	/*transform: scale(0,0);*/
+	opacity:0;
+	/*transform: translate3d(0,0,-10px);*/
+}
+
+.checkBox-selected.ng-hide-remove{
+	/*transform: scale(0,0);*/
+	opacity:0;
+	/*transform: translate3d(0,0,-10px);*/
+}
+.checkBox-selected.ng-hide-remove-active{
+	/*transform: scale(1,1);*/
+	opacity:1;
+	/*transform: translate3d(0,0,0);*/
+}
+
+
+.checkBox-selected.ng-hide-add-active,
+.checkBox-selected.ng-hide-remove-active {
+
+}
+
+
+
 
 
 /*   
@@ -27,13 +64,13 @@ SECCIONES
 .backSeccionShow-add-active,
 .backSeccionHide-add-active
 {
-  transition: .4s;
+  transition: .5s;
 }
 
 .enterSeccionShow-add{
 	display: block!important;
-	z-index: 999999;
 	-webkit-transform: translate3d(100%, 0px, 0px);
+	z-index: 999999;
 	opacity: 1;
 }
 .enterSeccionShow-add-active{

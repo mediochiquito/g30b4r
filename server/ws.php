@@ -48,7 +48,7 @@ switch($_GET['method']){
 
 			if($row->lugares_tipo == 4){
 
-				for($i =0; $i<100; $i++){
+				for($i =0; $i<50; $i++){
 					$o = new stdClass();
 					$o->id = $row->lugares_id;
 					$o->tipo = $row->lugares_tipo;
@@ -67,7 +67,7 @@ switch($_GET['method']){
 		
 			}else{
 
-				for($i =0; $i<100; $i++){
+				for($i =0; $i<50; $i++){
 					
 					$o = new stdClass();
 					$o->id = $row->lugares_id;

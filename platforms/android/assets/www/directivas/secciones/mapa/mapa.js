@@ -19,7 +19,10 @@
             var directionsService;
             scope.itemSelected  = null;
             scope.navigateService = navigateService;
-           
+            
+
+
+
             scope.goInfo = function (){
 
               navigateService.go('detalle',  scope.itemSelected);
@@ -104,7 +107,12 @@
             }
 
 
-        
+            scope.$on('cambioListaLugares', function(){
+       
+               if(mapa_type == 'all') scope._set({type: 'all'})
+              
+           }); 
+
 
             scope._set = function ($obj){       
 
@@ -179,7 +187,7 @@
 
                         } else {
 
-                            ToastService.show('No hemos enctroado tu ubicación.');
+                            ToastService.show('No hemos enctroado tu ubicación.', 'long', 'center');
 
                         }
 

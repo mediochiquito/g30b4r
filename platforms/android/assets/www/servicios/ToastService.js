@@ -71,7 +71,7 @@ angular.module('plugins.toast', [])
         var q = $q.defer();
         try{
 
-          window.plugins.toast.show(message, duration, position, function (response) {
+          $window.plugins.toast.show(message, duration, position, function (response) {
              q.resolve(response);
           }, function (error) {
             q.reject(error);

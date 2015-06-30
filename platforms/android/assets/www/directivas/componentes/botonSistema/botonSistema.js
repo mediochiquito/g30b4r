@@ -1,4 +1,4 @@
-geobarApp.directive('botonSistema', function(Loading) {
+geobarApp.directive('botonSistema', function() {
   return {
     
     restrict: 'AE', 
@@ -30,6 +30,7 @@ geobarApp.directive('botonSistema', function(Loading) {
                scope.accion()
                scope.$apply()
     	})
+
 
     }
   };

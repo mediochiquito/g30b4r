@@ -45,13 +45,14 @@ geobarApp.directive('home', function(navigateService, SERVER, $http) {
                scope.fotos_home = ['home.png'];
         }
 
-        navigateService.setSecciones('home', scope._set)
+       navigateService.setSecciones('home', scope._set)
 
         // me cargo a mi misma
-        setTimeout(function (){
+      setTimeout(function (){
          navigateService.go('home')
          scope.$apply();
-        }, 100)
+          navigateService.go('home')
+       }, 100)
        
     }
   };

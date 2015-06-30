@@ -78,7 +78,7 @@ geobarApp.directive('touchSlider', function($document,Loading, SERVER, $log) {
       }
      
       function removeListener(){
-    	 $document.off('touchmove', doMove)
+    	  $document.off('touchmove', doMove)
          $document.off('touchend', doEnd)
       }
 
