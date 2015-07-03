@@ -97,7 +97,10 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 
 
 geobarApp.controller("menuCtrl", function($scope, navigateService){
+	
 	$scope.navigateService = navigateService;
+
+
 })	
 
 

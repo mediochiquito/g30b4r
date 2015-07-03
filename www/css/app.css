@@ -114,7 +114,10 @@ body{
     top: 3.6%;
 
 }
-
+.menu-header-en-home{
+    transform: translateX(-61px);
+    transition: .3s;
+}
 #taxi-voyentaxi{
     position: absolute;
     width: 80%;
@@ -129,7 +132,10 @@ body{
     top: 50%;
     margin-top: 60px;
 }
-    
+#header_menu >div{
+
+
+}
 #btn_home_ar{
     transition:.2s;
 }
@@ -143,9 +149,12 @@ body{
     transform: scale(.9,.9);
     -webkit-transform: scale(.9,.9);
 }
+
 .botonDisabled{
     opacity: .2;
 }
+
+
 .botonSistemaLabel{
     font-size: 12px;
     color: #fff;
