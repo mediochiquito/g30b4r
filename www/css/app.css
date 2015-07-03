@@ -705,7 +705,9 @@ margin-top:0px;
 
     -webkit-flex-direction: row;
 
-    -webkit-align-items: center;      justify-content: center;
+    -webkit-align-items: center;      
+
+    -webkit-justify-content: center;
 
 }
 
