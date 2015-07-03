@@ -72,17 +72,17 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "id": "cordova-plugin-statusbar.statusbar",
-        "clobbers": [
-            "window.StatusBar"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
         "id": "cordova-plugin-splashscreen.SplashScreen",
         "clobbers": [
             "navigator.splashscreen"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
+        "clobbers": [
+            "window.StatusBar"
         ]
     },
     {
@@ -101,14 +101,14 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-console": "1.0.0",
+    "cordova-plugin-crosswalk-webview": "1.2.0",
     "cordova-plugin-device": "1.0.0",
     "cordova-plugin-dialogs": "1.1.0",
     "cordova-plugin-geolocation": "1.0.0",
     "cordova-plugin-network-information": "1.0.0",
+    "cordova-plugin-splashscreen": "2.1.0",
     "cordova-plugin-statusbar": "1.0.0",
     "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-crosswalk-webview": "1.2.0",
-    "cordova-plugin-splashscreen": "2.1.0",
     "nl.x-services.plugins.toast": "2.1.1"
 }
 // BOTTOM OF METADATA

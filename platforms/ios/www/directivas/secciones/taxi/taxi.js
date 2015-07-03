@@ -4,7 +4,7 @@ geobarApp.directive('taxi', function() {
 	
 
   return {
-    restrict: 'E',
+    restrict: 'EA',
     templateUrl: 'directivas/secciones/taxi/taxi.html',
 	
     

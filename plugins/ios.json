@@ -5,49 +5,6 @@
     },
     "config_munge": {
         "files": {
-            "framework": {
-                "parents": {
-                    "AVFoundation.framework": [],
-                    "CoreData.framework": [],
-                    "CoreLocation.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "CoreText.framework": [],
-                    "GLKit.framework": [],
-                    "ImageIO.framework": [],
-                    "libc++.dylib": [],
-                    "libicucore.dylib": [],
-                    "libz.dylib": [],
-                    "OpenGLES.framework": [],
-                    "QuartzCore.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ],
-                    "SystemConfiguration.framework": [
-                        {
-                            "xml": true,
-                            "count": 1
-                        }
-                    ],
-                    "AudioToolbox.framework": [
-                        {
-                            "xml": true,
-                            "count": 1
-                        }
-                    ],
-                    "CoreGraphics.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ]
-                }
-            },
             "config.xml": {
                 "parents": {
                     "/*": [
@@ -72,6 +29,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -84,11 +45,41 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Toast\"><param name=\"ios-package\" value=\"Toast\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "framework": {
+                "parents": {
+                    "AudioToolbox.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "CoreLocation.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "QuartzCore.framework": [
+                        {
+                            "xml": false,
                             "count": 1
                         }
                     ]
@@ -101,16 +92,16 @@
                             "xml": "<string />",
                             "count": 1
                         }
-                    ],
-                    "Google Maps API Key": [],
-                    "NSLocationAlwaysUsageDescription": [],
-                    "CFBundleURLTypes": []
+                    ]
                 }
             }
         }
     },
     "installed_plugins": {
         "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
         "cordova-plugin-device": {
@@ -125,16 +116,13 @@
         "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.testing.mateo.geo"
-        },
-        "cordova-plugin-crosswalk-webview": {
-            "PACKAGE_NAME": "com.testing.mateo.geo"
-        },
-        "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
         "nl.x-services.plugins.toast": {

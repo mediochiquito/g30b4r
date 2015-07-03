@@ -1,22 +1,91 @@
-var geobarApp = angular.module('geobarApp', ['ngAnimate'])
+var geobarApp = angular.module('geobarApp', ['ngTouch', 'ngAnimate', 'Utils', 'cordovaGeolocationModule', 'plugins.toast'])
 
- .constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+ //.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+ //.constant('SERVER', 'http://mateomenestrina.no-ip.org/g30b4r/server/')
+ .constant('SERVER', 'http://dev.metamorf.com.uy/geobar/')
+ 
  .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
 
-//.constant('SERVER', 'http://192.168.235.140/g30b4r/server/')
-//.constant('SERVER', 'http://localhost/g30b4r/server/')
+geobarApp.controller("mainController",  function($document, $rootScope, ToastService, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService, eventosService ) {
+
+	$scope.rootScope = $rootScope
+	$scope.alto_screen = window.innerHeight;
+
+//	console.log(navigator.userAgent)
+
+	$scope.init = function (){
+
+
+
+		$rootScope.position = null;
+
+		cordovaGeolocationService.watchPosition();
+
+		if(window.localStorage.getItem('local_sync_lugares') == null) window.localStorage.setItem('local_sync_lugares', 0);	
+		if(window.localStorage.getItem('local_sync_eventos') == null)  window.localStorage.setItem('local_sync_eventos', 0);	
+
+		$http.get(SERVER+'sync.php?ac=' + new Date().getTime()).success(function(json_sync, status, headers, config) {
+				
+			var local_sync_lugares = window.localStorage.getItem('local_sync_lugares');	
+			var local_sync_eventos = window.localStorage.getItem('local_sync_eventos');	
+
+			var debe_sincronzar = '';
+			if(json_sync.lugares != local_sync_lugares) debe_sincronzar += 'lugares'
+			if(json_sync.eventos != local_sync_eventos) debe_sincronzar += 'eventos'
+
+			if(debe_sincronzar != ''){
+
+				$http.get(SERVER+'ws.php?method=getLista&data=' + debe_sincronzar + '&ac=' + new Date().getTime())
+				.success(function(data, status, headers, config) {
+
+					if(typeof data.lugares != 'undefined'){
+						window.localStorage.setItem('json_lugares', JSON.stringify(data.lugares));
+						window.localStorage.setItem('local_sync_lugares', json_sync.lugares)
+					}
+
+					if(typeof data.eventos != 'undefined'){
+						window.localStorage.setItem('json_eventos', JSON.stringify(data.eventos));
+						window.localStorage.setItem('local_sync_eventos', json_sync.eventos)
+					}
+
+					// actualizo ok
+				    iniciar_app();
+
+				})
+				.error(function(){
+					iniciar_app()
+				});
+
+			} else  iniciar_app();
+				
+		}).error(function(){
+			iniciar_app()
+		})
+
+	}
 
 
 
 
-geobarApp.controller("menuCtrl", function($scope, navigateService){
-	$scope.navigateService = navigateService;
-})	
+	function iniciar_app(){	
+		lugaresService.setAll()
+		eventosService.setAll()
+		
+		Loading.ocultar()
 
-geobarApp.controller("mainController",  function($scope, $location, $window, navigateService) {
+		$document.on('touchmove', hack)
 
-	
-	//$scope.navigateService = navigateService;
+        
+ 
+	}
+
+
+	function hack(){
+
+		$document.off('touchmove', hack)
+	}
+
+
 	if(window.localStorage.getItem('distancia') == null) window.localStorage.setItem('distancia', 5);
 	if(window.localStorage.getItem('bares') == null) window.localStorage.setItem('bares', 1);
 	if(window.localStorage.getItem('restaurantes') == null) window.localStorage.setItem('restaurantes', 1);
@@ -24,56 +93,54 @@ geobarApp.controller("mainController",  function($scope, $location, $window, nav
 	if(window.localStorage.getItem('eventos') == null) window.localStorage.setItem('eventos', 1);
 	if(window.localStorage.getItem('favoritos') == null) window.localStorage.setItem('favoritos', 1);
 	if(window.localStorage.getItem('push') == null) window.localStorage.setItem('push', 1);
-	
 });	
 
 
-geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, navigateService) {
-	 
+geobarApp.controller("menuCtrl", function($scope, navigateService){
+	
 	$scope.navigateService = navigateService;
 
-	$scope.active_page = 'home'
+
+})	
+
+
+
+
+
+
+
+
+geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, navigateService, $timeout) {
+	
+	$scope.navigateService = navigateService;
+	$scope.active_page = 'home';
 
 	$scope.getAnimationClass = function ($secc){
 		
-		if(!navigateService.habilTranciosinar($secc)) return;
+		var habil_trans = navigateService.habilTranciosinar($secc)
+		
+		if(!habil_trans) return;
+
 		var r = $scope.dir_animate + 'Hide'
 		if($scope.active_page == $secc) r = $scope.dir_animate + 'Show'
 		return r
 	}
 
 	$scope.$watch('navigateService.status', function(oldVal, newVal, scope) {
-	   
+	   	
 	    $scope.dir_animate = navigateService.dir_animate
 	    $scope.active_page = navigateService.active_page;
-	     
+	   
 	});
-	//setTimeout(function(){
-		navigateService.go('home')
-		//$scope.$apply()
-	//}, 100)
 
- 	
+	//setTimeout(function(){
+		 //navigateService.go('home')
+		// navigateService.go('detalle', {item: {'id': 2}});
+	//	$scope.$apply()
+	//}, 2000)
 
 	$scope.cliqueando = function (){
 		$scope.visible = false;
 	}
 
-});
-
-
-geobarApp.filter('rango',function(){
-		return function(array,desde,hasta){
-			desde = parseInt(desde,10);
-			hasta = parseInt(hasta,10);
-
-			try{
-				return array.slice(desde,hasta);
-			}catch(e){
-
-				return array
-			}
-
-			
-		}
 });

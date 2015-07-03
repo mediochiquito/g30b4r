@@ -1,0 +1,26 @@
+<div class='flexible'>
+
+	<div id='el-mapa'></div>
+
+	<div id='mapa-info-content' ng-show=' itemSelected != null ' class='mapa-info'>
+		<div item-lista 
+					ng-if = ' itemSelected != null ' 
+					index = '100'
+					enscroll = '1000'
+					altoholder = '10000'
+					ng-class=" {'bg-color-bar': (itemSelected.tipo==1), 'bg-color-restaurante': (itemSelected.tipo==2) , 'bg-color-cine': (itemSelected.tipo==3), 'bg-color-evento': (itemSelected.tipo==4)} "
+					item='itemSelected' 
+					siempre-visible='true' 
+					class='item-lista'></div>
+
+		<div id='mapa-botonera'>
+				<boton-sistema id='detalle-btn_tel' imagen="img/btns/tel2.svg"></boton-sistema>
+				<boton-sistema accion="goDir()" id='detalle-btn_dir'  imagen="img/btns/dir.svg"></boton-sistema>
+				<boton-sistema id='detalle-btn_star'  imagen="img/btns/star.svg"></boton-sistema>
+				<boton-sistema accion="goInfo()" id='detalle-btn_info'  imagen="img/btns/info.svg"></boton-sistema>			
+		</div>
+	</div>
+
+</div>
+
+

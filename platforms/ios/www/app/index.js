@@ -1,4 +1,4 @@
-window.onerror = function(message, file, line) {
+/*window.onerror = function(message, file, line) {
   var error = [];
   error.push('---[error]');
   if (typeof message == "object") {
@@ -11,10 +11,12 @@ window.onerror = function(message, file, line) {
     error.push(message);
   }
   alert(error.join("\n"));
-};
+};*/
+
 var app = {
    
     initialize: function() {
+        
         this.bindEvents();
        
     },
@@ -25,21 +27,16 @@ var app = {
     onDeviceReady: function() {
       
         try{
-            StatusBar.hide()
-        }catch(e){}
+            
+            if(device.platform == 'iOS') StatusBar.hide();
 
-
-        
-        var map = plugin.google.maps.Map.getMap(document.getElementById('map_canvas'));
-        map.on(plugin.google.maps.event.MAP_READY, function () {
-            map.setClickable( false );
             angular.bootstrap(document, ["geobarApp"]);
-        });
-        
 
-        
+        }catch(e){
 
+            angular.bootstrap(document, ["geobarApp"]);
 
-       
+        }
+
     }
 };

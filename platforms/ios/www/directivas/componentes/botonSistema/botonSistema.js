@@ -1,4 +1,4 @@
-geobarApp.directive('botonSistema', function($log) {
+geobarApp.directive('botonSistema', function() {
   return {
     
     restrict: 'AE', 
@@ -20,17 +20,17 @@ geobarApp.directive('botonSistema', function($log) {
 
             if(!elem.hasClass('botonDisabled')){
                 elem.addClass('botonOver')
-                scope.accion()
-                scope.$apply()
-
-                 map.on()
             }
+
     	})
 
     	elem.on('touchend', function(){
-           
+          
     		elem.removeClass('botonOver')
+               scope.accion()
+               scope.$apply()
     	})
+
 
     }
   };

@@ -1,48 +1,72 @@
 <!DOCTYPE html>
-<html >
+<html>
   <head>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://*.googleapis.com 'unsafe-inline'; script-src 'self' https://*.googleapis.com https://maps.gstatic.com https://maps.googleapis.com 'unsafe-inline' 'unsafe-eval'">
+
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+    <link rel="stylesheet" href="css/anim.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
 
-  <body ng-controller="mainController as main">
+  <body ng-controller="mainController" ng-init="init()">
+ 
+      <div ng-controller="seccionLoaderController" id='seccionLoaderController' style='height:{{alto_screen-80}}px'>
 
-    <div id='map_canvas'></div>
+          
+          <home      ng-class=' getAnimationClass("home") '    class='seccion' ></home>
+          <lista     ng-class=' getAnimationClass("lista") '   class='seccion' ></lista>
+          <config    ng-class=' getAnimationClass("config") '  class='seccion' ></config>
+          <detalle   ng-class=' getAnimationClass("detalle") ' class='seccion' ></detalle>
+          <taxi      ng-class=' getAnimationClass("taxi") '    class='seccion' id='taxi' ></taxi>
+          <mapa      ng-class=' getAnimationClass("mapa") '    class='seccion' id='mapa'></mapa>
+          
+      </div>  
 
-    <div ng-controller="menuCtrl" id='header_menu'>
+      <div ng-controller="menuCtrl" id='header_menu'>
 
-          <boton-sistema  id='btn_back'  ng-class='{botonDisabled: navigateService.esPrimerPage()}' accion="navigateService.back()" imagen="img/btns/back.svg"></boton-sistema>
-          <img src="img/header_separador.svg"  id='header_separador_0' class='header_separador' />
-          <boton-sistema  id='btn_menu' accion="navigateService.go('config')" imagen="img/btns/menu.svg"></boton-sistema>
-          <img src="img/header_separador.svg" id='header_separador_1' class='header_separador' />
-          <boton-sistema id='header_geobar' accion="navigateService.go('home')" imagen="img/header_geobar.svg"></boton-sistema>
-          <div id='header_linea' ></div>
-          <boton-sistema imagen="img/btns/taxi.svg" accion="navigateService.go('taxi')" id='btn_taxi'></boton-sistema>
+        <div id='menu-header' ng-class='{"menu-header-en-home": navigateService.esPrimerPage()}' >
 
-    </div>
+            <boton-sistema  id='btn_back'  
+                            ng-class='{botonDisabled: navigateService.esPrimerPage()}' accion="navigateService.back()" imagen="img/btns/back.svg"></boton-sistema>
 
-    <div ng-controller="seccionLoaderController" id='seccionLoaderController'>
+            <img src="img/header_separador.svg"  id='header_separador_0' class='header_separador' />
+            <boton-sistema  id='btn_menu' accion="navigateService.go('config')" imagen="img/btns/menu.svg"></boton-sistema>
+            <img src="img/header_separador.svg" id='header_separador_1' class='header_separador' />
+            <boton-sistema id='header_geobar' accion="navigateService.go('home')" imagen="img/header_geobar.svg"></boton-sistema>
+            </div>
 
-        <terms   ng-class=' getAnimationClass("terms") '   class='seccion' ></terms>
-        <home    ng-class=' getAnimationClass("home") '    class='seccion' ></home>
-        <lista   ng-class=' getAnimationClass("lista") '   class='seccion' ></lista>
-        <config  ng-class=' getAnimationClass("config") '  class='seccion' ></config>
-        <detalle ng-class=' getAnimationClass("detalle") ' class='seccion' ></detalle>
-        <taxi    ng-class=' getAnimationClass("taxi") ' class='seccion' ></taxi>
-        <mapa    ng-class=' getAnimationClass("mapa") ' class='seccion' ></mapa>
-  
-    </div>  
+            <div id='header_linea' ></div>
+          
+            <boton-sistema imagen="img/btns/taxi.svg" accion="navigateService.go('taxi')" id='btn_taxi'></boton-sistema>
+
+       
+
+      </div>
+ 
+    <el-loading id='loader'></el-loading>
+
+
 
     <script src="libs/angular.min.js"></script>
     <script src="libs/angular-animate.min.js"></script>
     <script src="libs/angular-touch.min.js"></script>
-   
+    
     <script src="app/app.js"></script>
+    
+    <script src="servicios/cordovaGeolocationModule.js"></script>
     <script src="servicios/navigateService.js"></script>
+    <script src="servicios/mapaService.js"></script>
+    <script src="servicios/lugaresService.js"></script>
+    <script src="servicios/utils.js"></script>
+    <script src="servicios/loading.js"></script>
+    <script src="servicios/ToastService.js"></script>
+    
     <script src="directivas/secciones/terms/terms.js"></script>
     <script src="directivas/secciones/home/home.js"></script>
     <script src="directivas/secciones/lista/lista.js"></script>
@@ -53,16 +77,22 @@
 
     <script src="directivas/componentes/botonSistema/botonSistema.js"></script>
     <script src="directivas/componentes/botonBase/botonBase.js"></script>
-
+    <script src="directivas/componentes/botonLista/botonLista.js"></script>
+    <script src="directivas/componentes/imgLoader/imgLoader.js"></script>
+    <script src="directivas/componentes/touchSlider/touchSlider.js"></script>
+    <script src="directivas/componentes/elLoading/elLoading.js"></script>
+    <script src="directivas/componentes/checkBox/checkBox.js"></script>
+    
     <script type="text/javascript" src="cordova.js"></script>
     <script src="app/index.js"></script>
 
 
     <script type="text/javascript">
-      app.initialize();
+       app.initialize();
     </script>
 
-
+    <script src='https://maps.googleapis.com/maps/api/js?sensor=true&key=AIzaSyCML-iD1AIEcu13sIyxignfONd1IhacalU'></script>
+    
   </body>
 </html>
 

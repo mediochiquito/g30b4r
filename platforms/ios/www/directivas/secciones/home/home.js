@@ -1,20 +1,59 @@
-geobarApp.directive('home', function(navigateService, SERVER) {
+geobarApp.directive('home', function(navigateService, SERVER, $http) {
   return {
     restrict: 'E',
     templateUrl: 'directivas/secciones/home/home.html', 
+    scope:{},
     link: function(scope, elem, attrs){
 
+      var _callback;
+      var ya_cargo = false
     	scope.navigateService = navigateService
       scope.server = SERVER
+      scope.url_img_home = SERVER + 'img/home/';
       
-    	
+
+      scope._set = function ($obj, $callback){
+        _callback = $callback;
+       
+        // Loading.mostrar();
+        if(ya_cargo) {
+          _callback(); return;
+        }
+
+        $http.get(SERVER+'ws.php?method=getHomeImages').
+
+          success(function(data, status, headers, config) {
+
+            scope.fotos_home = data.fotos;
+            ya_cargo = true;
+            if(scope.fotos_home.length == 0)  sin_fotos();
+            _callback()
+
+          }).
+          
+          error(function(data, status, headers, config) {
+              sin_fotos();
+              _callback();
+          });
+
+        }
+
+
+        function sin_fotos(){
+
+             scope.url_img_home = 'img/default/';
+               scope.fotos_home = ['home.png'];
+        }
+
+       navigateService.setSecciones('home', scope._set)
+
+        // me cargo a mi misma
+      setTimeout(function (){
+         navigateService.go('home')
+         scope.$apply();
+          navigateService.go('home')
+       }, 100)
+       
     }
   };
 });
-
-/*geobarApp.controller('home', function($scope, $log, $routeParams){
-	
-	$scope.status = $routeParams.id;
-	$log.log($routeParams.id)
-
-})*/

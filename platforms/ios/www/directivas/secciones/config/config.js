@@ -1,5 +1,5 @@
 
-geobarApp.directive('config', function() {
+geobarApp.directive('config', function($rootScope, $window, lugaresService) {
   
 	
 
@@ -12,17 +12,19 @@ geobarApp.directive('config', function() {
 
 	   	scope.visible = true;
 
-		
+      scope.chkBares = $window.localStorage.getItem('bares')
+      scope.chkRestaurantes = $window.localStorage.getItem('restaurantes')
+		  scope.chkCines = $window.localStorage.getItem('cines')
+
+      scope.update = function ($clave, $val){
+
+        $window.localStorage.setItem($clave,  $val);
+        lugaresService.setAll()
+        $rootScope.$broadcast('cambioListaLugares');
+      }
 
     }, 
-   /* scope:function ($scope, $elem, $attrs){
-    	$scope.cliqueando = function (){
-
-			alert('cliqueando')
-		}
-    }
-*/
-
+  
 
   };
 });
