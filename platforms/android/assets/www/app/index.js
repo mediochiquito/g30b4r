@@ -14,7 +14,13 @@
 };*/
 
 var app = {
-   
+    
+    onURLInvoked: function(a){
+
+        alert('onURLInvoked: ' + a);
+
+    },
+
     initialize: function() {
         
         this.bindEvents();

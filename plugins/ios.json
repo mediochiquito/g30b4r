@@ -47,6 +47,10 @@
                         {
                             "xml": "<feature name=\"Toast\"><param name=\"ios-package\" value=\"Toast\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"WikitudePlugin\"><param name=\"ios-package\" value=\"WTWikitudePlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -62,22 +66,116 @@
                     "CoreLocation.framework": [
                         {
                             "xml": false,
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "SystemConfiguration.framework": [
                         {
                             "xml": true,
                             "count": 1
-                        }
-                    ],
-                    "CoreGraphics.framework": [
+                        },
                         {
                             "xml": false,
                             "count": 1
                         }
                     ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": false,
+                            "count": 2
+                        }
+                    ],
                     "QuartzCore.framework": [
+                        {
+                            "xml": false,
+                            "count": 2
+                        }
+                    ],
+                    "Accelerate.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "AssetsLibrary.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "AVFoundation.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CFNetwork.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CoreMedia.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CoreMotion.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CoreText.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "CoreVideo.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "Foundation.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "MediaPlayer.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "OpenGLES.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "Security.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "UIKit.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "libc++.dylib": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ],
+                    "libz.dylib": [
                         {
                             "xml": false,
                             "count": 1
@@ -126,6 +224,9 @@
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
         "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "com.wikitude.phonegap.WikitudePlugin": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         }
     },

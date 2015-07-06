@@ -48,7 +48,7 @@ switch($_GET['method']){
 
 			if($row->lugares_tipo == 4){
 
-				for($i =0; $i<50; $i++){
+				//for($i =0; $i<50; $i++){
 					$o = new stdClass();
 					$o->id = $row->lugares_id;
 					$o->tipo = $row->lugares_tipo;
@@ -62,12 +62,12 @@ switch($_GET['method']){
 					$o->pub_fin = $row->lugares_pub_fin;
 					
 					$array->eventos[] = $o;
-				}
-				shuffle($array->eventos);
+				//}
+				//shuffle($array->eventos);
 		
 			}else{
 
-				for($i =0; $i<50; $i++){
+				//for($i =0; $i<50; $i++){
 					
 					$o = new stdClass();
 					$o->id = $row->lugares_id;
@@ -76,13 +76,14 @@ switch($_GET['method']){
 					$o->name = $row->lugares_nombre . ' ' . $bucle++;
 					$o->tel = $row->lugares_tel;
 					$o->dir = $row->lugares_dir;
-					$o->lat = (float)$row->lugares_lat + (random()*0.098);
-					$o->lon = (float)$row->lugares_lng - (random()*0.098);
-
+					/*$o->lat = (float)$row->lugares_lat + (random()*0.098);
+					$o->lon = (float)$row->lugares_lng - (random()*0.098);*/
+					$o->lat = $row->lugares_lat;
+					$o->lon = $row->lugares_lng;
 					$array->lugares[] = $o;
-				}
+				//}
 
-				shuffle($array->lugares);
+				//shuffle($array->lugares);
 			}
 			
 

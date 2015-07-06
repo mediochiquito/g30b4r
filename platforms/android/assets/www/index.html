@@ -30,6 +30,8 @@
 
       <div ng-controller="menuCtrl" id='header_menu'>
 
+        <div id='menu-header' ng-class='{"menu-header-en-home": navigateService.esPrimerPage()}' class='menu-header-en-home' >
+
             <boton-sistema  id='btn_back'  
                             ng-class='{botonDisabled: navigateService.esPrimerPage()}' accion="navigateService.back()" imagen="img/btns/back.svg"></boton-sistema>
 
@@ -37,8 +39,13 @@
             <boton-sistema  id='btn_menu' accion="navigateService.go('config')" imagen="img/btns/menu.svg"></boton-sistema>
             <img src="img/header_separador.svg" id='header_separador_1' class='header_separador' />
             <boton-sistema id='header_geobar' accion="navigateService.go('home')" imagen="img/header_geobar.svg"></boton-sistema>
+            </div>
+
             <div id='header_linea' ></div>
+          
             <boton-sistema imagen="img/btns/taxi.svg" accion="navigateService.go('taxi')" id='btn_taxi'></boton-sistema>
+
+       
 
       </div>
  
@@ -59,6 +66,7 @@
     <script src="servicios/utils.js"></script>
     <script src="servicios/loading.js"></script>
     <script src="servicios/ToastService.js"></script>
+    <script src="servicios/arService.js"></script>
     
     <script src="directivas/secciones/terms/terms.js"></script>
     <script src="directivas/secciones/home/home.js"></script>

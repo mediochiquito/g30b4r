@@ -114,9 +114,17 @@ body{
     top: 3.6%;
 
 }
+.menu-header-en-home-add, .menu-header-en-home-remove{
+     transition:.3s;
+}
+#menu-header{
+    
+    transform: translateX(0px);
+   
+}
 .menu-header-en-home{
-    transform: translateX(-61px);
-    transition: .3s;
+
+    transform: translateX(-61px) !important;
 }
 #taxi-voyentaxi{
     position: absolute;

@@ -114,7 +114,18 @@ body{
     top: 3.6%;
 
 }
+.menu-header-en-home-add, .menu-header-en-home-remove{
+     transition:.3s;
+}
+#menu-header{
+    
+    transform: translateX(0px);
+   
+}
+.menu-header-en-home{
 
+    transform: translateX(-61px) !important;
+}
 #taxi-voyentaxi{
     position: absolute;
     width: 80%;
@@ -129,7 +140,10 @@ body{
     top: 50%;
     margin-top: 60px;
 }
-    
+#header_menu >div{
+
+
+}
 #btn_home_ar{
     transition:.2s;
 }
@@ -143,9 +157,12 @@ body{
     transform: scale(.9,.9);
     -webkit-transform: scale(.9,.9);
 }
+
 .botonDisabled{
     opacity: .2;
 }
+
+
 .botonSistemaLabel{
     font-size: 12px;
     color: #fff;
@@ -696,7 +713,9 @@ margin-top:0px;
 
     -webkit-flex-direction: row;
 
-    -webkit-align-items: center;      justify-content: center;
+    -webkit-align-items: center;      
+
+    -webkit-justify-content: center;
 
 }
 

@@ -1,13 +1,4 @@
-- cruz para borrar filtro
-
-- bullets en tocuhslider
-
-
-- performance tocuhslider on move
-
 - performance map
-
-- imagenes por default
 
 - quitar eventos pasados del lisitado
 
@@ -16,3 +7,7 @@
 - group markers 
 
 - sonidos en click
+
+- markers por distancia
+
+

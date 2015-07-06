@@ -79,7 +79,7 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
           	var _scrollHeight = this.scrollHeight; // alto del contenido
             $scope.enscroll =	_scrollTop;
             $scope.altoholder =  _offsetHeight;
-            if((_offsetHeight +_scrollTop) > _scrollHeight-100) {
+            if((_offsetHeight +_scrollTop) > _scrollHeight-300) {
                 $scope.en_pagina += 10;
             }
             $scope.$apply();

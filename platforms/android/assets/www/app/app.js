@@ -1,12 +1,12 @@
 var geobarApp = angular.module('geobarApp', ['ngTouch', 'ngAnimate', 'Utils', 'cordovaGeolocationModule', 'plugins.toast'])
 
  //.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
- //.constant('SERVER', 'http://mateomenestrina.no-ip.org/g30b4r/server/')
- .constant('SERVER', 'http://dev.metamorf.com.uy/geobar/')
+.constant('SERVER', 'http://mateomenestrina.no-ip.org/g30b4r/server/')
+  //.constant('SERVER', 'http://dev.metamorf.com.uy/geobar/')
  
  .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
 
-geobarApp.controller("mainController",  function($document, $rootScope, ToastService, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService, eventosService ) {
+geobarApp.controller("mainController",  function($document, $rootScope, ToastService, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService, eventosService, arService) {
 
 	$scope.rootScope = $rootScope
 	$scope.alto_screen = window.innerHeight;
@@ -14,8 +14,6 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 //	console.log(navigator.userAgent)
 
 	$scope.init = function (){
-
-
 
 		$rootScope.position = null;
 
@@ -64,19 +62,12 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 
 	}
 
-
-
-
 	function iniciar_app(){	
 		lugaresService.setAll()
 		eventosService.setAll()
-		
+		arService.set()
 		Loading.ocultar()
-
 		$document.on('touchmove', hack)
-
-        
- 
 	}
 
 
@@ -84,7 +75,6 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 
 		$document.off('touchmove', hack)
 	}
-
 
 	if(window.localStorage.getItem('distancia') == null) window.localStorage.setItem('distancia', 5);
 	if(window.localStorage.getItem('bares') == null) window.localStorage.setItem('bares', 1);
@@ -97,13 +87,11 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 
 
 geobarApp.controller("menuCtrl", function($scope, navigateService){
+	
 	$scope.navigateService = navigateService;
+
+
 })	
-
-
-
-
-
 
 
 

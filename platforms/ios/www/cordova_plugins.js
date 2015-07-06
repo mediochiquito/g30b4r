@@ -95,6 +95,13 @@ module.exports = [
     {
         "file": "plugins/nl.x-services.plugins.toast/test/tests.js",
         "id": "nl.x-services.plugins.toast.tests"
+    },
+    {
+        "file": "plugins/com.wikitude.phonegap.WikitudePlugin/www/WikitudePlugin.js",
+        "id": "com.wikitude.phonegap.WikitudePlugin.WikitudePlugin",
+        "clobbers": [
+            "WikitudePlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -109,7 +116,8 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "2.1.0",
     "cordova-plugin-statusbar": "1.0.0",
     "cordova-plugin-whitelist": "1.0.0",
-    "nl.x-services.plugins.toast": "2.1.1"
+    "nl.x-services.plugins.toast": "2.1.1",
+    "com.wikitude.phonegap.WikitudePlugin": "4.1.0"
 }
 // BOTTOM OF METADATA
 });
