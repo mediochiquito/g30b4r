@@ -58,6 +58,7 @@ switch($_GET['method']){
 					$o->dir = $row->lugares_dir;
 					$o->lat = $row->lugares_lat;
 					$o->lon = $row->lugares_lng;
+					$o->alt = $row->lugares_alt;
 					$o->pub_ini = $row->lugares_pub_ini;
 					$o->pub_fin = $row->lugares_pub_fin;
 					
@@ -80,6 +81,7 @@ switch($_GET['method']){
 					$o->lon = (float)$row->lugares_lng - (random()*0.098);*/
 					$o->lat = $row->lugares_lat;
 					$o->lon = $row->lugares_lng;
+					$o->alt = $row->lugares_alt;
 					$array->lugares[] = $o;
 				//}
 

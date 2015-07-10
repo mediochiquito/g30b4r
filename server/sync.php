@@ -1,4 +1,4 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 ?>
-{"lugares": 5, "eventos": 5}
+{"lugares": 7, "eventos": 7}

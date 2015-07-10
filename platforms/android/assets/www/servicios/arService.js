@@ -21,9 +21,6 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService){
 
 		mostrar: function() {
 
-
-         
-
 			if(isDeviceSupported){
 
                  wikitudePlugin.loadARchitectWorld(
