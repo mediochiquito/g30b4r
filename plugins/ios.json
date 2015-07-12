@@ -199,9 +199,6 @@
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
-        "cordova-plugin-crosswalk-webview": {
-            "PACKAGE_NAME": "com.testing.mateo.geo"
-        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
@@ -227,6 +224,9 @@
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
         "com.wikitude.phonegap.WikitudePlugin": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-crosswalk-webview": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         }
     },

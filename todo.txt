@@ -13,3 +13,10 @@
 - push
 
 - backend
+
+- imagenes home linkeadas a lugares
+
+- favoritos
+
+- back flecha android
+

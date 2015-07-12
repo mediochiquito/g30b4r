@@ -37,6 +37,13 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "id": "cordova-plugin-splashscreen.SplashScreen",
+        "clobbers": [
+            "navigator.splashscreen"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
         "id": "cordova-plugin-statusbar.statusbar",
         "clobbers": [
@@ -47,13 +54,6 @@ module.exports = [
         "file": "plugins/cordova-plugin-whitelist/whitelist.js",
         "id": "cordova-plugin-whitelist.whitelist",
         "runs": true
-    },
-    {
-        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-        "id": "cordova-plugin-splashscreen.SplashScreen",
-        "clobbers": [
-            "navigator.splashscreen"
-        ]
     },
     {
         "file": "plugins/nl.x-services.plugins.toast/www/Toast.js",
@@ -82,12 +82,12 @@ module.exports.metadata =
     "cordova-plugin-dialogs": "1.1.0",
     "cordova-plugin-geolocation": "1.0.0",
     "cordova-plugin-network-information": "1.0.0",
+    "cordova-plugin-splashscreen": "2.1.0",
     "cordova-plugin-statusbar": "1.0.0",
     "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-crosswalk-webview": "1.2.0",
-    "cordova-plugin-splashscreen": "2.1.0",
     "nl.x-services.plugins.toast": "2.1.1",
-    "com.wikitude.phonegap.WikitudePlugin": "4.1.0"
+    "com.wikitude.phonegap.WikitudePlugin": "4.1.0",
+    "cordova-plugin-crosswalk-webview": "1.2.0"
 }
 // BOTTOM OF METADATA
 });

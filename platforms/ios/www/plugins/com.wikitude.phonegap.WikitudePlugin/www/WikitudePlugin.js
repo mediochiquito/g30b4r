@@ -9,7 +9,8 @@ cordova.define("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin", function(r
 		 *  This is the SDK Key, provided to you after you purchased the Wikitude SDK from http =//www.wikitude.com/store/.
 		 *  You can obtain a free trial key at http =//www.wikitude.com/developer/licenses .
 		 */
-		this._sdkKey = "ENTER-YOUR-KEY-HERE";
+				this._sdkKey = "kV5ZqAyYm+AOmyhQtR7+0owliSIF85GUrZ0G8+Du2IDZMltK/sVxfUN2H2TaPj373PLsA2xSx/UqtTo0c+sbE0ysSCJutNz9T1npBWQ71Ps9Qn0Eo3GHTNMkvQXlw4Ydkk1GRhFFypm+7nn4Yo0RzaBZ+0IokvaoJ4DTg76aTYVTYWx0ZWRfX9lM/t2gSZ7eB3tafdcexSofa1XsQ0qiLB7yFeDWVhJHwdSi1Ck8L74qaWjeAZaUoiNOhbVU/e/E7NLqFNymfzpFZ5rT7zxIPj8Mmp9mG+28w1oROEHTG8sHMXNNQuRD5q5ePsJXt/bU8w7jOn/sLeiB3a2iuIHuv523oq5lO3Elnym5OSNxIUx79XP43SCI5Nja1WeNJWGV+AokjMOJfWHSO8JJSRUJLoXAOfGEgHcpYrbEEgyFN/HVf+zVr/LYRe+p9ctOyBbR2Mn5r7DXa4JeCXJaB5rAzUxWcFNM1CqYXZGMfnl8dZm4HoF6T1ORxOAxX/Zds53NQS2kaT6uwvatP89EokIjw1zM4+DvvMn3QpWFxKBWGq1Xwk2kZOQ00zbHVyyjxm9hRSl39et5JIHLKqzPdF+itWOY0N09iqxA32VreAwVGZf+W/LlCV0XLTN9dIlUNpYdY61pct0RBwKunzflrkBdbCSrNb/jV04VOOIe0Au/CmM=";
+
 
 		/**
 		 *  The Wikitude SDK can run in different modes.

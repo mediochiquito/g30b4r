@@ -15,11 +15,9 @@
 
 var app = {
     
-    onURLInvoked: function(a){
-
+/*    onURLInvoked: function(a){
         alert('onURLInvoked: ' + a);
-
-    },
+    },*/
 
     initialize: function() {
         

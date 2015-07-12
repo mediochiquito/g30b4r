@@ -108,7 +108,6 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-console": "1.0.0",
-    "cordova-plugin-crosswalk-webview": "1.2.0",
     "cordova-plugin-device": "1.0.0",
     "cordova-plugin-dialogs": "1.1.0",
     "cordova-plugin-geolocation": "1.0.0",
@@ -117,7 +116,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "1.0.0",
     "cordova-plugin-whitelist": "1.0.0",
     "nl.x-services.plugins.toast": "2.1.1",
-    "com.wikitude.phonegap.WikitudePlugin": "4.1.0"
+    "com.wikitude.phonegap.WikitudePlugin": "4.1.0",
+    "cordova-plugin-crosswalk-webview": "1.2.0"
 }
 // BOTTOM OF METADATA
 });
