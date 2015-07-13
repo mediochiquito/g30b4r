@@ -108,7 +108,13 @@ $(document).ready(function(){
 
 	new BotonImg($('#btn-close'), function (){
 		World.initiallyLoadedData = false;
-		document.location = 'architectsdk://action=closeWikitudePlugin'
+
+		var func = encodeURIComponent("action=closeWikitudePlugin");
+		document.location = "architectsdk://" + func;
+		return false;
+
+
+		//document.location = 'architectsdk://action=closeWikitudePlugin'
 	})
 	
 	new BotonImg($('#btn_tel'), function (){
