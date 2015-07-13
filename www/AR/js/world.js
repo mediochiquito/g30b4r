@@ -121,14 +121,20 @@ $(document).ready(function(){
 		document.location = 'tel://' + obj_selected.tel
 	})
 	new BotonImg($('#btn_dir'), function (){
-
-		document.location = 'architectsdk://action=dir:' + obj_selected.arrayNum
+		var func = encodeURIComponent("action=dir" + obj_selected.arrayNum);
+		document.location = "architectsdk://" + func;
+		return false;
+	
 	})
 	new BotonImg($('#btn_star'), function (){
-		document.location = 'architectsdk://action=fav:' + obj_selected.arrayNum
+		var func = encodeURIComponent("action=fav" + obj_selected.arrayNum);
+		document.location = "architectsdk://" + func;
+		return false;
 	})
 	new BotonImg($('#btn_info'), function (){
-		document.location = 'architectsdk://action=info:' + obj_selected.arrayNum
+		var func = encodeURIComponent("action=info" + obj_selected.arrayNum);
+		document.location = "architectsdk://" + func;
+		return false;
 	})
 
 })

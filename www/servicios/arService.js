@@ -22,9 +22,9 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
 
 
         onURLInvoked: function(url){
-
-          if(url == 'architectsdk://action=closeWikitudePlugin') wikitudePlugin.close();
-          else alert(url)
+          var _url = decodeURIComponent(url);
+          if(_url == 'architectsdk://action=closeWikitudePlugin') wikitudePlugin.close();
+          else alert(_url)
           Loading.ocultar();
         },  
 
