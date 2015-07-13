@@ -6,7 +6,7 @@
 
 - group markers 
 
-- sonidos en click
+- sonidos en click, (vibracion?)
 
 - markers por distancia
 

@@ -1,10 +1,8 @@
 var World = {
 
 	initiallyLoadedData: false,
-	//array_lugares:null, 
-	array_lugares : [{"id":"1","tipo":"1","cat":"Bar","name":"Yatay 0","tel":"23059020","dir":"Luis Alberto Herrera 941","lat":"-34.864598","lon":" -56.213087","alt":"8.7"},{"id":"2","tipo":"2","cat":"Restaurante","name":"Rosedal 1","tel":"23059020","dir":"Luis Alberto Herrera 213","lat":"-34.859702","lon":"-56.205906","alt":"15.8"},{"id":"3","tipo":"3","cat":"Cine","name":"P. Legislativo 2","tel":"23059020","dir":"Luis Alberto Herrera 213","lat":"-34.891497","lon":"-56.187308","alt":"22.8"}], 
-	markerDrawable_idle: null,
-	markerDrawable_selected: null,
+	array_lugares: new Array(), 
+	//array_lugares : [{"id":"1","tipo":"1","cat":"Bar","name":"Yatay 0","tel":"23059020","dir":"Luis Alberto Herrera 941","lat":"-34.864598","lon":" -56.213087","alt":"8.7"},{"id":"2","tipo":"2","cat":"Restaurante","name":"Rosedal 1","tel":"23059020","dir":"Luis Alberto Herrera 213","lat":"-34.859702","lon":"-56.205906","alt":"15.8"},{"id":"3","tipo":"3","cat":"Cine","name":"P. Legislativo 2","tel":"23059020","dir":"Luis Alberto Herrera 213","lat":"-34.891497","lon":"-56.187308","alt":"22.8"}], 
 	markerList: [],
 	currentMarker: null,
 	markerDrawable_bar: null,
@@ -16,10 +14,9 @@ var World = {
 	requestDataFromLocal: function requestDataFromLocalFn(centerPointLatitude, centerPointLongitude) {
 	
 		var poiData = [];
+
 		var cantidad_lugares = World.array_lugares.length
-		
-
-
+	
 		for (var i = 0; i < cantidad_lugares; i++) {
 			
 			poiData.push(World.array_lugares[i]);
@@ -44,7 +41,7 @@ var World = {
 		
 			var obj = poiData[i];
 				obj.arrayNum = i
-			World.markerList.push(new Marker(obj, i));
+				World.markerList.push(new Marker(obj, i));
 
 		}
 
@@ -74,20 +71,20 @@ var World = {
 
 
 AR.context.onLocationChanged = World.locationChanged;
-AR.context.scene.cullingDistance = 5000
+//AR.context.scene.cullingDistance = 5000
 
 //AR.context.onScreenClick = World.onScreenClick;
 
 function setLugares($json){
-
-	 World.array_lugares = (JSON.parse( $json))
-
+	 World.initiallyLoadedData = false
+	 alert(World.initiallyLoadedData)
+	 World.array_lugares = (JSON.parse($json))
+	 //alert( World.array_lugares)
 }
 
 
 var obj_selected;
 
-alert(window.localStorage.getItem('local_sync_lugares'));
 
 function info(obj){
 
@@ -104,11 +101,13 @@ function info(obj){
 	if(obj_selected.tipo == 4)	$('#info-data').css( 'background-color','#00ccff')
 
 	$('#info').show()
+
 }
 
 $(document).ready(function(){
 
 	new BotonImg($('#btn-close'), function (){
+		World.initiallyLoadedData = false;
 		document.location = 'architectsdk://action=closeWikitudePlugin'
 	})
 	
@@ -120,12 +119,10 @@ $(document).ready(function(){
 		document.location = 'architectsdk://action=dir:' + obj_selected.arrayNum
 	})
 	new BotonImg($('#btn_star'), function (){
-		document.location = 'architectsdk://action=dir:' + obj_selected.arrayNum
+		document.location = 'architectsdk://action=fav:' + obj_selected.arrayNum
 	})
 	new BotonImg($('#btn_info'), function (){
-		document.location = 'architectsdk://action=dir:' + obj_selected.arrayNum
+		document.location = 'architectsdk://action=info:' + obj_selected.arrayNum
 	})
-
-
 
 })

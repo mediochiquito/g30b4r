@@ -39,15 +39,17 @@ body {
 	height: 100%;
 	overflow: hidden;
 }
+
 #btn-close{
 
 	position: absolute;
 	top: 10px;
 	right: 10px;
-	width: 30px;
-	height: 30px;
-
+	width: 40px;
+	height: 40px;
+	
 }
+
 .botonOver{
 	-webkit-transform: scale(.8, .8);
 }
@@ -67,7 +69,7 @@ body {
     position: relative;
     width: 100%;
     height: 90px;            overflow: hidden;    border-bottom: solid 2px #fff;    font-size: 12px;
-    background-color: aquamarine;
+
 }
 
 #info-data .label  {
@@ -93,7 +95,8 @@ body {
     font-family: 'robotobold';    font-size: 12px;    font-style: italic;
 }
 #info-botonera{
-    width: 170px;    position: relative;    margin: 0 auto;    height: 50px;    margin-top: 8px;
+    width: 170px;    position: relative;    margin: 0 auto;    height: 50px;    
+    margin-top: 13px;
 }
 #btn_tel{
     /* position: relative; */    
@@ -101,21 +104,24 @@ body {
     /* float: left; */    
     /* width: 40px; */    
     /* display: inline; */
-    position: relative;    margin: 14px 0px 0px 7px;    height: 29px; width: 17px;
+    position: relative; 
 }
 #btn_dir{
     /* position: relative; */    
     /* width: 40px; */    
     /* height: 60px; */    
     /* float: left; */        
-    position: relative;    margin: 14px 0px 0px 7px;    height: 29px; width: 26px;
+    position: relative;    
+    /* margin: 14px 0px 0px 7px; */    
+    /* height: 29px; */ 
+    /* width: 26px; */
 }
 #btn_star{
     /* position: relative; */    
     /* width: 40px; */    
     /* height: 60px; */    
     /* float: left; */
-    position: relative;    margin: 12px 0px 0px 4px;  height: 32px; 
+    position: relative; 
 }
 #btn_info{
     /* position: relative; */    
@@ -123,10 +129,14 @@ body {
     /* height: 60px; */    
     /* float: left; */
     position: relative;    
-    margin: 14px 0px 0px 7px;    height: 31px;width: 31px;
+    /* margin: 14px 0px 0px 7px; */    
+    /* height: 31px; */
+    /* width: 31px; */
 }
 .boton-sistema{
-    position: relative;    width: 40px;    height: 60px;    float: left;
+    position: relative;    
+    width: 40px;    
+    height: 40px;    float: left;
 
 	
 }

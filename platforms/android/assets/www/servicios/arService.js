@@ -33,17 +33,19 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
               
         },
 
-
 		mostrar: function() {
 
 			if(isDeviceSupported){
+
                 Loading.mostrar();
+
+                var self = this;
 
                 setTimeout(function (){
 
                       wikitudePlugin.loadARchitectWorld(
-                                                    this.onARExperienceLoadedSuccessful, 
-                                                    this.onARExperienceLoadError,
+                                                    self.onARExperienceLoadedSuccessful, 
+                                                    self.onARExperienceLoadError,
                                                     arExperienceUrl,
                                                     requiredFeatures,
                                                     startupConfiguration
@@ -57,9 +59,8 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
             return;       
         },
        
-        
         onARExperienceLoadedSuccessful: function(loadedURL) {
-           // alert('onARExperienceLoadedSuccessful')
+          
             /* Respond to successful augmented reality experience loading if you need to */ 
             wikitudePlugin.callJavaScript('setLugares(\'' + angular.toJson(lugaresService.get()) + '\');');
         },
