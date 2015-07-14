@@ -70,4 +70,10 @@
     <feature name="WikitudePlugin">
         <param name="ios-package" value="WTWikitudePlugin" />
     </feature>
+    <feature name="Accelerometer">
+        <param name="ios-package" value="CDVAccelerometer" />
+    </feature>
+    <feature name="Compass">
+        <param name="ios-package" value="CDVCompass" />
+    </feature>
 </widget>

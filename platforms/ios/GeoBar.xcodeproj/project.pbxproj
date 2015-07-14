@@ -72,6 +72,8 @@
 		DF13CD788E9D456D96133E1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3507CC5A51403AACB889C8 /* UIKit.framework */; };
 		F449ABE09A524C0EB1BF4F6B /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 074379CC84504718952F7FD8 /* libc++.dylib */; };
 		C7631351318843B88FEEF3B5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1428F096FCEA4624B590FD3B /* libz.dylib */; };
+		5C3597ECF14B44D99604A584 /* CDVAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = F84416E6B3DF45EEA4568BE5 /* CDVAccelerometer.m */; };
+		3460042F0C564290BF50C31E /* CDVCompass.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE2A0B7CB3C45F289D0C7E8 /* CDVCompass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +190,10 @@
 		2E3507CC5A51403AACB889C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		074379CC84504718952F7FD8 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
 		1428F096FCEA4624B590FD3B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libz.dylib"; path = "usr/lib/libz.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
+		F84416E6B3DF45EEA4568BE5 /* CDVAccelerometer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVAccelerometer.m"; path = "cordova-plugin-device-motion/CDVAccelerometer.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		4739609AE764448B92A44243 /* CDVAccelerometer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAccelerometer.h"; path = "cordova-plugin-device-motion/CDVAccelerometer.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		FAE2A0B7CB3C45F289D0C7E8 /* CDVCompass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVCompass.m"; path = "cordova-plugin-device-orientation/CDVCompass.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		8CDEDB34C65E4E32836248BC /* CDVCompass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVCompass.h"; path = "cordova-plugin-device-orientation/CDVCompass.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +362,10 @@
 				7888FCDA5D4A40FE8FCD71AB /* WTNavigation.h */,
 				98EFD7B8004F417FB9DE380A /* WTStartupConfiguration.h */,
 				86C9AB9E0E5C44DCB1A2F390 /* WTArchitectViewDebugDelegate.h */,
+				F84416E6B3DF45EEA4568BE5 /* CDVAccelerometer.m */,
+				4739609AE764448B92A44243 /* CDVAccelerometer.h */,
+				FAE2A0B7CB3C45F289D0C7E8 /* CDVCompass.m */,
+				8CDEDB34C65E4E32836248BC /* CDVCompass.h */,
 			);
 			name = Plugins;
 			path = "GeoBar/Plugins";
@@ -554,6 +564,8 @@
 				CF90B40C28D147D0BA4BB486 /* Toast.m in Sources */,
 				3AAD2C13F7894E1EA352A78E /* WTWikitudePlugin.m in Sources */,
 				25F063E1389F41B682868F15 /* WTARViewController.m in Sources */,
+				5C3597ECF14B44D99604A584 /* CDVAccelerometer.m in Sources */,
+				3460042F0C564290BF50C31E /* CDVCompass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

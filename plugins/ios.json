@@ -51,6 +51,14 @@
                         {
                             "xml": "<feature name=\"WikitudePlugin\"><param name=\"ios-package\" value=\"WTWikitudePlugin\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Accelerometer\"><param name=\"ios-package\" value=\"CDVAccelerometer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Compass\"><param name=\"ios-package\" value=\"CDVCompass\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -66,7 +74,7 @@
                     "CoreLocation.framework": [
                         {
                             "xml": false,
-                            "count": 2
+                            "count": 3
                         }
                     ],
                     "SystemConfiguration.framework": [
@@ -124,7 +132,7 @@
                     "CoreMotion.framework": [
                         {
                             "xml": false,
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "CoreText.framework": [
@@ -227,6 +235,12 @@
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
         "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         }
     },

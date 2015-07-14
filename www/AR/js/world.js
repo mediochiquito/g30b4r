@@ -52,7 +52,7 @@ var World = {
 };
 
 
-AR.context.onLocationChanged = World.locationChanged;
+AR.context.onLocationChanged = World.locationCh
 //AR.context.scene.cullingDistance = 5000
 
 //AR.context.onScreenClick = World.onScreenClick;
@@ -60,10 +60,8 @@ AR.context.onLocationChanged = World.locationChanged;
 function setWorld($json){
 
 	  for(var i = 0; i < World.markerList.length; i++){
-	        // First way
-	       World.markerList[i].remove(); 
-	       // or this Second way :- 
-	       World.markerList[i].destroy(); 
+	      
+	       World.markerList[i].markerObject.destroy(); 
 	  }
 
 	 World.array_lugares = (JSON.parse($json))

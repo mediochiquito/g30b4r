@@ -74,11 +74,11 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
-                            "count": 1
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
-                            "count": 1
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
@@ -125,6 +125,14 @@
                         {
                             "xml": "<preference name=\"webView\" value=\"org.crosswalk.engine.XWalkWebViewEngine\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Accelerometer\"><param name=\"android-package\" value=\"org.apache.cordova.devicemotion.AccelListener\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -163,6 +171,12 @@
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
         "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         }
     },
