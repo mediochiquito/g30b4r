@@ -44,7 +44,7 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
 
                 setTimeout(function (){
                       
-                      navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError);
+                      navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError, {enableHighAccuracy: true });
                       wikitudePlugin.loadARchitectWorld(
                                                     self.onARExperienceLoadedSuccessful, 
                                                     self.onARExperienceLoadError,
