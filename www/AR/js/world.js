@@ -82,11 +82,11 @@ function info(obj){
     $('.tipo').html(obj_selected.cat)
     $('.tel').html('T. ' + obj_selected.tel)
     $('.dir').html(obj_selected.dir)
-	
-	if(obj_selected.tipo == 1)	$('#info-data').css( 'background-color','#ff99ff')
-	if(obj_selected.tipo == 2)	$('#info-data').css( 'background-color','#EFE923')
-	if(obj_selected.tipo == 3)	$('#info-data').css( 'background-color','#28eaa4')
-	if(obj_selected.tipo == 4)	$('#info-data').css( 'background-color','#00ccff')
+	$('#pic img').attr('src', 'http://dev.metamorf.com.uy/geobar/img/lugares/' + obj_selected.id + '/thumb.jpg');
+	if(obj_selected.tipo == 1)	$('#info-data').css( 'background-color','#ff99ff');
+	if(obj_selected.tipo == 2)	$('#info-data').css( 'background-color','#EFE923');
+	if(obj_selected.tipo == 3)	$('#info-data').css( 'background-color','#28eaa4');
+	if(obj_selected.tipo == 4)	$('#info-data').css( 'background-color','#00ccff');
 
 	$('#info').show()
 

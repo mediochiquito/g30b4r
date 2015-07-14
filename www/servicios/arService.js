@@ -58,7 +58,13 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
 
                     }  else wikitudePlugin.show()
 
+
+                     Loading.ocultar();
+
                 }, 666)
+
+
+
               
             }
             
