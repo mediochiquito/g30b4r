@@ -20,7 +20,7 @@ var World = {
 		World.markerList = [];
 		
 		var cantidad_lugares = World.array_lugares.length;
-		
+
 		for (var i = 0; i < cantidad_lugares; i++) {
 		
 			var obj = World.array_lugares[i];
@@ -30,7 +30,7 @@ var World = {
 		}
 
 
-		alert('cargar_todos_los_markers')
+		alert('cargar_todos_los_markers: ' + cantidad_lugares)
 
 	},
 
