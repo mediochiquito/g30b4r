@@ -30,7 +30,7 @@ var World = {
 		}
 
 
-		alert('cargar_todos_los_markers: ' + cantidad_lugares)
+	//	alert('cargar_todos_los_markers: ' + cantidad_lugares)
 
 	},
 
@@ -39,7 +39,7 @@ var World = {
 	// location updates, fired every time you call architectView.setLocation() in native environment
 	locationChanged: function locationChangedFn(lat, lon, alt, acc) {
 
-		alert('locationChanged')
+		//alert('locationChanged')
 
 	},
 
