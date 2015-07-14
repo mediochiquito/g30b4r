@@ -5,7 +5,7 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
     var requiredFeatures = [  "geo" ];
     var isDeviceSupported ;
     var startupConfiguration = { "camera_position": "back"  };
-
+    var ya_iniciado = false;
 	return {
 
         set: function(){
@@ -24,7 +24,7 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
 
         onURLInvoked: function(url){
           var _url = decodeURIComponent(url);
-          if(_url == 'architectsdk://action=closeWikitudePlugin') wikitudePlugin.close();
+          if(_url == 'architectsdk://action=closeWikitudePlugin') wikitudePlugin.hide();
           else alert(_url)
           Loading.ocultar();
         },  
@@ -44,14 +44,20 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
 
                 setTimeout(function (){
                       
-                      navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError);
-                      wikitudePlugin.loadARchitectWorld(
+                    navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError);
+                    if(!ya_iniciado){
+
+                        wikitudePlugin.loadARchitectWorld(
                                                     self.onARExperienceLoadedSuccessful, 
                                                     self.onARExperienceLoadError,
                                                     arExperienceUrl,
                                                     requiredFeatures,
                                                     startupConfiguration
                                                  );
+                        ya_iniciado = true;
+
+                    }  else wikitudePlugin.show()
+
                 }, 666)
               
             }

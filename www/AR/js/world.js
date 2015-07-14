@@ -9,7 +9,7 @@ var World = {
 	markerDrawable_restaurant: null,
 	markerDrawable_cine: null,
 	markerDrawable_evento: null,
-
+	
 	cargar_todos_los_markers: function loadPoisFromJsonDataFn() {
 
 		World.markerDrawable_bar = new AR.ImageResource("img/markers/bar.png");
