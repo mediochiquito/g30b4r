@@ -13,6 +13,7 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
                 wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
                 wikitudePlugin.isDeviceSupported(this.onDeviceSupported, this.onDeviceNotSupported, requiredFeatures);
                 wikitudePlugin.setOnUrlInvokeCallback(this.onURLInvoked);
+
             }catch(e){
 
                console.log('No se puede cargar el AR')
@@ -42,31 +43,42 @@ geobarApp.factory('arService', function($window, ToastService, lugaresService, L
                 var self = this;
 
                 setTimeout(function (){
-
+                      
+                      navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError);
                       wikitudePlugin.loadARchitectWorld(
                                                     self.onARExperienceLoadedSuccessful, 
                                                     self.onARExperienceLoadError,
                                                     arExperienceUrl,
                                                     requiredFeatures,
                                                     startupConfiguration
-                                                 );   
-
-                    
+                                                 );
                 }, 666)
               
             }
             
             return;       
+        },  
+
+        onLocationUpdated: function(e) {
+          
+            wikitudePlugin.callJavaScript('setWorld(\'' + angular.toJson(lugaresService.get()) + '\');');
+
         },
        
+        onLocationError: function(e) {
+        
+            ToastService.show('No hemos enctroado tu ubicación global. Revisa tu configuración del GPS.', 'long', 'center');
+        },
+
         onARExperienceLoadedSuccessful: function(loadedURL) {
           
             /* Respond to successful augmented reality experience loading if you need to */ 
-            wikitudePlugin.callJavaScript('setLugares(\'' + angular.toJson(lugaresService.get()) + '\');');
+            
         },
         
         onARExperienceLoadError: function(errorMessage) {
-            alert('Loading AR web view failed: ' + errorMessage);
+      
+            ToastService.show('Ocurrio un error al cargar la realidad aumentada: ' + errorMessage, 'long', 'center');
         },
 
         onDeviceSupported:function(){
