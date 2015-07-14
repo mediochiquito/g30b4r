@@ -39,6 +39,7 @@ var World = {
 	// location updates, fired every time you call architectView.setLocation() in native environment
 	locationChanged: function locationChangedFn(lat, lon, alt, acc) {
 
+		alert('locationChanged')
 
 	},
 
