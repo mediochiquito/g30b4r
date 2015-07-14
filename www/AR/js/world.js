@@ -9,7 +9,7 @@ var World = {
 	markerDrawable_restaurant: null,
 	markerDrawable_cine: null,
 	markerDrawable_evento: null,
-	
+
 	cargar_todos_los_markers: function loadPoisFromJsonDataFn() {
 
 		World.markerDrawable_bar = new AR.ImageResource("img/markers/bar.png");
@@ -58,6 +58,13 @@ AR.context.onLocationChanged = World.locationChanged;
 //AR.context.onScreenClick = World.onScreenClick;
 
 function setWorld($json){
+
+	  for(var i = 0; i < World.markerList.length; i++){
+	        // First way
+	       World.markerList[i].remove(); 
+	       // or this Second way :- 
+	       World.markerList[i].destroy(); 
+	  }
 
 	 World.array_lugares = (JSON.parse($json))
 
