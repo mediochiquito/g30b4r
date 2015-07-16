@@ -116,7 +116,12 @@
 
             scope._set = function ($obj){       
 
+             // alert('mapa set');
+
               if(!mapa_ya_inicializado) initialize();
+
+
+
 
                 bounds = new google.maps.LatLngBounds(); 
                 mapa_type = $obj.type

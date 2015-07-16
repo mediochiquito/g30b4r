@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'robotolight';
+    src: url('fonts/roboto-light-webfont.eot');
+    src: url('fonts/roboto-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/roboto-light-webfont.woff2') format('woff2'),
+         url('fonts/roboto-light-webfont.woff') format('woff'),
+         url('fonts/roboto-light-webfont.ttf') format('truetype'),
+         url('fonts/roboto-light-webfont.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('fonts/roboto-bold-webfont.eot');
+    src: url('fonts/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/roboto-bold-webfont.woff2') format('woff2'),
+         url('fonts/roboto-bold-webfont.woff') format('woff'),
+         url('fonts/roboto-bold-webfont.ttf') format('truetype'),
+         url('fonts/roboto-bold-webfont.svg#robotobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+   -webkit-tap-highlight-color: rgba(0,0,0,0); 
+}
+
+body {
+	background-color: transparent;
+	background-image:none;
+	background: none;
+	-webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#btn-close{
+
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	
+}
+
+.botonOver{
+	-webkit-transform: scale(.8, .8);
+}
+
+
+#info{
+	position: absolute;
+	height: 160px;
+	background-color: #373737;
+	
+	bottom: 0px;
+	background-image: url(../img/bg.jpg);
+	background-repeat: no-repeat;
+	width: 100%;
+}
+#info-data{
+    position: relative;
+    width: 100%;
+    height: 90px;            overflow: hidden;    border-bottom: solid 2px #fff;    font-size: 12px;
+
+}
+
+#info-data .label  {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 145px;    
+}
+#pic{}
+#pic img{
+    position: absolute;    top: 0px;    left: 0px;    width: 130px;    height: 90px;
+}
+.name{
+    font-family: 'robotobold';    font-size: 15px;    text-transform: uppercase;    margin-top: 10px;
+}
+.tipo{
+    font-family: 'robotobold';    font-size: 12px;    font-style: italic;
+}
+.tel{
+    font-family: 'robotobold';    font-size: 12px;    font-style: italic;
+}
+.dir{
+    font-family: 'robotobold';    font-size: 12px;    font-style: italic;
+}
+#info-botonera{
+    width: 170px;    position: relative;    margin: 0 auto;    height: 50px;    
+    margin-top: 13px;
+}
+#btn_tel{
+    /* position: relative; */    
+    /* height: 60px; */    
+    /* float: left; */    
+    /* width: 40px; */    
+    /* display: inline; */
+    position: relative; 
+}
+#btn_dir{
+    /* position: relative; */    
+    /* width: 40px; */    
+    /* height: 60px; */    
+    /* float: left; */        
+    position: relative;    
+    /* margin: 14px 0px 0px 7px; */    
+    /* height: 29px; */ 
+    /* width: 26px; */
+}
+#btn_star{
+    /* position: relative; */    
+    /* width: 40px; */    
+    /* height: 60px; */    
+    /* float: left; */
+    position: relative; 
+}
+#btn_info{
+    /* position: relative; */    
+    /* width: 40px; */    
+    /* height: 60px; */    
+    /* float: left; */
+    position: relative;    
+    /* margin: 14px 0px 0px 7px; */    
+    /* height: 31px; */
+    /* width: 31px; */
+}
+.boton-sistema{
+    position: relative;    
+    width: 40px;    
+    height: 40px;    float: left;
+
+	
+}
+

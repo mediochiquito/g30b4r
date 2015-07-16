@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="css/anim.css">
     <link rel="stylesheet" href="css/app.css">
+
+        
   </head>
 
   <body ng-controller="mainController" ng-init="init()">
@@ -30,7 +32,7 @@
 
       <div ng-controller="menuCtrl" id='header_menu'>
 
-        <div id='menu-header' ng-class='{"menu-header-en-home": navigateService.esPrimerPage()}' >
+        <div id='menu-header' ng-class='{"menu-header-en-home": navigateService.esPrimerPage()}' class='menu-header-en-home' >
 
             <boton-sistema  id='btn_back'  
                             ng-class='{botonDisabled: navigateService.esPrimerPage()}' accion="navigateService.back()" imagen="img/btns/back.svg"></boton-sistema>
@@ -66,6 +68,7 @@
     <script src="servicios/utils.js"></script>
     <script src="servicios/loading.js"></script>
     <script src="servicios/ToastService.js"></script>
+    <script src="servicios/arService.js"></script>
     
     <script src="directivas/secciones/terms/terms.js"></script>
     <script src="directivas/secciones/home/home.js"></script>
@@ -85,7 +88,6 @@
     
     <script type="text/javascript" src="cordova.js"></script>
     <script src="app/index.js"></script>
-
 
     <script type="text/javascript">
        app.initialize();

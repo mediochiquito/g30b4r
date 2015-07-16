@@ -1,4 +1,4 @@
-geobarApp.directive('home', function(navigateService, SERVER, $http) {
+geobarApp.directive('home', function(navigateService, SERVER, $http, arService) {
   return {
     restrict: 'E',
     templateUrl: 'directivas/secciones/home/home.html', 
@@ -6,11 +6,16 @@ geobarApp.directive('home', function(navigateService, SERVER, $http) {
     link: function(scope, elem, attrs){
 
       var _callback;
-      var ya_cargo = false
-    	scope.navigateService = navigateService
-      scope.server = SERVER
+      var ya_cargo = false;
+    	scope.navigateService = navigateService;
+      scope.arService = arService;
+      scope.server = SERVER;
       scope.url_img_home = SERVER + 'img/home/';
       
+      scope.realidad = function  (){
+
+        arService.mostrar()
+      }
 
       scope._set = function ($obj, $callback){
         _callback = $callback;

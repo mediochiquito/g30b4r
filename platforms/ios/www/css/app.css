@@ -27,10 +27,13 @@
 }
 
 body, html{
+    
     height: 100%;
     /* background-color: rgba(0, 0, 0,0);*/
 }
+
 body{
+
     -webkit-touch-callout: none;
     -webkit-text-size-adjust: none;
     -webkit-user-select: none;
@@ -114,9 +117,17 @@ body{
     top: 3.6%;
 
 }
+.menu-header-en-home-add, .menu-header-en-home-remove{
+     transition:.3s;
+}
+#menu-header{
+    
+    -webkit-transform: translateX(0px);
+   
+}
 .menu-header-en-home{
-    transform: translateX(-61px);
-    transition: .3s;
+
+    -webkit-transform: translateX(-61px) !important;
 }
 #taxi-voyentaxi{
     position: absolute;
@@ -705,7 +716,9 @@ margin-top:0px;
 
     -webkit-flex-direction: row;
 
-    -webkit-align-items: center;      justify-content: center;
+    -webkit-align-items: center;      
+
+    -webkit-justify-content: center;
 
 }
 

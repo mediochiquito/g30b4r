@@ -1,4 +1,4 @@
-/*window.onerror = function(message, file, line) {
+window.onerror = function(message, file, line) {
   var error = [];
   error.push('---[error]');
   if (typeof message == "object") {
@@ -11,10 +11,10 @@
     error.push(message);
   }
   alert(error.join("\n"));
-};*/
+};
 
 var app = {
-   
+
     initialize: function() {
         
         this.bindEvents();

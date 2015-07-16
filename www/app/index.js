@@ -1,23 +1,19 @@
-/*window.onerror = function(message, file, line) {
-  var error = [];
-  error.push('---[error]');
-  if (typeof message == "object") {
-    var keys = Object.keys(message);
-    keys.forEach(function(key) {
-      error.push('[' + key + '] ' + message[key]);
-    });
-  } else {
-    error.push(line + ' at ' + file);
-    error.push(message);
-  }
-  alert(error.join("\n"));
-};*/
+// window.onerror = function(message, file, line) {
+//   var error = [];
+//   error.push('---[error]');
+//   if (typeof message == "object") {
+//     var keys = Object.keys(message);
+//     keys.forEach(function(key) {
+//       error.push('[' + key + '] ' + message[key]);
+//     });
+//   } else {
+//     error.push(line + ' at ' + file);
+//     error.push(message);
+//   }
+//   alert(error.join("\n"));
+// };
 
 var app = {
-    
-/*    onURLInvoked: function(a){
-        alert('onURLInvoked: ' + a);
-    },*/
 
     initialize: function() {
         
