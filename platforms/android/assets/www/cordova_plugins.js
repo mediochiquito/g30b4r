@@ -107,6 +107,14 @@ module.exports = [
         "clobbers": [
             "navigator.compass"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+        "id": "cordova-plugin-vibration.notification",
+        "merges": [
+            "navigator.notification",
+            "navigator"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -124,7 +132,8 @@ module.exports.metadata =
     "nl.x-services.plugins.toast": "2.1.1",
     "cordova-plugin-crosswalk-webview": "1.2.0",
     "cordova-plugin-device-motion": "1.1.1",
-    "cordova-plugin-device-orientation": "1.0.1"
+    "cordova-plugin-device-orientation": "1.0.1",
+    "cordova-plugin-vibration": "1.2.1-dev"
 }
 // BOTTOM OF METADATA
 });

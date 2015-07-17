@@ -63,6 +63,10 @@
                         {
                             "xml": "<uses-feature android:name=\"android.hardware.sensor.compass\" android:required=\"true\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
+                            "count": 1
                         }
                     ],
                     "/manifest/application": [
@@ -133,6 +137,10 @@
                         {
                             "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Vibration\"><param name=\"android-package\" value=\"org.apache.cordova.vibration.Vibration\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -177,6 +185,9 @@
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
         "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         }
     },

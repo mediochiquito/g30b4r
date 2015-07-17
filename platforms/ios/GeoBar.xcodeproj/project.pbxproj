@@ -74,6 +74,7 @@
 		E945AC012FF04384B8A27541 /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = D11BAE9403BB4AE4A7E2769C /* Toast+UIView.m */; };
 		F449ABE09A524C0EB1BF4F6B /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 074379CC84504718952F7FD8 /* libc++.dylib */; };
 		FABC7B1821BC482DB73C9B7E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0109302CD84A95B7B44F3B /* AVFoundation.framework */; };
+		A22034BBFCA84B789CB4AB30 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9177C44FA91E45FF821A7CCD /* CDVVibration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +194,8 @@
 		F84416E6B3DF45EEA4568BE5 /* CDVAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVAccelerometer.m; path = "cordova-plugin-device-motion/CDVAccelerometer.m"; sourceTree = "<group>"; };
 		FAE2A0B7CB3C45F289D0C7E8 /* CDVCompass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVCompass.m; path = "cordova-plugin-device-orientation/CDVCompass.m"; sourceTree = "<group>"; };
 		FC3D26F3D3554630A25CBB3F /* CDVReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVReachability.h; path = "cordova-plugin-network-information/CDVReachability.h"; sourceTree = "<group>"; };
+		9177C44FA91E45FF821A7CCD /* CDVVibration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVVibration.m"; path = "cordova-plugin-vibration/CDVVibration.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		B5795344723F4834BEDF3CED /* CDVVibration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVVibration.h"; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +369,8 @@
 				4739609AE764448B92A44243 /* CDVAccelerometer.h */,
 				FAE2A0B7CB3C45F289D0C7E8 /* CDVCompass.m */,
 				8CDEDB34C65E4E32836248BC /* CDVCompass.h */,
+				9177C44FA91E45FF821A7CCD /* CDVVibration.m */,
+				B5795344723F4834BEDF3CED /* CDVVibration.h */,
 			);
 			name = Plugins;
 			path = GeoBar/Plugins;
@@ -566,6 +571,7 @@
 				25F063E1389F41B682868F15 /* WTARViewController.m in Sources */,
 				5C3597ECF14B44D99604A584 /* CDVAccelerometer.m in Sources */,
 				3460042F0C564290BF50C31E /* CDVCompass.m in Sources */,
+				A22034BBFCA84B789CB4AB30 /* CDVVibration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

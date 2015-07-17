@@ -59,6 +59,10 @@
                         {
                             "xml": "<feature name=\"Compass\"><param name=\"ios-package\" value=\"CDVCompass\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Vibration\"><param name=\"ios-package\" value=\"CDVVibration\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -68,7 +72,7 @@
                     "AudioToolbox.framework": [
                         {
                             "xml": true,
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "CoreLocation.framework": [
@@ -241,6 +245,9 @@
             "PACKAGE_NAME": "com.testing.mateo.geo"
         },
         "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.testing.mateo.geo"
+        },
+        "cordova-plugin-vibration": {
             "PACKAGE_NAME": "com.testing.mateo.geo"
         }
     },
