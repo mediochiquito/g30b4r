@@ -1,5 +1,5 @@
 
-    geobarApp.directive('mapa', function(navigateService, ToastService, lugaresService, eventosService, DistancePostion, cordovaGeolocationService) {
+    geobarApp.directive('mapa', function(navigateService, ToastService, lugaresService, eventosService, DistancePostion, cordovaGeolocationService, $window) {
       
       return {
 
@@ -33,7 +33,11 @@
               navigateService.go('mapa', {type:'dir', item: scope.itemSelected});
               
             }
+            scope.goTel =  function (){
 
+              $window.open('tel://' + scope.itemSelected.tel);
+              
+            }
             function initialize() {
                     
                     var mapOptions = {
@@ -116,7 +120,12 @@
 
             scope._set = function ($obj){       
 
+             // alert('mapa set');
+
               if(!mapa_ya_inicializado) initialize();
+
+
+
 
                 bounds = new google.maps.LatLngBounds(); 
                 mapa_type = $obj.type

@@ -1,4 +1,4 @@
-geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER) {
+geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER, $window) {
   
   return {
   	
@@ -14,6 +14,12 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER)
     	$scope.goMapa = function (){
     		
     		navigateService.go('mapa', {type:'item', item: $scope.item});
+    		
+    	}
+    	
+    	$scope.goTel =  function (){
+
+    		$window.open('tel://' + $scope.item.tel);
     		
     	}
 
