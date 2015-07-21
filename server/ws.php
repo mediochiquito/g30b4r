@@ -21,6 +21,36 @@ switch($_GET['method']){
         echo json_encode($obj);
 		break;
 
+	case 'getListaAllPois':
+
+		$sql = 'SELECT * FROM lugares';		
+		$rs = mysql_query($sql);
+		$bucle = 0;
+		$array = new stdClass();
+
+		while($row = mysql_fetch_object($rs)){
+			
+			$o = new stdClass();
+			$o->id = $row->lugares_id;
+			$o->tipo = $row->lugares_tipo;
+			$o->cat = $cat[$row->lugares_tipo-1];
+			$o->name = $row->lugares_nombre . ' ' . $bucle++;
+			$o->tel = $row->lugares_tel;
+			$o->dir = $row->lugares_dir;
+			$o->lat = $row->lugares_lat;
+			$o->lon = $row->lugares_lng;
+			$o->alt = $row->lugares_alt;
+			$o->pub_ini = $row->lugares_pub_ini;
+			$o->pub_fin = $row->lugares_pub_fin;
+			
+			$array->eventos[] = $o;
+			
+		}
+		echo json_encode($array);
+		
+		
+	break;
+
 
 	case 'getLista':
 		

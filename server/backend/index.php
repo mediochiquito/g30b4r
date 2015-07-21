@@ -8,13 +8,12 @@
 
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-
     <link rel="stylesheet" href="css/app.css">
    
 
   </head>
 
-  <body>
+  <body flow-prevent-drop >
 
   <div ng-controller='AppCtrl'>
 
@@ -55,6 +54,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"></script>
 
     <script src="app/app.js"></script>
+    <script src="app/ng-flow-standalone.min.js"></script>
     <script src="views/pois.js"></script>
 
   </body>

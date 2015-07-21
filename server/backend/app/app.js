@@ -1,5 +1,5 @@
 
-var app = angular.module('adminApp', ['ngMaterial', 'ngRoute'])
+var app = angular.module('adminApp', ['ngMaterial', 'ngRoute', 'flow'])
 
 
 
