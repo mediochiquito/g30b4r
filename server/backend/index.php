@@ -19,24 +19,30 @@
 
     <md-content>
      
-      <md-toolbar class="md-tall md-warn md-hue-3">
-          <span flex></span>
-          <span class="md-flex">
-
+      <md-toolbar>
+           <span flex></span>
+         
             <md-tabs>
-
-              
               <md-tab label="Pois" md-on-select='go("pois")'></md-tab>
               <md-tab label="Home" md-on-select='go("home")'></md-tab>
             </md-tabs>
-
-          </span>
       
+
       </md-toolbar>
 
     </md-content>
 
+
+    <div id='cargando' ng-show=' cargando '>
+
+      cargando
+    </div>
+
   </div>
+
+
+
+
 
  <div ng-view></div>
 
@@ -55,6 +61,8 @@
 
     <script src="app/app.js"></script>
     <script src="app/ng-flow-standalone.min.js"></script>
+    <script src="app/ng-file-upload.min.js"></script>
+
     <script src="views/pois.js"></script>
 
   </body>

@@ -1,5 +1,5 @@
 
-var app = angular.module('adminApp', ['ngMaterial', 'ngRoute', 'flow'])
+var app = angular.module('adminApp', ['ngMaterial', 'ngRoute', 'ngFileUpload'])
 
 
 
@@ -27,8 +27,18 @@ var app = angular.module('adminApp', ['ngMaterial', 'ngRoute', 'flow'])
 
 
 
-.controller('AppCtrl', function($scope, $document) {
+.controller('AppCtrl', function($scope, $document, $rootScope) {
 
+    $scope.cargando = false
+    $rootScope.cargando = false;
+    $rootScope.$watch('cargando', function (){
+      $scope.cargando = $rootScope.cargando
+     
+    })
+
+    
+
+    console.log($rootScope)
     $scope.go = function ($ruta){
      
         document.location.hash = '#' + $ruta
@@ -39,6 +49,17 @@ var app = angular.module('adminApp', ['ngMaterial', 'ngRoute', 'flow'])
 
 .controller('HomeCtrl', function($scope) {
 
-     alert('HOME')
+    
     
 }) 
+
+
+
+window.addEventListener("dragover",function(e){
+  e = e || event;
+  e.preventDefault();
+},false);
+window.addEventListener("drop",function(e){
+  e = e || event;
+  e.preventDefault();
+},false);

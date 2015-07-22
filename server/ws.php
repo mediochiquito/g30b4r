@@ -10,6 +10,15 @@ function random() {
 $cat = array('Bar', 'Restaurante', 'Cine', 'Evento');
 switch($_GET['method']){
 
+
+	case 'uploadImg':
+
+		$filename = $_FILES['file']['name'];
+	    $destination = 'img/pois/' . $filename;
+  		move_uploaded_file( $_FILES['file']['tmp_name'] , $destination );
+  		
+  	break;
+
 	case 'getHomeImages':
 
 		$handle = opendir(dirname(realpath(__FILE__)).'/img/home/');
@@ -26,8 +35,7 @@ switch($_GET['method']){
 		$sql = 'SELECT * FROM lugares';		
 		$rs = mysql_query($sql);
 		$bucle = 0;
-		$array = new stdClass();
-
+	
 		while($row = mysql_fetch_object($rs)){
 			
 			$o = new stdClass();
@@ -40,12 +48,14 @@ switch($_GET['method']){
 			$o->lat = $row->lugares_lat;
 			$o->lon = $row->lugares_lng;
 			$o->alt = $row->lugares_alt;
+			$o->desc = $row->lugares_long_desc;
 			$o->pub_ini = $row->lugares_pub_ini;
 			$o->pub_fin = $row->lugares_pub_fin;
 			
-			$array->eventos[] = $o;
+			$array[] = $o;
 			
 		}
+
 		echo json_encode($array);
 		
 		

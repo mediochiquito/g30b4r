@@ -60,8 +60,8 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
                 $scope.en_pagina = 10;
             }, 300);            
         }
+
         
-      
         $scope.$watch('filtro', function (){
 
             try{
