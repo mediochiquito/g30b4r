@@ -659,6 +659,7 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 	 * @throws IOException might be thrown from ARchitect-SDK
 	 */
 	private void addArchitectView( final String apiKey, String filePath, int features, JSONObject startupConfiguration) throws IOException {
+		
 		if ( this.architectView == null ) {
 			
 			WikitudePlugin.releaseFocusInCordovaWebView(cordova.getActivity().getWindow().getDecorView().findViewById(android.R.id.content));
@@ -671,7 +672,7 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 						if (WikitudePlugin.this.locationProvider != null) {
 							WikitudePlugin.this.locationProvider.onPause();
 						}
-						removeArchitectView();
+						//removeArchitectView();
 						return true;
 
 					} else {
@@ -780,6 +781,8 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 	
 	
 	protected static class ArchitectViewPhoneGap extends ArchitectView {
+		
+
 		public static interface OnKeyUpDownListener {
 			public boolean onKeyDown(int keyCode, KeyEvent event);
 			

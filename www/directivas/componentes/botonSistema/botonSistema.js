@@ -21,7 +21,10 @@ geobarApp.directive('botonSistema', function() {
             if(!elem.hasClass('botonDisabled')){
                 elem.addClass('botonOver')
             }
-
+            try{
+                navigator.vibrate(1)    
+            }catch(e){}
+            
     	})
 
     	elem.on('touchend', function(){

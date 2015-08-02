@@ -1,5 +1,5 @@
 
-    geobarApp.directive('mapa', function(navigateService, ToastService, lugaresService, eventosService, DistancePostion, cordovaGeolocationService) {
+    geobarApp.directive('mapa', function(navigateService, ToastService, lugaresService, eventosService, DistancePostion, cordovaGeolocationService, $window) {
       
       return {
 
@@ -33,7 +33,11 @@
               navigateService.go('mapa', {type:'dir', item: scope.itemSelected});
               
             }
+            scope.goTel =  function (){
 
+              $window.open('tel://' + scope.itemSelected.tel);
+              
+            }
             function initialize() {
                     
                     var mapOptions = {

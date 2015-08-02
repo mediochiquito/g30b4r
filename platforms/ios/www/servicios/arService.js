@@ -82,8 +82,7 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
                 var self = this;
 
                 setTimeout(function (){
-                      
-                    navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError);
+                    
                     
                     if(!ya_iniciado){
 
@@ -96,26 +95,38 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
                                                  );
                         ya_iniciado = true;
 
-                    }  else wikitudePlugin.show()
+                       
+                  }  else wikitudePlugin.show();
 
-
-                     Loading.ocultar();
+                  navigator.geolocation.watchPosition(self.onLocationWatch,  function(){}, { timeout: 30000 });
+                  navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError);
+                   
+                  Loading.ocultar();
 
                 }, 666);
-              
+
             }
             
             return;       
         },  
 
-        onLocationUpdated: function(e) {
-          
-            wikitudePlugin.callJavaScript('setWorld(\'' + angular.toJson(lugaresService.get()) + '\', \'' + angular.toJson(eventosService.get()) + '\');');
 
+        onLocationWatch: function(e) {
+
+          //console.log(e.coords.latitude+'-'+e.coords.longitude+'-'+ e.coords.altitude+'-'+e.coords.accuracy)
+          wikitudePlugin.setLocation(e.coords.latitude, e.coords.longitude,  e.coords.altitude, e.coords.accuracy);
+           
         },
        
+        onLocationUpdated: function(e) {
+
+          // alert('corova onLocationUpdated: ' + e.coords.latitude + ',' + e.coords.longitude + ',' + e.coords.altitude + ',' + e.coords.accuracy)
+            wikitudePlugin.callJavaScript('setWorld(\'' + angular.toJson(lugaresService.get()) + '\', \'' + angular.toJson(eventosService.get()) + '\');');
+            wikitudePlugin.setLocation(e.coords.latitude, e.coords.longitude,  e.coords.altitude, e.coords.accuracy);
+           
+        },
         onLocationError: function(e) {
-        
+            alert('No hemos enctroado tu ubicación global. Revisa tu configuración del GPS.')
             ToastService.show('No hemos enctroado tu ubicación global. Revisa tu configuración del GPS.', 'long', 'center');
         },
 

@@ -36,6 +36,7 @@
     <div id='cargando' ng-show=' cargando '>
 
       cargando
+      
     </div>
 
   </div>

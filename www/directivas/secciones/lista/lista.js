@@ -32,7 +32,8 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
 
          
         $scope.resetFiltro = function(){
-           $scope.filtro = ''
+          
+          $scope.filtro = ''
           $scope.txtfiltro = '';
             
         }

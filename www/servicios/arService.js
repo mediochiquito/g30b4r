@@ -1,15 +1,18 @@
-geobarApp.factory('arService', function($window, $rootScope, navigateService, ToastService, lugaresService, eventosService, Loading){
+geobarApp.factory('arService', function($window, $rootScope, navigateService, ToastService, lugaresService, eventosService, Loading,cordovaGeolocationService){
 
     var wikitudePlugin;
-	var arExperienceUrl =  "www/AR/index.html";
+	  var arExperienceUrl =  "www/AR/index.html";
     var requiredFeatures = [  "geo" ];
     var isDeviceSupported ;
     var startupConfiguration = { "camera_position": "back"  };
     var ya_iniciado = false;
-	return {
 
+	  return {
+        
         set: function(){
+
             try{
+                
                 wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
                 wikitudePlugin.isDeviceSupported(this.onDeviceSupported, this.onDeviceNotSupported, requiredFeatures);
                 wikitudePlugin.setOnUrlInvokeCallback(this.onURLInvoked);
@@ -22,8 +25,17 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
         }, 
 
 
+
+        hide: function (){
+          alert('hide')
+            if(ya_iniciado)  wikitudePlugin.hide();
+           
+        },    
+
         onURLInvoked: function(url){
+          
           var _url = decodeURIComponent(url);
+
           if(_url == 'architectsdk://action=closeWikitudePlugin') wikitudePlugin.hide();
           else {
 
@@ -61,7 +73,6 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
 
                 }
 
-
           }
 
           Loading.ocultar();
@@ -73,17 +84,15 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
               
         },
 
-		mostrar: function() {
+    		mostrar: function() {
 
-			if(isDeviceSupported){
+    			if(isDeviceSupported){
 
                 Loading.mostrar();
 
                 var self = this;
 
-                setTimeout(function (){
-                      
-                    navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError);
+                setTimeout(function (){        
                     
                     if(!ya_iniciado){
 
@@ -95,27 +104,55 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
                                                     startupConfiguration
                                                  );
                         ya_iniciado = true;
+                        //document.addEventListener("backbutton", self.backKeyDown);
 
-                    }  else wikitudePlugin.show()
+                  }  else wikitudePlugin.show();
 
+                  var ultim_pos = cordovaGeolocationService.getUltimaPosicion();
 
-                     Loading.ocultar();
+                  if(ultim_pos != null){
+                    self.setPosPoisEnWikitude(ultim_pos.coords)
+                  }else{
+                    navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError);
+                  }
+
+                  navigator.geolocation.watchPosition(self.onLocationWatch,  function(){}, { timeout: 30000 });
+                   
+                  Loading.ocultar();
 
                 }, 666);
-              
+
             }
             
             return;       
         },  
 
-        onLocationUpdated: function(e) {
-          
-            wikitudePlugin.callJavaScript('setWorld(\'' + angular.toJson(lugaresService.get()) + '\', \'' + angular.toJson(eventosService.get()) + '\');');
 
+        setPosPoisEnWikitude: function($coord){
+
+           wikitudePlugin.setLocation($coord.latitude, $coord.longitude,  $coord.altitude, $coord.accuracy);
+           wikitudePlugin.callJavaScript('setWorld(\'' + angular.toJson(lugaresService.get()) + '\', \'' + angular.toJson(eventosService.get()) + '\');');
+          
+        }, 
+
+
+
+        onLocationWatch: function(e) {
+
+          //console.log(e.coords.latitude+'-'+e.coords.longitude+'-'+ e.coords.altitude+'-'+e.coords.accuracy)
+          wikitudePlugin.setLocation(e.coords.latitude, e.coords.longitude,  e.coords.altitude, e.coords.accuracy);
+           
         },
        
+        onLocationUpdated: function(e) {
+
+           
+            wikitudePlugin.setLocation(e.coords.latitude, e.coords.longitude,  e.coords.altitude, e.coords.accuracy);
+            this.setPosPoisEnWikitude(e.coords)
+        },
+
         onLocationError: function(e) {
-        
+            alert('No hemos enctroado tu ubicación global. Revisa tu configuración del GPS.')
             ToastService.show('No hemos enctroado tu ubicación global. Revisa tu configuración del GPS.', 'long', 'center');
         },
 

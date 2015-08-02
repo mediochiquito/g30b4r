@@ -14,7 +14,8 @@ geobarApp.directive('config', function($rootScope, $window, lugaresService) {
 
       scope.chkBares = $window.localStorage.getItem('bares')
       scope.chkRestaurantes = $window.localStorage.getItem('restaurantes')
-		  scope.chkCines = $window.localStorage.getItem('cines')
+      scope.chkCines = $window.localStorage.getItem('cines')
+		  scope.chkTeatros = $window.localStorage.getItem('teatros')
 
       scope.update = function ($clave, $val){
 

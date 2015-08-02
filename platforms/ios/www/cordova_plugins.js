@@ -153,7 +153,7 @@ module.exports.metadata =
     "cordova-plugin-console": "1.0.0",
     "cordova-plugin-device": "1.0.0",
     "cordova-plugin-dialogs": "1.1.0",
-    "cordova-plugin-geolocation": "1.0.0",
+    "cordova-plugin-geolocation": "1.0.1",
     "cordova-plugin-network-information": "1.0.0",
     "cordova-plugin-splashscreen": "2.1.0",
     "cordova-plugin-statusbar": "1.0.0",

@@ -218,7 +218,7 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 				String name = "";
 				if (args.length() > 1 && !args.isNull(1)) {
 					try {
-		 				name = args.getString(1);
+						name = args.getString(1);
 					} catch (final Exception e) {
 						e.printStackTrace();
 					}
@@ -234,7 +234,7 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 						final String name = System.currentTimeMillis() + ".jpg";
 						try {
 							if (fileName.equals("")) {
- 								final File imageDirectory = Environment.getExternalStorageDirectory();
+								final File imageDirectory = Environment.getExternalStorageDirectory();
 								if (imageDirectory == null) {
 									callContext.error("External storage not available");
 								}
@@ -256,12 +256,12 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 							out.close();
 							
 							ContentValues values = new ContentValues();
-						    values.put(Images.Media.DATE_TAKEN, System.currentTimeMillis());
-						    values.put(Images.Media.MIME_TYPE, "image/jpeg");
-						    values.put(MediaStore.MediaColumns.DATA, screenCaptureFile.getAbsolutePath());
+							values.put(Images.Media.DATE_TAKEN, System.currentTimeMillis());
+							values.put(Images.Media.MIME_TYPE, "image/jpeg");
+							values.put(MediaStore.MediaColumns.DATA, screenCaptureFile.getAbsolutePath());
 
-						    Context context= cordova.getActivity().getApplicationContext();
-						    context.getContentResolver().insert(Images.Media.EXTERNAL_CONTENT_URI, values);
+							Context context= cordova.getActivity().getApplicationContext();
+							context.getContentResolver().insert(Images.Media.EXTERNAL_CONTENT_URI, values);
 							
 							cordova.getActivity().runOnUiThread(new Runnable() {
 								
@@ -671,7 +671,7 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 						if (WikitudePlugin.this.locationProvider != null) {
 							WikitudePlugin.this.locationProvider.onPause();
 						}
-						removeArchitectView();
+					//	removeArchitectView();
 						return true;
 
 					} else {
@@ -746,14 +746,14 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 		// hide keyboard when adding AR view on top of views
 		InputMethodManager inputManager = (InputMethodManager)
 				(this.cordova.getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
-				    inputManager.hideSoftInputFromWindow((this.cordova.getActivity()).getCurrentFocus().getWindowToken(),
-				    InputMethodManager.HIDE_NOT_ALWAYS);
+					inputManager.hideSoftInputFromWindow((this.cordova.getActivity()).getCurrentFocus().getWindowToken(),
+					InputMethodManager.HIDE_NOT_ALWAYS);
 	}
 	
 	
 	private static void releaseFocusInCordovaWebView(View rootView) {
 		if (rootView instanceof CordovaWebView) {
-        ((CordovaWebView)rootView).getView().clearFocus();
+		((CordovaWebView)rootView).getView().clearFocus();
 		} else if (rootView instanceof ViewGroup) {
 			final int childCount = ((ViewGroup)rootView).getChildCount();
 			for (int i=0; i< childCount; i++) {
@@ -800,10 +800,10 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 		}
 
 		@Override
-	    public boolean onKeyDown(int keyCode, KeyEvent event) {
+		public boolean onKeyDown(int keyCode, KeyEvent event) {
 			// forward onKeyDown events to listener
 			return this.onKeyUpDownListener!=null &&  this.onKeyUpDownListener.onKeyDown(keyCode, event);
-	    }
+		}
 
 		@Override
 		public boolean onKeyUp(int keyCode, KeyEvent event) {

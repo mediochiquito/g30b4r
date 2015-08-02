@@ -102,7 +102,7 @@ cordova.define("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin", function(r
 		document.removeEventListener("resume", this.onResume, false);
 		document.removeEventListener("backbutton", this.onBackButton, false);
 
-		cordova.exec(this.onWikitudeOK, this.onWikitudeError, "WikitudePlugin", "close", [""]);
+		//cordova.exec(this.onWikitudeOK, this.onWikitudeError, "WikitudePlugin", "close", [""]);
 	};
 
 	/**
@@ -206,7 +206,7 @@ cordova.define("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin", function(r
 
 		// Call the Wikitude SDK that it should resume.
 		//cordova.exec(this.onWikitudeOK, this.onWikitudeError, "WikitudePlugin", "close", [""]);
-		WikitudePlugin.prototype.close();
+		//WikitudePlugin.prototype.hide();
 	};
 
 	/**

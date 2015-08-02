@@ -22,7 +22,7 @@ function Marker($obj) {
             cam: [this.markerDrawable_idle]
         }
     });
-
+    
     return this;
 
 }

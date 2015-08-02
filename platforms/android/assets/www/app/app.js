@@ -80,6 +80,7 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 	if(window.localStorage.getItem('bares') == null) window.localStorage.setItem('bares', 1);
 	if(window.localStorage.getItem('restaurantes') == null) window.localStorage.setItem('restaurantes', 1);
 	if(window.localStorage.getItem('cines') == null) window.localStorage.setItem('cines', 1);
+	if(window.localStorage.getItem('teatros') == null) window.localStorage.setItem('teatros', 1);
 	if(window.localStorage.getItem('eventos') == null) window.localStorage.setItem('eventos', 1);
 	if(window.localStorage.getItem('favoritos') == null) window.localStorage.setItem('favoritos', 1);
 	if(window.localStorage.getItem('push') == null) window.localStorage.setItem('push', 1);

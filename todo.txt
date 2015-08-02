@@ -20,5 +20,5 @@
 
 - back flecha android
 
--slider control distance
+- slider control distance
 

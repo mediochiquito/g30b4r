@@ -1,4 +1,4 @@
-geobarApp.service('navigateService', function($log,mapaService){
+geobarApp.service('navigateService', function($log, mapaService, $rootScope, $injector){
 
 	var en_seccion = '';
 	var historia = new Array();
@@ -8,6 +8,21 @@ geobarApp.service('navigateService', function($log,mapaService){
 	this.status = 0;
  	this.dir_animate  = 'enterSeccion';
  	this.secciones = new Object()
+
+	// // Here is your tag
+ 	document.addEventListener("backbutton", backKeyDown, false);
+
+
+
+ 	function backKeyDown(e){
+
+ 		$rootScope.$apply(function(){
+ 			self.back()
+ 			var arService = $injector.get('arService');
+ 			arService.hide()
+ 		})
+
+ 	}
 
  	this.esPrimerPage = function(){	
  		return (historia.length==1);
@@ -23,8 +38,6 @@ geobarApp.service('navigateService', function($log,mapaService){
 
 		if(typeof obj == 'undefined') obj = null;
 		if(typeof $recargar == 'undefined') $recargar = true;
-		
-
 
 		switch(secc){
 			
@@ -95,6 +108,7 @@ geobarApp.service('navigateService', function($log,mapaService){
 
 
 	this.back = function (){
+
 
 		ultima_seccion_eliminada_de_historia = historia[historia.length-1];
 		if(historia.length>1) historia.pop();

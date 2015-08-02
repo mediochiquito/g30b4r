@@ -35,6 +35,9 @@
     <feature name="Compass">
         <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener" />
     </feature>
+    <feature name="Vibration">
+        <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
+    </feature>
     <allow-intent href="market:*" />
     <icon density="ldpi" src="res/icon/android/ldpi.png" />
     <icon density="mdpi" src="res/icon/android/mdpi.png" />
@@ -69,7 +72,4 @@
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="android-minSdkVersion" value="14" />
-    <feature name="Vibration">
-        <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
-    </feature>
 </widget>

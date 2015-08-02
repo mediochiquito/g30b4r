@@ -49,6 +49,9 @@
     <feature name="Compass">
         <param name="ios-package" value="CDVCompass" />
     </feature>
+    <feature name="Vibration">
+        <param name="ios-package" value="CDVVibration" />
+    </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <name>GeoBar</name>
@@ -76,7 +79,4 @@
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="android-minSdkVersion" value="14" />
-    <feature name="Vibration">
-        <param name="ios-package" value="CDVVibration" />
-    </feature>
 </widget>
