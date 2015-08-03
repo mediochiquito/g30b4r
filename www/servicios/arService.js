@@ -27,7 +27,7 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
 
 
         hide: function (){
-          alert('hide')
+         
             if(ya_iniciado)  wikitudePlugin.hide();
            
         },    

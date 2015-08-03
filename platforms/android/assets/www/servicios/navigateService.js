@@ -20,6 +20,7 @@ geobarApp.service('navigateService', function($log, mapaService, $rootScope, $in
  			self.back()
  			var arService = $injector.get('arService');
  			arService.hide()
+ 			
  		})
 
  	}

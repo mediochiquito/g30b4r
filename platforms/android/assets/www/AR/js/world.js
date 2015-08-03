@@ -72,7 +72,7 @@ function setWorld($json_lugares, $json_eventos){
 
 
 	$('#info').hide()
-	alert(1)
+
 	// destruyo todos los markers
 	for(var i = 0; i < World.markerList.length; i++){      
 	    World.markerList[i].markerObject.destroy(); 
@@ -81,7 +81,7 @@ function setWorld($json_lugares, $json_eventos){
 	World.array_lugares = (JSON.parse($json_lugares));
 	World.array_eventos = (JSON.parse($json_eventos));
 	World.cargar_todos_los_markers();
-alert(2)
+
 
 }
 
