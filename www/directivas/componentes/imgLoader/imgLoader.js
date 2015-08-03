@@ -2,21 +2,30 @@ geobarApp.directive('imgLoader', function(Loading) {
   return {
     
     restrict: 'E', 
-    transclude: true,
+   
     scope:{
 
-      server: '@',
-      default: '@', 
+    /*  server: '=',
+      default: '=', */
+      imgurl: '=',
+      itemid: '=',
+      itemtipo: '='
 
     },
 
     template : '<img class="item-lista-img" ng-src="{{ imagen }}" />', 
     link: function(scope, elem, attrs){
 
-        scope.imagen = scope.server
-      
+       
+        
+        scope.$watch('itemid', function(n, v){
+
+       
+           scope.imagen = scope.imgurl + scope.itemid + '/thumb.jpg'
+        })
+
         elem.children('img')[0].onerror = function () {
-            scope.imagen = scope.default
+            scope.imagen = 'img/default/thumb_' + scope.itemtipo + '.png';
             scope.$apply()
         };
       
@@ -24,3 +33,6 @@ geobarApp.directive('imgLoader', function(Loading) {
     }
   };
 });
+
+
+//server="{{}}" default=''

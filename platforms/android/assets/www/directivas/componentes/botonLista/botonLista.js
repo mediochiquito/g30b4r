@@ -17,6 +17,10 @@ geobarApp.directive('botonLista', function(Loading) {
             }catch(e){}
             elem.bind('touchmove', touch_move)
             elem.addClass('botonListaOver')
+
+             try{
+                if(device.platform == 'Android')  navigator.vibrate(1)    
+            }catch(e){}
     	})
 
     	elem.on('touchend', function(){

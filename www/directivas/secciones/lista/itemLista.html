@@ -1,9 +1,11 @@
 <div ng-if='((index*90) > (enscroll - 1000)) && ((index*90) <= (enscroll + altoholder) + 1000) ' >
 	
-	<img-loader server="{{img_url + item.id + '/thumb.jpg'}}" default='img/default/thumb_{{item.tipo}}.png'></img-loader>
+	<img-loader imgurl='img_url' itemid='item.id' itemtipo='item.tipo' ></img-loader>
 	<div class='itemLista-name'>{{item.name}}</div>
 	<div class='itemLista-tipo'>{{item.cat}}</div> 
 	<div class='itemLista-tel'>T. {{item.tel}}</div>
 	<div class='itemLista-dir'>{{item.dir}}</div>
-	
+		
+	<div class='itemLista-distancia' ng-show = ' item.distancia '>{{item.distancia.toFixed(2)}} km.</div>
+
 </div>

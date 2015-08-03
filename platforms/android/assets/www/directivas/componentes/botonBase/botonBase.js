@@ -13,7 +13,11 @@ geobarApp.directive('botonBase', function($log) {
             if(!elem.hasClass('botonDisabled')){
                 elem.addClass('botonOver')
               
-                scope.$apply()
+                scope.$apply();
+
+                 try{
+                    if(device.platform == 'Android')  navigator.vibrate(1)    
+                }catch(e){}
             }
     	})
 

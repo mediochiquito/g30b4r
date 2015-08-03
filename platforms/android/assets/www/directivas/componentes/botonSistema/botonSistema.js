@@ -22,7 +22,7 @@ geobarApp.directive('botonSistema', function() {
                 elem.addClass('botonOver')
             }
             try{
-                navigator.vibrate(1)    
+                if(device.platform == 'Android')  navigator.vibrate(1)    
             }catch(e){}
             
     	})

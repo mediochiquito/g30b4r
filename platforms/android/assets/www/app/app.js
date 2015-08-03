@@ -1,16 +1,23 @@
-var geobarApp = angular.module('geobarApp', ['ngTouch', 'ngAnimate', 'Utils', 'cordovaGeolocationModule', 'plugins.toast'])
+var geobarApp = angular.module('geobarApp', ['ngTouch', 'ngAnimate',  'ngMaterial',  'Utils', 'cordovaGeolocationModule', 'plugins.toast'])
 
- //.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+//.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
 //.constant('SERVER', 'http://mateomenestrina.no-ip.org/g30b4r/server/')
-  .constant('SERVER', 'http://dev.metamorf.com.uy/geobar/')
- 
- .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
+ .constant('SERVER', 'http://dev.metamorf.com.uy/geobar/')
+
+.constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
+
+.config(function( $mdGestureProvider ) {
+    $mdGestureProvider.skipClickHijack();
+})
+
+
 
 geobarApp.controller("mainController",  function($document, $rootScope, ToastService, cordovaGeolocationService, $timeout, $scope, $http, Loading, SERVER, $location, $window, navigateService, lugaresService, eventosService, arService) {
 
 	$scope.rootScope = $rootScope
 	$scope.alto_screen = window.innerHeight;
 
+	$scope.ultima_ubilcacion  = cordovaGeolocationService.getUltimaPosicion()
 //	console.log(navigator.userAgent)
 
 	$scope.init = function (){
@@ -18,6 +25,7 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 		$rootScope.position = null;
 
 		cordovaGeolocationService.watchPosition();
+
 
 		if(window.localStorage.getItem('local_sync_lugares') == null) window.localStorage.setItem('local_sync_lugares', 0);	
 		if(window.localStorage.getItem('local_sync_eventos') == null)  window.localStorage.setItem('local_sync_eventos', 0);	
@@ -34,6 +42,7 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 			if(debe_sincronzar != ''){
 
 				$http.get(SERVER+'ws.php?method=getLista&data=' + debe_sincronzar + '&ac=' + new Date().getTime())
+
 				.success(function(data, status, headers, config) {
 
 					if(typeof data.lugares != 'undefined'){
@@ -63,12 +72,23 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 	}
 
 	function iniciar_app(){	
-		lugaresService.setAll()
-		eventosService.setAll()
+		
+		$rootScope.$watch("position", function (nuevo, viejo){
+
+			lugaresService.setAll();
+			eventosService.setAll();	
+
+		})
+
 		arService.set()
 		Loading.ocultar()
+
+
 		$document.on('touchmove', hack)
+	
 	}
+
+
 
 
 	function hack(){
@@ -119,11 +139,6 @@ geobarApp.controller("seccionLoaderController",  function($scope, $rootScope, na
 	   
 	});
 
-	//setTimeout(function(){
-		 //navigateService.go('home')
-		// navigateService.go('detalle', {item: {'id': 2}});
-	//	$scope.$apply()
-	//}, 2000)
 
 	$scope.cliqueando = function (){
 		$scope.visible = false;

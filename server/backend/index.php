@@ -35,7 +35,7 @@
 
     <div id='cargando' ng-show=' cargando '>
 
-      cargando
+      <md-progress-circular md-mode="indeterminate" value="..." role="progressbar"></md-progress-circular>
       
     </div>
 

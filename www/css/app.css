@@ -91,6 +91,13 @@ body{
 .bg-color-cine{
   background-color: #28eaa4 
 }
+
+
+.bg-color-teatro{
+  background-color: #9282A8
+}
+
+
 .bg-color-evento{
      background-color: #00ccff
 }
@@ -401,7 +408,24 @@ body{
     font-family: 'robotolight';
      font-size: 11px;
 }
+  .itemLista-distancia{
+ font-family: 'robotolight';
+     
+ font-size: 9px;
+     
+ color: #2F2E2E;
+
+
   
+ padding-left: 0 !important;
+ position: absolute !important;
+ top: 4px;
+ width: 59px !important;
+ right: 6px;
+ text-align: right;
+}
+
+
    
 .item-lista{
     position: relative;
@@ -783,7 +807,19 @@ margin-top:0px;
 .config-row > .label{
     float: left;
     position: relative;
-    margin-top: 7px;
+    margin-top: 13px;
+    font-size: 12px;
+}
+
+.config-conent-slider{
+    position: relative;
+
+    
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 2px 0px 90px;
+    height: 40px;
+    /* margin-top: 5px; */
 }
 
 /*Check box*/

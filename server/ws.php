@@ -7,16 +7,53 @@ function random() {
  return mt_rand() / (mt_getrandmax() + 1);
 }
 
-$cat = array('Bar', 'Restaurante', 'Cine', 'Evento');
+$cat = array('Bar', 'Restaurante', 'Cine', 'Evento', 'Teatro');
 switch($_GET['method']){
 
 
 	case 'uploadImg':
 
-		$filename = $_FILES['file']['name'];
-	    $destination = 'img/pois/' . $filename;
-  		move_uploaded_file( $_FILES['file']['tmp_name'] , $destination );
+		$hash_file = md5(date('Ymdhis').$_SERVER['REMOTE_ADDR'].rand(0,9999999999));
+		$name = $_FILES["file"]["name"];		
+		$extension = end(explode('.', $name));	
+		$destino =dirname(__FILE__). "/img/pois/$hash_file.$extension";
+
+  		if(move_uploaded_file( $_FILES['file']['tmp_name'] , $destino )){
+
+			die($hash_file.'.'.$extension);
+
+  		}
+
   		
+  	break;
+
+  	case 'savePoi':
+
+  		$params = json_decode(file_get_contents('php://input'));
+  
+
+	    $array_iniPub = explode('T', $params->iniPub);
+	    $array_finPub = explode('T', $params->finPub);
+
+
+		mysql_query('UPDATE lugares SET 	
+
+								lugares_pub_ini   = "' . $array_iniPub[0] . '",  
+								lugares_pub_fin   = "' . $array_finPub[0] . '", 
+								lugares_tipo  	  = "' . $params->tipo . '",
+								lugares_nombre 	  = "' . $params->name . '",
+								lugares_tel		  = "' . $params->tel  . '",
+								lugares_dir 	  = "' . $params->dir  . '",
+								lugares_long_desc = "' . $params->desc . '",
+								lugares_lat 	  = "' . $params->lat  . '",
+								lugares_lng 	  = "' . $params->lon  . '",
+								lugares_alt 	  = "' . $params->alt  . '" 
+
+								WHERE lugares_id = "'. $params->id .'" 
+									
+								');
+
+
   	break;
 
 	case 'getHomeImages':
@@ -70,7 +107,7 @@ switch($_GET['method']){
 				$sql = 'SELECT * FROM lugares WHERE lugares_tipo != 4';
 				break;
 			case 'eventos':
-				$sql = 'SELECT * FROM lugares WHERE lugares_tipo = 4';
+				$sql = 'SELECT * FROM lugares WHERE lugares_tipo = 4 and lugares_pub_fin>=NOW()';
 				break;
 			case 'lugareseventos':
 				$sql = 'SELECT * FROM lugares';
@@ -125,14 +162,14 @@ switch($_GET['method']){
 					$array->lugares[] = $o;
 				//}
 
-				//shuffle($array->lugares);
+				
 			}
 			
 
 		}
 
 	
-		
+		shuffle($array->lugares);
 		echo json_encode($array);
 		break;
 

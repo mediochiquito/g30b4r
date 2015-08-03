@@ -14,9 +14,9 @@ geobarApp.service('mapaService', function($rootScope, SCREEN_SIZE){
 
  	this.mostrar = function(){
  		
- 	/*	$rootScope.etiloContent ='bg1';
- 		$rootScope.viewBg ='viewBg1';
-	*/
+	 	/*	$rootScope.etiloContent ='bg1';
+	 		$rootScope.viewBg ='viewBg1';
+		*/
  		var div = document.getElementById('map_canvas');
  			div.style.height = (window.innerHeight-80) + 'px'
 

@@ -3,7 +3,10 @@ angular.module('Utils',[])
     .factory('DistancePostion', function(){
 	   
        return {
-            enKilometros:function(lat1, lon1, lat2, lon2, unit) {
+            enKilometros:function(lat1, lon1, lat2, lon2) {
+
+                var unit = "K"
+
                 var radlat1 = Math.PI * lat1/180
                 var radlat2 = Math.PI * lat2/180
                 var radlon1 = Math.PI * lon1/180

@@ -7,7 +7,7 @@
 <div class='listado' style="height:{{screen_alto-132}}px">
 
 	<div item-lista	boton-lista ng-repeat="item in array_items | filter: filtro | limitTo:en_pagina as cantidad" 
-					ng-class=" { 'alpha': (($index*90) < (enscroll - 1000)) || (($index*90) > (enscroll + altoholder) + 1000) , 'bg-color-bar': (item.tipo==1), 'bg-color-restaurante': (item.tipo==2) , 'bg-color-cine': (item.tipo==3), 'bg-color-evento': (item.tipo==4)}"
+					ng-class=" { 'alpha': (($index*90) < (enscroll - 1000)) || (($index*90) > (enscroll + altoholder) + 1000) , 'bg-color-bar': (item.tipo==1), 'bg-color-restaurante': (item.tipo==2) , 'bg-color-cine': (item.tipo==3), 'bg-color-evento': (item.tipo==4),  'bg-color-teatro': (item.tipo==5)}"
 					index='{{$index}}' 
 					item='item' 
 					enscroll= 'enscroll' 

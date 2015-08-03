@@ -1,19 +1,31 @@
 .md-select-label{
     width: 100%;
 }
+md-progress-circular{
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left: -20px;
+	margin-top: -20px;
+}
 .formAncho{
     width: 40%;
     margin-right: 10%;
 }
-.drop {
+.drop-box {
   padding: 15px;
   border: 2px #D3D1D1 dashed;
   border-radius: 5px;
   line-height: 34px;
+  color: grey;
 }
+.headerImages{
 
-.drag-over{
+	max-width: 400px;
+}
+.dragover{
 	background-color: #ccc;
+	border-color: red;
 }
 
 .poi-thumb{
@@ -30,10 +42,10 @@ md-toolbar {
 	height: 50px;
 }
 #cargando{
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0px;
-	background-color: rgba(127,127,127, .7);
+	background-color: rgba(255,255,255, .7);
 	z-index: 999;
 }

@@ -7,16 +7,16 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
     var startupConfiguration = { "camera_position": "back"  };
     var ya_iniciado = false;
 
-	return {
-
+	  return {
+        
         set: function(){
+
             try{
+                
                 wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
                 wikitudePlugin.isDeviceSupported(this.onDeviceSupported, this.onDeviceNotSupported, requiredFeatures);
                 wikitudePlugin.setOnUrlInvokeCallback(this.onURLInvoked);
-              
 
-               
             }catch(e){
 
                console.log('No se puede cargar el AR')
@@ -116,7 +116,10 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
                     navigator.geolocation.getCurrentPosition( self.onLocationUpdated,  self.onLocationError);
                   }
 
-                  navigator.geolocation.watchPosition(self.onLocationWatch,  function(){}, { timeout: 30000 });
+                  
+                  
+
+                 // navigator.geolocation.watchPosition(self.onLocationWatch,  function(){}, { timeout: 30000 });
                    
                   Loading.ocultar();
 
@@ -140,7 +143,7 @@ geobarApp.factory('arService', function($window, $rootScope, navigateService, To
         onLocationWatch: function(e) {
 
           //console.log(e.coords.latitude+'-'+e.coords.longitude+'-'+ e.coords.altitude+'-'+e.coords.accuracy)
-          wikitudePlugin.setLocation(e.coords.latitude, e.coords.longitude,  e.coords.altitude, e.coords.accuracy);
+          //wikitudePlugin.setLocation(e.coords.latitude, e.coords.longitude,  e.coords.altitude, e.coords.accuracy);
            
         },
        

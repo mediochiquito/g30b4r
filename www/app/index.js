@@ -32,11 +32,14 @@ var app = {
 
             angular.bootstrap(document, ["geobarApp"]);
 
-        }catch(e){
+
+          }catch(e){
 
             angular.bootstrap(document, ["geobarApp"]);
 
         }
+
+
 
     }
 };

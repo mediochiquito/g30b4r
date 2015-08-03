@@ -102,6 +102,7 @@ function info(obj){
 	if(obj_selected.tipo == 2)	$('#info-data').css( 'background-color','#EFE923');
 	if(obj_selected.tipo == 3)	$('#info-data').css( 'background-color','#28eaa4');
 	if(obj_selected.tipo == 4)	$('#info-data').css( 'background-color','#00ccff');
+	if(obj_selected.tipo == 5)	$('#info-data').css( 'background-color','#9282A8');
 
 	$('#info').show()
 

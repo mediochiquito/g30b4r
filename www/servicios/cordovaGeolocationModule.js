@@ -61,13 +61,18 @@ cordovaGeolocationModule.factory('cordovaGeolocationService', ['$rootScope', '$l
 
             // Checking API availability
             if (!this.checkGeolocationAvailability()) {
+             
                 return;
             }
 
             // API call
             navigator.geolocation.getCurrentPosition(
+
                 function (position) {
+
+                    pocision = position;
                     $rootScope.$apply(successCallback(position));
+
                 },
                 function (error) {
                     $rootScope.$apply(errorCallback(error));
@@ -80,12 +85,8 @@ cordovaGeolocationModule.factory('cordovaGeolocationService', ['$rootScope', '$l
         getUltimaPosicion: function(){
 
             return pocision;
-        }, 
 
-        /**
-         * Returns the device's current position when a change in position is detected.
-         * For more information: https://github.com/apache/cordova-plugin-geolocation/blob/master/doc/index.md#navigatorgeolocationwatchposition
-         */
+        }, 
         watchPosition: function () {
         
             // Checking API availability
@@ -95,11 +96,13 @@ cordovaGeolocationModule.factory('cordovaGeolocationService', ['$rootScope', '$l
 
             // API call
             return navigator.geolocation.watchPosition(
+
                function(position) {
                     
-
-                    pocision = position;
-
+                     console.log(position)
+                     pocision = position;
+                     $rootScope.position = position
+                     $rootScope.$apply()
 
                 }, function onError(error) {
                     alert('code: '    + error.code    + '\n' +

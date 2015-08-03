@@ -14,7 +14,7 @@ geobarApp.directive('checkBox', function($log) {
 
 
     	elem.on('touchend', function(){
-            console.log('a')
+         
     		 if(scope.checked == 1) scope.checked = 0;
              else scope.checked = 1;
              scope.$apply()

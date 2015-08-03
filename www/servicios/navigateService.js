@@ -118,7 +118,9 @@ geobarApp.service('navigateService', function($log, mapaService, $rootScope, $in
 			},100)
 
 		var penultimo_elemento = historia[historia.length-1];	
-		this.go(penultimo_elemento.secc, penultimo_elemento.obj, false, 'backSeccion', false);
+		var recargar = false
+		if(penultimo_elemento.secc == 'mapa') recargar = true;
+		this.go(penultimo_elemento.secc, penultimo_elemento.obj, false, 'backSeccion', recargar);
 	}
 
 

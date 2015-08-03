@@ -1,14 +1,14 @@
 <div class='flexible'>
 
-	<div id='el-mapa'></div>
+	<div id='el-mapa' data-tap-disabled="false"></div>
 
-	<div id='mapa-info-content' ng-show=' itemSelected != null ' class='mapa-info'>
+	<div  id='mapa-info-content' ng-show=' itemSelected != null 'class='mapa-info'>
 		<div item-lista 
 					ng-if = ' itemSelected != null ' 
 					index = '100'
 					enscroll = '1000'
 					altoholder = '10000'
-					ng-class=" {'bg-color-bar': (itemSelected.tipo==1), 'bg-color-restaurante': (itemSelected.tipo==2) , 'bg-color-cine': (itemSelected.tipo==3), 'bg-color-evento': (itemSelected.tipo==4)} "
+					ng-class=" {'bg-color-bar': (itemSelected.tipo==1), 'bg-color-restaurante': (itemSelected.tipo==2) , 'bg-color-cine': (itemSelected.tipo==3), 'bg-color-evento': (itemSelected.tipo==4), 'bg-color-teatro': (itemSelected.tipo==5)} "
 					item='itemSelected' 
 					siempre-visible='true' 
 					class='item-lista'></div>

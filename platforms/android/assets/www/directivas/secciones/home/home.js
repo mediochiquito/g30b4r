@@ -56,7 +56,7 @@ geobarApp.directive('home', function(navigateService, SERVER, $http, arService) 
       setTimeout(function (){
          navigateService.go('home')
          scope.$apply();
-          navigateService.go('home')
+       
        }, 100)
        
     }

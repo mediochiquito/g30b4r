@@ -1,5 +1,5 @@
 
-var app = angular.module('adminApp', ['ngMaterial', 'ngRoute', 'ngFileUpload'])
+var app = angular.module('adminApp', ['ngAnimate', 'ngMaterial', 'ngRoute', 'ngFileUpload'])
 
 
 
