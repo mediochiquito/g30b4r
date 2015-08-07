@@ -1,0 +1,156 @@
+<md-dialog aria-label="form poi">
+	
+	<md-toolbar>
+	    <div class="md-toolbar-tools">
+	    
+	    	<h2 ng-show='poi.id == null '>CREAR NUEVO POI</h2>
+	      <h2 ng-show='poi.id != null '>EDITANDO POI #{{poi.id}}</h2>
+	      <span flex></span>
+	      <md-button class="md-icon-button" ng-click="answer('not applicable')">
+	          <md-icon class='material-icons' aria-hidden="true">close</md-icon>
+	      </md-button>
+	    </div>
+	   </md-toolbar>
+
+	   <md-dialog-content>
+
+	        	<div layout='row'>
+
+		           <md-select ng-model="poi.tipo" placeholder="Tipo" flex>
+		                <md-option ng-value="1" >Bar</md-option>
+		                <md-option ng-value="2" >Restaurante</md-option>
+		                <md-option ng-value="3" >Cine</md-option>
+		                <md-option ng-value="5" >Teatro</md-option>
+		                <md-option ng-value="4" >Evento</md-option>
+
+		               
+		            </md-select>
+		            <md-input-container flex >
+			              <label for="label">Nombre</label>
+			              <input type="text" id="label" ng-model="poi.name">
+			        </md-input-container>
+
+	            </div>
+	            <div layout='row' ng-show=' poi.tipo == 4 '>
+
+		            <md-input-container  flex>
+		              <label>Inicio de publicación</label>
+		              <input type="date" ng-model="poi.iniPub">
+		            </md-input-container>
+
+		            <md-input-container flex>
+		              <label>Fin de publicación</label>
+		              <input type="date" ng-model="poi.finPub">
+		            </md-input-container>
+
+	        	</div>
+
+	        	<div layout='row'>
+		          
+		            <md-input-container flex  >
+		              <label for="content">Telefono</label>
+		              <input type="text" id="content" ng-model="poi.tel">
+		            </md-input-container>
+
+		            <md-input-container flex>
+		              <label for="content">Direccion</label>
+		              <input type="text" id="content" ng-model="poi.dir">
+		            </md-input-container>
+
+		        </div>
+
+	            
+				<div layout='row' >
+
+		             <md-input-container flex>
+		              <label for="content">Latitude</label>
+		              <input type="text" id="content" ng-model="poi.lat">
+		             </md-input-container>
+
+		             <md-input-container flex>
+		              <label for="content">Longitude</label>
+		              <input type="text" id="content" ng-model="poi.lon">
+		             </md-input-container>
+
+		             <md-input-container flex>
+		              <label for="content">Altitude</label>
+		              <input type="text" id="content" ng-model="poi.alt">
+		             </md-input-container>
+
+	         	</div>
+
+	            <md-input-container flex>
+	              <label for="content">Descripcion</label>
+	              <textarea  id="content" ng-model="poi.desc"></textarea>
+	            </md-input-container>
+
+
+		    	<div class='label'  >Imagene Miniatura (JPG 205x136px)</div>
+		    	
+
+		     	 <div ng-show=" poi.thumb != '' &&  poi.thumb != null" >
+			    	<div  class='una-imagen offset-sm'>
+			    			
+			    			<md-button  ng-click=" poi.thumb = '' " class="material-icons md-fab  md-mini md-default-theme remove" aria-label="QUITAR">
+			    				<md-icon class='material-icons' aria-hidden="true">remove</md-icon>
+						    </md-button>
+				     		<img class='headerImages' src='../img/pois/{{poi.thumb}}' />
+				     		
+				    </div>
+				    <br style='clear:both'>
+		 		 </div>
+			
+
+		     	<div ngf-drop  ng-model="fileThumb" class="drop-box" 
+		         ngf-drag-over-class="dragover" 
+		         ngf-multiple="false" 
+		         ngf-allow-dir="false"
+		         ngf-accept="'image/jpeg'"   ng-show=" poi.thumb == '' ||  poi.thumb == null" >
+
+		         	Arrastra la imagen, o has click 
+
+			         <a  ngf-select ng-model="fileThumb"
+			         	 ngf-multiple="false" 
+			         	 ngf-allow-dir="false"
+			          	 ngf-accept="'image/jpeg'">aquí</a>
+			          	
+		     	</div>
+
+		     	<br />
+
+		    	<div class='label' >Imagenes header (JPG 640x320px)</div>
+		    	<div ng-show=" poi.imgs.length > 0 " >
+			    	<div  class='una-imagen offset-sm'  ng-repeat='imagen in poi.imgs'>
+			    			
+			    			<md-button  ng-click="poi.imgs.splice($index,1)" class="material-icons md-fab  md-mini md-default-theme remove" aria-label="QUITAR">
+			    				<md-icon class='material-icons' aria-hidden="true">remove</md-icon>
+						    </md-button>
+				     		<img class='headerImages' src='../img/pois/{{imagen}}' />
+				     		
+				    </div>
+				    <br style='clear:both'>
+		 		 </div>
+
+
+		     	<div ngf-drop  ng-model="filesImgs" class="drop-box" 
+		         ngf-drag-over-class="dragover" 
+		         ngf-multiple="true" 
+		         ngf-allow-dir="true"
+		         ngf-accept="'image/jpeg'">Arrastra las imagenes, o has click 
+
+			         <a  ngf-select ng-model="filesImgs"
+			         	 ngf-multiple="true" 
+			         	 ngf-allow-dir="true"
+			          	 ngf-accept="'image/jpeg'">aquí</a>
+
+		     	</div>
+			
+				<br />
+				<br />
+
+				<md-button class="add-tab md-primary md-raised" ng-click='submitForm()' style="margin-right: 0;">Guardar POI</md-button>
+
+	</md-dialog-content>
+
+
+</md-dialog>

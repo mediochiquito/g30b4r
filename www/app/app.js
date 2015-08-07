@@ -1,8 +1,8 @@
 var geobarApp = angular.module('geobarApp', ['ngTouch', 'ngAnimate',  'ngMaterial',  'Utils', 'cordovaGeolocationModule', 'plugins.toast'])
 
-//.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
+.constant('SERVER', 'http://192.168.0.2/g30b4r/server/')
 //.constant('SERVER', 'http://mateomenestrina.no-ip.org/g30b4r/server/')
- .constant('SERVER', 'http://dev.metamorf.com.uy/geobar/')
+//.constant('SERVER', 'http://dev.metamorf.com.uy/geobar/')
 
 .constant('SCREEN_SIZE', {ancho: window.innerWidth, alto: window.innerHeight})
 
@@ -26,12 +26,11 @@ geobarApp.controller("mainController",  function($document, $rootScope, ToastSer
 
 		cordovaGeolocationService.watchPosition();
 
-
 		if(window.localStorage.getItem('local_sync_lugares') == null) window.localStorage.setItem('local_sync_lugares', 0);	
 		if(window.localStorage.getItem('local_sync_eventos') == null)  window.localStorage.setItem('local_sync_eventos', 0);	
 
 		$http.get(SERVER+'sync.php?ac=' + new Date().getTime()).success(function(json_sync, status, headers, config) {
-				
+			
 			var local_sync_lugares = window.localStorage.getItem('local_sync_lugares');	
 			var local_sync_eventos = window.localStorage.getItem('local_sync_eventos');	
 

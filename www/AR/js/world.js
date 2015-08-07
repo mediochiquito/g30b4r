@@ -7,6 +7,7 @@ var World = {
 	/*array_lugares : [{"id":"4","tipo":"4","cat":"Evento","name":"Sheraton 3","tel":"23123123","dir":"dir dir dirsdad asd asd ","lat":"-34.924265","lon":"-56.158033","alt":"24.6","pub_ini":null,"pub_fin":null},{"id":"5","tipo":"4","cat":"Evento","name":"Rodelu 4","tel":"324234","dir":"324weleñfjs{dlkjfñlsdk ñas","lat":"-34.915748","lon":"-56.167437","alt":"14.1","pub_ini":null,"pub_fin":null},{"id":"6","tipo":"4","cat":"Evento","name":"Skate park 5","tel":"324234","dir":"324weleñfjs{dlkjfñlsdk ñas","lat":"-34.910883","lon":"-56.133464","alt":"2.8","pub_ini":null,"pub_fin":null}], 
 	array_eventos : [{"id":"1","tipo":"1","cat":"Bar","name":"Yatay 0","tel":"23059020","dir":"Luis Alberto Herrera 941","lat":"-34.864598","lon":" -56.213087","alt":"8.7"},{"id":"2","tipo":"2","cat":"Restaurante","name":"Rosedal 1","tel":"23059020","dir":"Luis Alberto Herrera 213","lat":"-34.859702","lon":"-56.205906","alt":"15.8"},{"id":"3","tipo":"3","cat":"Cine","name":"P. Legislativo 2","tel":"23059020","dir":"Luis Alberto Herrera 213","lat":"-34.891497","lon":"-56.187308","alt":"22.8"}], 
 	*/
+	
 	markerList: [],
 	currentMarker: null,
 	markerDrawable_bar: null,
@@ -97,7 +98,17 @@ function info(obj){
     $('.tipo').html(obj_selected.cat)
     $('.tel').html('T. ' + obj_selected.tel)
     $('.dir').html(obj_selected.dir)
-	$('#pic img').attr('src', 'http://dev.metamorf.com.uy/geobar/img/lugares/' + obj_selected.id + '/thumb.jpg');
+
+    $('#pic').empty();	
+
+    var img = new Image()
+    
+    $('#pic').append($(img));
+
+    setTimeout(function(){
+    	$('#pic img').attr('src', 'http://dev.metamorf.com.uy/geobar/img/pois/' + obj_selected.thumb);
+    }, 0);
+	
 	if(obj_selected.tipo == 1)	$('#info-data').css( 'background-color','#ff99ff');
 	if(obj_selected.tipo == 2)	$('#info-data').css( 'background-color','#EFE923');
 	if(obj_selected.tipo == 3)	$('#info-data').css( 'background-color','#28eaa4');

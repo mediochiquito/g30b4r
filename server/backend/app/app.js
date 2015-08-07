@@ -19,7 +19,7 @@ var app = angular.module('adminApp', ['ngAnimate', 'ngMaterial', 'ngRoute', 'ngF
         controller: 'PoisCtrl'
       }).
       otherwise({
-        redirectTo: '/home'
+        redirectTo: '/pois'
       });
  }])
 
@@ -27,16 +27,24 @@ var app = angular.module('adminApp', ['ngAnimate', 'ngMaterial', 'ngRoute', 'ngF
 
 
 
-.controller('AppCtrl', function($scope, $document, $rootScope) {
+.controller('AppCtrl', function($scope, $document, $rootScope, $mdSidenav) {
 
+    $scope.rootScope=$rootScope;
     $scope.cargando = false
     $rootScope.cargando = false;
     $rootScope.$watch('cargando', function (){
       $scope.cargando = $rootScope.cargando
      
     })
-
     
+    $scope.openMenu = function (){
+   
+       $mdSidenav('left').open()
+    } 
+    $scope.closeMenu = function (){
+   
+       $mdSidenav('left').close()
+    }
 
     console.log($rootScope)
     $scope.go = function ($ruta){

@@ -1,63 +1,98 @@
-app.controller('PoisCtrl', function($scope, $http, $document, $routeParams, Upload, $rootScope) {
+app.filter('tipoEvento', function() {
+  return function(pois, tipo) {
 
-    
-    $scope.imagesHeader = []
+    var r = new Array()
+    for(var poi in pois){
+        if(tipo == pois[poi].tipo){
+            r.push( pois[poi])
+        }
 
-	$scope.$watch('poi.files', function () {
+    }
+   
+    return r;
+  };
+});
+
+
+app.controller('PoisCtrl', function($scope, $http, $document, $routeParams, Upload, $rootScope, $mdDialog) {
+
+
+    $rootScope.seccion = 'POIS';
+    $scope.poi = {};
+    $scope.poi.thumb = ""
+    $scope.array_tipo_de_lugares = [{name: 'Bares', id:1}, {name: 'Restaurantes', id:2}, {name: 'Cines', id:3}, {name: 'Teatros', id:5}, {name: 'Eventos', id:4}]
+    $http.get('../ws.php?method=getListaAllPois').
+      
+          success(function(data, status, headers, config) {
+               $scope.array_pois = data
+          }).
+          error(function(data, status, headers, config) {
+             $scope.array_pois = []
+          });
+
+
+	$scope.$watch('filesImgs', function () {
          
          try{
-             $scope.upload($scope.poi.files);
+             $scope.upload($scope.filesImgs, 'filesImgs');
          }catch(e){}
        
     });
-
-    $scope.upload = function (files) {
-
+    $scope.$watch('fileThumb', function () {
          
+         try{
+             $scope.upload($scope.fileThumb, 'fileThumb');
+         }catch(e){}
+       
+    });
+   
+    $scope.upload = function (files, $type) {
+
        if (files && files.length) {
-           
-            for (var i = 0; i < files.length; i++) {
+
+            var cant_subir = files.length;
+            var subidas = 0;
+
+            for (var i = 0; i < cant_subir; i++) {
 
                 var file = files[i];
-                $rootScope.cargando = true; 
+            
                 Upload.upload({
 
                     url: '../ws.php?method=uploadImg',
                     file: file
 
                 }).progress(function (evt) {
-                	 $rootScope.cargando = true; 
-                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-
-                    
+                	$rootScope.cargando = true; 
+                    //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 }).success(function (data, status, headers, config) {
-                	$rootScope.cargando = false; 
-                 
-                    $scope.imagesHeader.push(data)
 
+                    if($scope.poi.imgs == null){
+                        $scope.poi.imgs = new Array();
+                    }
+
+                     if($scope.poi.thumb == null){
+                        $scope.poi.thumb = "";
+                    }
+
+                    if($type == 'filesImgs') $scope.poi.imgs.push(data);
+                    if($type == 'fileThumb') $scope.poi.thumb = data;
+
+                    subidas++;
+                    if(subidas==cant_subir)  $rootScope.cargando = false;     
+                   
                 }).error(function (data, status, headers, config) {
                     console.log('error status: ' + status);
                 })
+
             }
         }
     };
-
-	
-	$http.get('../ws.php?method=getListaAllPois').
-	  
-	  success(function(data, status, headers, config) {
-		   $scope.array_pois = data
-	  }).
-	  error(function(data, status, headers, config) {
-	  	 $scope.array_pois = []
-	  });
 
 
     $scope.submitForm = function() {
      	      
         $rootScope.cargando = true;   
-
-        console.log($scope.poi.files)
 
 
         var  req = {
@@ -66,18 +101,17 @@ app.controller('PoisCtrl', function($scope, $http, $document, $routeParams, Uplo
              headers: {
                'Content-Type':  'application/x-www-form-urlencoded;charset=utf-8'
              },
-             data:  $scope.poi
+             data: $scope.poi
         }   
 
         $http(req).then( 
-
-            function(){
-
-
+            function(data){
                 $rootScope.cargando = false;    
-
+                if( $scope.poi.id == null)   $scope.array_pois.push( $scope.poi)   
+                $scope.poi.id = data.data
+                $scope.poi = {};
+                 $mdDialog.hide();
             }, function(){
-
 
                $rootScope.cargando = false;   
 
@@ -85,9 +119,18 @@ app.controller('PoisCtrl', function($scope, $http, $document, $routeParams, Uplo
         );
 
     };
+    $scope.add = function ($e){
+        $scope.poi = {}
+          $scope.showForm($e)
 
+    }
 
-    $scope.editar = function ($item){
+    $scope.eliminar = function ($item){
+
+        
+
+    }
+    $scope.editar = function ($item, $e){
 
         $scope.poi = $item;
 
@@ -103,6 +146,43 @@ app.controller('PoisCtrl', function($scope, $http, $document, $routeParams, Uplo
         $scope.poi.iniPub = pub_ini
 	   	$scope.poi.finPub = pub_fin;
 
+
+        $scope.showForm($e)
+
     }
 
+
+     $scope.hide = function() {
+        $mdDialog.hide();
+      };
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
+      $scope.answer = function(answer) {
+        $mdDialog.hide(answer);
+      };
+
+
+     $scope.showForm = function(e) {
+        
+        $mdDialog.show({
+      
+         scope: $scope, 
+          templateUrl: 'views/formPoi.html',
+          preserveScope :true,
+          parent: angular.element(document.body), 
+          targetEvent: e,
+         
+        })
+
+        .then(function(answer) {
+            // $scope.alert = 'You said the information was "' + answer + '".';
+        }, function() {
+            // $scope.alert = 'You cancelled the dialog.';
+        });
+      };
+
+     
+
 });
+

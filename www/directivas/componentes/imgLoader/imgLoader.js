@@ -8,6 +8,7 @@ geobarApp.directive('imgLoader', function(Loading) {
     /*  server: '=',
       default: '=', */
       imgurl: '=',
+      hashfile: '=',
       itemid: '=',
       itemtipo: '='
 
@@ -18,10 +19,8 @@ geobarApp.directive('imgLoader', function(Loading) {
 
        
         
-        scope.$watch('itemid', function(n, v){
-
-       
-           scope.imagen = scope.imgurl + scope.itemid + '/thumb.jpg'
+        scope.$watch('hashfile', function(n, v){     
+           scope.imagen = scope.imgurl + scope.hashfile
         })
 
         elem.children('img')[0].onerror = function () {

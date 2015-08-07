@@ -115,7 +115,7 @@ geobarApp.directive('lista', function($window, $log, navigateService, SCREEN_SIZ
     templateUrl: 'directivas/secciones/lista/itemLista.html',
     link:function ($scope, $elem, $attrs){
       
-        $scope.img_url = SERVER + 'img/lugares/';
+        $scope.img_url = SERVER + 'img/pois/';
 
       
 

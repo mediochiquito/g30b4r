@@ -1,6 +1,12 @@
 .md-select-label{
     width: 100%;
 }
+.nav{
+	background-color: #DEDEDE;
+}
+.viewport,.content{
+	width: 100% !important;
+}
 md-progress-circular{
 	position:absolute;
 	left:50%;
@@ -14,14 +20,16 @@ md-progress-circular{
 }
 .drop-box {
   padding: 15px;
-  border: 2px #D3D1D1 dashed;
+  border: 3px #D3D1D1 dashed;
   border-radius: 5px;
   line-height: 34px;
   color: grey;
+  margin-top: 5px;
+  font-weight: 400;
 }
 .headerImages{
 
-	max-width: 400px;
+	/* max-width: 400px; */
 }
 .dragover{
 	background-color: #ccc;
@@ -31,7 +39,8 @@ md-progress-circular{
 .poi-thumb{
 	position: relative;
 	height: 40px;
-	margin-right: 30px;
+	margin-right: 14px;
+	margin-top: 3px;
 }
 
 md-toolbar {
@@ -48,4 +57,51 @@ md-toolbar {
 	top: 0px;
 	background-color: rgba(255,255,255, .7);
 	z-index: 999;
+	left: 0;
+}
+.btnNav{
+    width: 100%;
+
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    border-bottom: solid 1px #ccc;
+}
+.docs-toolbar-tools {
+    max-width: 864px;
+    padding: 0;
+    margin: 0 24px;
+    width: auto;
+}
+.btnAdd{
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+.una-imagen{
+    width: 50%;
+	
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    padding: 0px 2px 0px 2px;
+    margin: 0px;
+}
+.una-imagen .remove{
+	position: absolute;
+}
+.una-imagen img{
+	position: relative;
+	width: 100%;
+}
+a{
+	color: #ff0000;
+	cursor: pointer;
+}
+md-list-item{position: 	relative;}
+.label{
+    font-size: 11px;
+	
+    color: grey;
+    margin-bottom: 10px;
 }

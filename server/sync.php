@@ -1,4 +1,4 @@
 <?php
 header('Access-Control-Allow-Origin: *');
+echo file_get_contents('sync.txt');
 ?>
-{"lugares": 44, "eventos": 44}

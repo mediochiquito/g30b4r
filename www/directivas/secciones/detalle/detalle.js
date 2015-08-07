@@ -34,7 +34,7 @@ geobarApp.directive('detalle', function(navigateService, Loading, $http, SERVER,
 			_callback = $callback;
 		
 			$scope.item = $obj;
-			$scope.url_img = SERVER + 'img/lugares/' + $scope.item.id + '/';
+			$scope.url_img = SERVER + 'img/pois/';
 			Loading.mostrar();
 
 			$http.get(SERVER+'ws.php?method=getDetalle&id=' + $scope.item.id).
